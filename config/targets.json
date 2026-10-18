@@ -1,0 +1,27 @@
+{
+  "_doc": "Company target list. ats_token values are the public board names; tokens marked verify:true were not reachable from the build sandbox, so run `python scraper.py --check` once and fix any 404s. Add companies freely.",
+  "filters": {
+    "max_years_required": 3,
+    "has_clearance": false,
+    "drop_if_no_sponsorship": false,
+    "max_active_per_company_30d": 2,
+    "daily_draft_cap": 15
+  },
+  "companies": [
+    {"id": "stripe", "name": "Stripe", "tier": "A", "size_bucket": "enterprise", "employees": 8000, "ats": "greenhouse", "ats_token": "stripe", "email_domain": "stripe.com"},
+    {"id": "palantir", "name": "Palantir", "tier": "A", "size_bucket": "enterprise", "employees": 3800, "ats": "lever", "ats_token": "palantir", "email_domain": "palantir.com"},
+    {"id": "amazon", "name": "Amazon", "tier": "A", "size_bucket": "enterprise", "employees": 1500000, "ats": "amazon", "ats_token": "London", "email_domain": "amazon.co.uk"},
+    {"id": "databricks", "name": "Databricks", "tier": "A", "size_bucket": "enterprise", "employees": 8000, "ats": "greenhouse", "ats_token": "databricks", "email_domain": "databricks.com"},
+    {"id": "cloudflare", "name": "Cloudflare", "tier": "A", "size_bucket": "enterprise", "employees": 4000, "ats": "greenhouse", "ats_token": "cloudflare", "email_domain": "cloudflare.com"},
+    {"id": "anthropic", "name": "Anthropic", "tier": "A", "size_bucket": "enterprise", "employees": 3000, "ats": "greenhouse", "ats_token": "anthropic", "email_domain": "anthropic.com"},
+    {"id": "monzo", "name": "Monzo", "tier": "A", "size_bucket": "enterprise", "employees": 3500, "ats": "greenhouse", "ats_token": "monzo", "email_domain": "monzo.com"},
+    {"id": "google", "name": "Google", "tier": "A", "size_bucket": "enterprise", "employees": 180000, "ats": "playwright", "ats_token": "google", "email_domain": "google.com", "enabled": false,
+     "_note": "No public jobs API. Playwright adapter is opt-in; Google's grad intake is a fixed annual window, so a calendar reminder beats a scraper."},
+    {"id": "synthesia", "name": "Synthesia", "tier": "B", "size_bucket": "mid", "employees": 500, "ats": "ashby", "ats_token": "synthesia", "email_domain": "synthesia.io", "verify": true},
+    {"id": "elevenlabs", "name": "ElevenLabs", "tier": "B", "size_bucket": "mid", "employees": 400, "ats": "ashby", "ats_token": "elevenlabs", "email_domain": "elevenlabs.io", "verify": true},
+    {"id": "cohere", "name": "Cohere", "tier": "B", "size_bucket": "mid", "employees": 800, "ats": "ashby", "ats_token": "cohere", "email_domain": "cohere.com", "verify": true},
+    {"id": "wayve", "name": "Wayve", "tier": "B", "size_bucket": "mid", "employees": 600, "ats": "greenhouse", "ats_token": "wayve", "email_domain": "wayve.ai", "verify": true},
+    {"id": "polyai", "name": "PolyAI", "tier": "B", "size_bucket": "startup", "employees": 220, "ats": "greenhouse", "ats_token": "polyai", "email_domain": "poly-ai.com", "verify": true},
+    {"id": "example-startup", "name": "Example Seed-stage startup (replace)", "tier": "B", "size_bucket": "startup", "employees": 25, "ats": "workable", "ats_token": "REPLACE_ME", "email_domain": "example.com", "enabled": false}
+  ]
+}

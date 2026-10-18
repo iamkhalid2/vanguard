@@ -1,0 +1,483 @@
+{
+ "_doc": "Canonical skill -> aliases (lowercase). Used by tailor.py and the Command Center for deterministic ATS keyword extraction. Category drives weighting.",
+ "languages": {
+  "python": [
+   "python",
+   "python3"
+  ],
+  "typescript": [
+   "typescript"
+  ],
+  "javascript": [
+   "javascript",
+   "js",
+   "es6",
+   "ecmascript"
+  ],
+  "kotlin": [
+   "kotlin"
+  ],
+  "java": [
+   "java"
+  ],
+  "go": [
+   "golang",
+   "go developer",
+   "in go"
+  ],
+  "rust": [
+   "rust"
+  ],
+  "c++": [
+   "c++",
+   "cpp"
+  ],
+  "c": [
+   "c99",
+   "c/c++",
+   "embedded c"
+  ],
+  "c#": [
+   "c#",
+   ".net",
+   "dotnet"
+  ],
+  "scala": [
+   "scala"
+  ],
+  "ruby": [
+   "ruby",
+   "rails"
+  ],
+  "swift": [
+   "swift"
+  ],
+  "dart": [
+   "dart"
+  ],
+  "sql": [
+   "sql",
+   "postgresql",
+   "postgres",
+   "mysql",
+   "sqlite"
+  ],
+  "bash": [
+   "bash",
+   "shell scripting",
+   "shell"
+  ],
+  "glsl": [
+   "glsl",
+   "shaders"
+  ]
+ },
+ "frameworks": {
+  "react": [
+   "react",
+   "react.js",
+   "reactjs"
+  ],
+  "next.js": [
+   "next.js",
+   "nextjs"
+  ],
+  "node.js": [
+   "node.js",
+   "nodejs",
+   "node"
+  ],
+  "svelte": [
+   "svelte",
+   "sveltekit"
+  ],
+  "vue": [
+   "vue",
+   "vue.js"
+  ],
+  "angular": [
+   "angular"
+  ],
+  "tailwind": [
+   "tailwind",
+   "tailwindcss"
+  ],
+  "django": [
+   "django"
+  ],
+  "flask": [
+   "flask"
+  ],
+  "fastapi": [
+   "fastapi"
+  ],
+  "spring": [
+   "spring boot",
+   "spring"
+  ],
+  "express": [
+   "express"
+  ],
+  "jetpack compose": [
+   "jetpack compose",
+   "compose"
+  ],
+  "android": [
+   "android"
+  ],
+  "ios": [
+   "ios"
+  ],
+  "flutter": [
+   "flutter"
+  ],
+  "three.js": [
+   "three.js",
+   "threejs"
+  ],
+  "webgl": [
+   "webgl"
+  ],
+  "streamlit": [
+   "streamlit"
+  ],
+  "pydantic": [
+   "pydantic"
+  ],
+  "pytorch": [
+   "pytorch",
+   "torch"
+  ],
+  "tensorflow": [
+   "tensorflow",
+   "keras"
+  ],
+  "numpy": [
+   "numpy"
+  ],
+  "pandas": [
+   "pandas"
+  ],
+  "langchain": [
+   "langchain",
+   "langgraph"
+  ],
+  "llamaindex": [
+   "llamaindex"
+  ],
+  "vite": [
+   "vite"
+  ],
+  "pyodide": [
+   "pyodide"
+  ],
+  "graphql": [
+   "graphql"
+  ]
+ },
+ "ai": {
+  "llm": [
+   "llm",
+   "llms",
+   "large language model",
+   "large language models",
+   "genai",
+   "generative ai"
+  ],
+  "agents": [
+   "agent",
+   "agents",
+   "agentic",
+   "ai agents",
+   "autonomous agents"
+  ],
+  "multi-agent": [
+   "multi-agent",
+   "multi agent",
+   "multiagent"
+  ],
+  "rag": [
+   "rag",
+   "retrieval augmented",
+   "retrieval-augmented",
+   "vector database",
+   "embeddings",
+   "vector search"
+  ],
+  "prompt engineering": [
+   "prompt engineering",
+   "prompting",
+   "prompt design"
+  ],
+  "structured outputs": [
+   "structured output",
+   "structured outputs",
+   "function calling",
+   "tool use",
+   "tool calling"
+  ],
+  "evals": [
+   "evals",
+   "evaluation",
+   "llm evaluation",
+   "benchmarks"
+  ],
+  "fine-tuning": [
+   "fine-tuning",
+   "fine tuning",
+   "finetuning",
+   "rlhf",
+   "lora"
+  ],
+  "transformers": [
+   "transformer",
+   "transformers",
+   "self-attention",
+   "attention mechanism"
+  ],
+  "machine learning": [
+   "machine learning",
+   "ml",
+   "deep learning"
+  ],
+  "openai": [
+   "openai",
+   "gpt-4",
+   "gpt"
+  ],
+  "gemini": [
+   "gemini"
+  ],
+  "anthropic": [
+   "anthropic",
+   "claude"
+  ],
+  "openrouter": [
+   "openrouter"
+  ],
+  "guardrails": [
+   "guardrails",
+   "safety filters",
+   "content filtering",
+   "context filtering"
+  ],
+  "tts": [
+   "tts",
+   "text-to-speech",
+   "speech synthesis"
+  ],
+  "ocr": [
+   "ocr",
+   "tesseract"
+  ],
+  "computer use": [
+   "computer use",
+   "computer-use",
+   "browser automation"
+  ],
+  "mcp": [
+   "mcp",
+   "model context protocol"
+  ]
+ },
+ "infra": {
+  "aws": [
+   "aws",
+   "amazon web services",
+   "lambda",
+   "s3",
+   "ec2"
+  ],
+  "gcp": [
+   "gcp",
+   "google cloud"
+  ],
+  "azure": [
+   "azure"
+  ],
+  "docker": [
+   "docker",
+   "containers",
+   "containerization"
+  ],
+  "kubernetes": [
+   "kubernetes",
+   "k8s"
+  ],
+  "terraform": [
+   "terraform",
+   "infrastructure as code"
+  ],
+  "ci/cd": [
+   "ci/cd",
+   "ci",
+   "continuous integration",
+   "continuous delivery",
+   "continuous deployment"
+  ],
+  "github actions": [
+   "github actions"
+  ],
+  "linux": [
+   "linux",
+   "unix"
+  ],
+  "git": [
+   "git",
+   "version control"
+  ],
+  "vercel": [
+   "vercel"
+  ],
+  "firebase": [
+   "firebase",
+   "firestore"
+  ],
+  "redis": [
+   "redis"
+  ],
+  "kafka": [
+   "kafka"
+  ],
+  "postgres": [
+   "postgresql",
+   "postgres"
+  ],
+  "mongodb": [
+   "mongodb",
+   "nosql"
+  ]
+ },
+ "concepts": {
+  "distributed systems": [
+   "distributed systems",
+   "distributed"
+  ],
+  "microservices": [
+   "microservices",
+   "microservice"
+  ],
+  "rest api": [
+   "rest",
+   "restful",
+   "rest api",
+   "api design",
+   "apis"
+  ],
+  "websockets": [
+   "websocket",
+   "websockets"
+  ],
+  "sse": [
+   "server-sent events",
+   "sse",
+   "streaming"
+  ],
+  "oauth": [
+   "oauth",
+   "oauth2",
+   "oauth 2.0",
+   "sso"
+  ],
+  "authentication": [
+   "authentication",
+   "auth",
+   "authorization"
+  ],
+  "testing": [
+   "testing",
+   "unit testing",
+   "unit tests",
+   "integration tests",
+   "tdd",
+   "test-driven"
+  ],
+  "performance": [
+   "performance",
+   "latency",
+   "optimization",
+   "profiling"
+  ],
+  "security": [
+   "security",
+   "encryption",
+   "aes",
+   "keystore"
+  ],
+  "data structures": [
+   "data structures",
+   "algorithms"
+  ],
+  "system design": [
+   "system design",
+   "architecture",
+   "scalable",
+   "scalability"
+  ],
+  "offline-first": [
+   "offline-first",
+   "offline first"
+  ],
+  "full-stack": [
+   "full-stack",
+   "full stack",
+   "fullstack"
+  ],
+  "frontend": [
+   "frontend",
+   "front-end"
+  ],
+  "backend": [
+   "backend",
+   "back-end"
+  ],
+  "mobile": [
+   "mobile"
+  ],
+  "data pipelines": [
+   "data pipeline",
+   "data pipelines",
+   "etl"
+  ],
+  "observability": [
+   "observability",
+   "monitoring",
+   "logging"
+  ],
+  "concurrency": [
+   "concurrency",
+   "multithreading",
+   "multi-threaded",
+   "parallel",
+   "openmp"
+  ],
+  "full-text search": [
+   "full-text search",
+   "fts5",
+   "search indexing"
+  ],
+  "customer-facing": [
+   "customer-facing",
+   "client-facing",
+   "forward deployed",
+   "forward-deployed",
+   "stakeholders"
+  ]
+ },
+ "verbs": [
+  "built",
+  "shipped",
+  "designed",
+  "architected",
+  "deployed",
+  "scaled",
+  "optimized",
+  "automated",
+  "integrated",
+  "led",
+  "owned",
+  "debugged",
+  "migrated",
+  "prototyped"
+ ]
+}

@@ -1,0 +1,57 @@
+Mohammad Khalid
+Software Engineer (Full-Stack) | TypeScript, React, Next.js, Node.js, Python, LLM APIs
+London, UK | contact@iamkhalid.xyz | +44 746 315 4735
+iamkhalid.xyz | github.com/iamkhalid2 | linkedin.com/in/mmdkhalid
+Right to work in the UK until 30 June 2028
+Summary
+Full-stack software engineer (BSc Information Technology, 2024) who builds and ships React/Next.js, Node.js and Python
+projects end to end. Built and deployed the Bustan Bakers website with CI-enforced performance budgets and automated
+SEO tests, built a git-backed CMS and WebGL portfolio, and published an interactive browser-based course that teaches
+how to build a GPT from scratch. Uses AI coding agents such as Claude Code daily, with strict TypeScript, CI and
+automated tests as the safety net. Currently IT Support Specialist at S&P Global, London.
+Technical Skills
+• Languages: TypeScript, JavaScript (ES6+), Python, C (C99), Dart, GLSL, HTML5, CSS3, Bash
+• Frontend: React 19, Next.js (App Router), Svelte 5, Tailwind CSS, three.js (WebGL), Framer Motion, responsive
+design, SEO and structured data (JSON-LD)
+• Backend and data: Node.js, REST API routes, OAuth (GitHub), API integration (REST, WebSockets), Firebase
+(Authentication, Firestore, Storage)
+• AI and LLM: OpenAI API, Google Gemini API, multi-agent systems, structured LLM outputs (Pydantic), AI-assisted
+development (Claude Code)
+• Mobile: Flutter, Dart
+• Testing and delivery: GitHub Actions CI/CD, Node.js test runner, ESLint, performance budgets, Vercel, GitHub
+Pages, Git, Linux
+Projects
+Portfolio and git-backed CMS (iamkhalid.xyz) | Next.js 16, React 19, TypeScript, three.js, Tailwind CSS | 2024 - Present
+• Built a git-backed CMS with GitHub OAuth, signed HttpOnly session cookies and an allow-list; schema-driven admin
+forms commit content atomically through the GitHub git data API, with conflict detection and retries.
+• Built the site on the Next.js App Router with markdown, YAML and JSON content, RSS, a sitemap, dynamic Open
+Graph images, Spotify and GitHub integrations, and CI (typecheck, lint, build) deploying to Vercel.
+• Rendered the homepage as a scroll-driven black-hole simulation in three.js with raw GLSL shaders (Schwarzschild
+geodesics, Doppler and gravitational colour shifts, HDR bloom).
+Bustan Bakers website (bustanbakers.com) | Next.js, React, TypeScript, Tailwind CSS, WebGL | 2025 - Present
+• Built and deployed a statically generated multi-page site (menu, products, locations, product enquiry flow) on Vercel,
+with scroll-driven CSS animation, a handwritten-wordmark splash and a lazy-loaded WebGL hover shader.
+• Set up a GitHub Actions pipeline (lint, typecheck, build, tests) that fails the build if any route exceeds 178 KB gzipped
+JavaScript or 900 KB transfer.
+• Added automated per-route SEO checks (single canonical URL, parseable JSON-LD, prerendered Open Graph
+images, sitemap match) and an AVIF image pipeline with five responsive widths.
+Invent a GPT course (iamkhalid2.github.io/microgpt-course) | Svelte 5, Vite, Python, Pyodide | 2026 - Present
+• Created a 19-chapter course that rebuilds Andrej Karpathy's 200-line pure-Python GPT from scratch for beginners,
+deployed to GitHub Pages with GitHub Actions (12 GitHub stars).
+• Learners write and run real Python in the browser through Pyodide, with no server or uploads; the in-browser model is
+tested against Python reference outputs.
+Kiraya, property management app (personal project, not published) | Flutter, Dart, Firebase | 2025
+• Built a cross-platform Flutter app for landlords covering rooms, tenant profiles with document storage, rent payments
+and income charts, on Firebase Authentication (email and Google sign-in), Cloud Firestore and Storage.
+Also: WhatsAppGPT (Node.js, whatsapp-web.js, OpenAI and Gemini APIs, 2023), a WhatsApp chatbot with conversation
+memory (17 GitHub stars, 15 forks). Computer-Use (Python, Gemini Live API, Tesseract OCR, 2025), a voice-controlled
+desktop agent (11 stars). KWealth (Python, Gemini API, Pydantic, Streamlit, 2026), a four-agent stock analysis system.
+Black Hole Simulation (C99, OpenMP, 2026), a dependency-free general-relativity ray tracer.
+Experience
+IT Support Specialist | S&P Global, London, UK | 2026 - Present
+• Provide technical support to employees at a global financial intelligence and data company, handling incidents and
+service requests in ServiceNow.
+• Support and troubleshoot employee devices with Microsoft Intune.
+• Support user accounts and access in Active Directory.
+Education
+BSc Information Technology | Graphic Era University, Dehradun, India | 2021 - 2024

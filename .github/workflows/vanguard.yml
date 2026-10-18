@@ -1,0 +1,50 @@
+name: vanguard
+
+on:
+  schedule:
+    - cron: "17 */6 * * *"   # every 6 hours, off the hour to avoid the top-of-hour queue
+  workflow_dispatch: {}
+  push:
+    paths: ["approvals/*.json"]   # committing an approvals export triggers drafting
+
+permissions:
+  contents: write              # commit data/vanguard.db and out/queue.json back
+
+concurrency:
+  group: vanguard
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Install tectonic (LaTeX -> PDF)
+        run: |
+          curl -fsSL https://drop-sh.fullyjustified.net | sh
+          sudo mv tectonic /usr/local/bin/
+      - name: Import any new approvals
+        run: |
+          for f in approvals/*.json; do [ -e "$f" ] && python sync.py import "$f" && git rm -q "$f"; done || true
+      - name: Run pipeline
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}   # optional; leave unset for $0 deterministic mode
+          HUNTER_API_KEY: ${{ secrets.HUNTER_API_KEY }}         # optional
+          GMAIL_CLIENT_ID: ${{ secrets.GMAIL_CLIENT_ID }}
+          GMAIL_CLIENT_SECRET: ${{ secrets.GMAIL_CLIENT_SECRET }}
+          GMAIL_REFRESH_TOKEN: ${{ secrets.GMAIL_REFRESH_TOKEN }}
+        run: python run.py
+      - name: Commit state
+        run: |
+          git config user.name "vanguard-bot"
+          git config user.email "vanguard-bot@users.noreply.github.com"
+          git add data/ out/queue.json
+          git diff --cached --quiet || git commit -qm "vanguard: state $(date -u +%FT%TZ)"
+          git push

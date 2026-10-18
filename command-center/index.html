@@ -1,0 +1,572 @@
+<title>Vanguard Command Center</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: control-room console. Left rail of four stations, work surface on the right; pipeline drawn as a tube line. */
+:root{
+  --bg:#F3F4F1; --surface:#FFFFFF; --sunk:#E8EAE5; --ink:#141B19; --ink-2:#4A5551; --ink-3:#7C8783; --rule:#D5D9D3;
+  --accent:#1D3F93; --accent-ink:#FFFFFF; --accent-soft:#E3E8F6;
+  --good:#1F7A4A; --good-soft:#E1F1E7; --warn:#A35C00; --warn-soft:#FBEEDB; --bad:#B3261E; --bad-soft:#F8E1DF;
+  --l-scraped:#7C8783; --l-tailored:#9B0058; --l-pending:#F3A500; --l-applied:#1D3F93; --l-emailed:#00782A; --l-interview:#E32017; --l-closed:#A0A5A9;
+  --display:"Archivo","Arial Narrow",system-ui,sans-serif; --body:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif; --mono:"JetBrains Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0F1413; --surface:#161D1B; --sunk:#0B0F0E; --ink:#E7ECE9; --ink-2:#AAB5B0; --ink-3:#77837E; --rule:#2A3431;
+  --accent:#8AA6F0; --accent-ink:#0B1430; --accent-soft:#1B2747;
+  --good:#5CC48A; --good-soft:#12291C; --warn:#F0B35A; --warn-soft:#2E2210; --bad:#F28B82; --bad-soft:#331614;
+  --l-scraped:#8E9994; --l-pending:#F3B52A; --l-applied:#7D9BEA; --l-tailored:#D0559A; --l-emailed:#3FB56A; --l-interview:#FF5A4F; --l-closed:#5D6466; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0F1413; --surface:#161D1B; --sunk:#0B0F0E; --ink:#E7ECE9; --ink-2:#AAB5B0; --ink-3:#77837E; --rule:#2A3431;
+  --accent:#8AA6F0; --accent-ink:#0B1430; --accent-soft:#1B2747;
+  --good:#5CC48A; --good-soft:#12291C; --warn:#F0B35A; --warn-soft:#2E2210; --bad:#F28B82; --bad-soft:#331614;
+  --l-scraped:#8E9994; --l-pending:#F3B52A; --l-applied:#7D9BEA; --l-tailored:#D0559A; --l-emailed:#3FB56A; --l-interview:#FF5A4F; --l-closed:#5D6466; color-scheme:dark}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:14px;line-height:1.5}
+a{color:var(--accent)}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.app{display:grid;grid-template-columns:232px minmax(0,1fr);min-height:100%}
+.rail{background:var(--surface);border-right:1px solid var(--rule);padding-block:20px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:16px;display:flex;flex-direction:column;gap:20px;position:sticky;top:0;height:100vh}
+.brand{font-family:var(--display);font-stretch:80%;font-weight:800;font-size:22px;letter-spacing:.02em;text-transform:uppercase;line-height:1}
+.brand small{display:block;font-family:var(--mono);font-size:11px;font-weight:400;letter-spacing:0;text-transform:none;color:var(--ink-3);margin-top:6px}
+.nav{display:flex;flex-direction:column;gap:2px}
+.nav button{all:unset;cursor:pointer;display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:6px;color:var(--ink-2);font-weight:500}
+.nav button:hover{background:var(--sunk);color:var(--ink)}
+.nav button[aria-current="page"]{background:var(--accent-soft);color:var(--accent)}
+.nav button:focus-visible{outline:2px solid var(--accent)}
+.nav svg{width:18px;height:18px;flex:none}
+.railfoot{margin-top:auto;display:flex;flex-direction:column;gap:6px;font-size:12px;color:var(--ink-3)}
+.cap{display:flex;align-items:center;gap:8px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--ink-3);flex:none}
+.dot.on{background:var(--good)} .dot.off{background:var(--bad)}
+main{min-width:0;padding-block:24px 64px;padding-left:max(16px,24px);padding-right:max(16px,env(safe-area-inset-right,0px),24px)}
+.head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:20px}
+h1{font-family:var(--display);font-stretch:85%;font-weight:700;font-size:30px;line-height:1.1;margin:0;text-wrap:balance}
+h2{font-family:var(--display);font-stretch:90%;font-weight:700;font-size:18px;margin:0 0 10px}
+h3{font-size:13px;font-weight:600;margin:0 0 6px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-2)}
+.sub{color:var(--ink-2);margin:4px 0 0;max-width:68ch}
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.panel{background:var(--surface);border:1px solid var(--rule);border-radius:8px;padding:16px;min-width:0}
+.stack{display:flex;flex-direction:column;gap:12px}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.spread{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between}
+label{display:flex;flex-direction:column;gap:4px;font-size:12px;font-weight:600;color:var(--ink-2)}
+input,select,textarea{background:var(--bg);border:1px solid var(--rule);border-radius:6px;padding:8px 10px;font-weight:400;font-size:14px;color:var(--ink);width:100%;min-width:0}
+textarea{resize:vertical;min-height:120px;line-height:1.45}
+textarea.code,.mono{font-family:var(--mono);font-size:12px}
+.btn{cursor:pointer;border:1px solid var(--rule);background:var(--surface);color:var(--ink);border-radius:6px;padding:8px 12px;font-weight:600;font-size:13px;display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+.btn:hover{border-color:var(--ink-3)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn.primary:hover{filter:brightness(1.08)}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.btn svg{width:15px;height:15px}
+.chip{display:inline-flex;align-items:center;gap:4px;font-family:var(--mono);font-size:11.5px;padding:2px 7px;border-radius:4px;background:var(--sunk);color:var(--ink-2);white-space:nowrap}
+.chip.hit{background:var(--good-soft);color:var(--good)}
+.chip.miss{background:var(--bad-soft);color:var(--bad)}
+.chip.warn{background:var(--warn-soft);color:var(--warn)}
+.chip.acc{background:var(--accent-soft);color:var(--accent)}
+.chips{display:flex;flex-wrap:wrap;gap:5px}
+.note{font-size:12.5px;color:var(--ink-2);background:var(--sunk);border-radius:6px;padding:10px 12px}
+.note.warn{background:var(--warn-soft);color:var(--warn)}
+.note.bad{background:var(--bad-soft);color:var(--bad)}
+.note.good{background:var(--good-soft);color:var(--good)}
+.meter{display:flex;flex-direction:column;gap:6px}
+.meter .num{font-family:var(--display);font-stretch:80%;font-weight:700;font-size:34px;line-height:1;font-variant-numeric:tabular-nums}
+.bar{height:6px;background:var(--sunk);border-radius:3px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--accent);border-radius:3px}
+.bar i.after{background:var(--good)}
+.kv{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 12px;font-size:13px}
+.kv dt{color:var(--ink-3)} .kv dd{margin:0;min-width:0;overflow-wrap:anywhere}
+.diff{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:6px;overflow:hidden}
+.diff>div{background:var(--surface);padding:10px 12px;font-size:13px;min-width:0}
+.diff .lab{font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3);margin-bottom:4px}
+.diff .new{background:var(--good-soft)}
+.diff .rej{background:var(--bad-soft)}
+mark{background:var(--accent-soft);color:var(--accent);padding:0 2px;border-radius:2px}
+pre.out{background:var(--sunk);border-radius:6px;padding:12px;font-family:var(--mono);font-size:11.5px;line-height:1.5;overflow:auto;max-height:420px;white-space:pre;margin:0}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-3);text-align:left;font-weight:600;padding:8px;border-bottom:1px solid var(--rule)}
+td{padding:9px 8px;border-bottom:1px solid var(--rule);vertical-align:top}
+tr.sel td{background:var(--accent-soft)}
+tbody tr{cursor:pointer} tbody tr:hover td{background:var(--sunk)}
+.tw{overflow-x:auto}
+.num{font-variant-numeric:tabular-nums}
+/* Pipeline as a tube line */
+.line{display:flex;overflow-x:auto;padding:6px 2px 4px;gap:0}
+.stn{flex:1 0 110px;display:flex;flex-direction:column;align-items:center;gap:6px;position:relative;cursor:pointer;background:none;border:0;padding:0 4px 4px;color:var(--ink)}
+.stn::before{content:"";position:absolute;top:13px;left:0;right:0;height:6px;background:var(--lc)}
+.stn:first-child::before{left:50%} .stn:last-child::before{right:50%}
+.stn .ring{position:relative;width:32px;height:32px;border-radius:50%;background:var(--surface);border:5px solid var(--lc);display:grid;place-items:center;font-family:var(--mono);font-size:11px;font-weight:500}
+.stn .nm{font-size:12px;font-weight:600;text-align:center}
+.stn[aria-pressed="true"] .ring{background:var(--lc);color:var(--surface)}
+.status{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;white-space:nowrap}
+.status::before{content:"";width:10px;height:10px;border-radius:50%;border:3px solid var(--lc);background:var(--surface)}
+.empty{border:1px dashed var(--rule);border-radius:8px;padding:28px;text-align:center;color:var(--ink-2)}
+.toast{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--bg);padding:10px 14px;border-radius:6px;font-size:13px;max-width:min(420px,calc(100vw - 32px));z-index:20}
+.wc{font-family:var(--mono);font-size:11.5px}
+.wc.over{color:var(--bad)}
+.persona{display:flex;flex-direction:column;gap:6px;padding:10px 12px;border:1px solid var(--rule);border-radius:6px}
+.persona[aria-checked="true"]{border-color:var(--accent);background:var(--accent-soft)}
+.projcard{border:1px solid var(--rule);border-radius:6px;padding:10px 12px;display:flex;flex-direction:column;gap:6px;min-width:0}
+details summary{cursor:pointer;font-weight:600;font-size:13px}
+.spin{width:14px;height:14px;border:2px solid currentColor;border-right-color:transparent;border-radius:50%;animation:sp .8s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.spin{animation:none}}
+@media (max-width:860px){
+  .app{grid-template-columns:minmax(0,1fr)}
+  .rail{position:sticky;top:env(safe-area-inset-top,0px);height:auto;flex-direction:row;flex-wrap:wrap;align-items:center;padding-block:10px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));border-right:0;border-bottom:1px solid var(--rule);z-index:5;gap:10px}
+  body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
+  .nav{flex-direction:row;overflow-x:auto;width:100%}
+  .nav button{padding:7px 9px;font-size:13px}
+  .railfoot{display:none}
+  .brand small{display:none}
+  main{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+  .g2,.g3{grid-template-columns:minmax(0,1fr)}
+  .diff{grid-template-columns:minmax(0,1fr)}
+}
+</style>
+
+<div id="root"><div style="padding:24px;font-family:system-ui">Loading Vanguard Command Center…</div></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/htm@3.1.1/dist/htm.umd.js"></script>
+<script>
+"use strict";
+const {useState,useEffect,useMemo,useRef,useCallback}=React;
+const html=htm.bind(React.createElement);
+
+/* ---------- static config (shared with the Python backend) ---------- */
+const LEXICON={"_doc":"Canonical skill -> aliases (lowercase). Used by tailor.py and the Command Center for deterministic ATS keyword extraction. Category drives weighting.","languages":{"python":["python","python3"],"typescript":["typescript"],"javascript":["javascript","js","es6","ecmascript"],"kotlin":["kotlin"],"java":["java"],"go":["golang","go developer","in go"],"rust":["rust"],"c++":["c++","cpp"],"c":["c99","c/c++","embedded c"],"c#":["c#",".net","dotnet"],"scala":["scala"],"ruby":["ruby","rails"],"swift":["swift"],"dart":["dart"],"sql":["sql","postgresql","postgres","mysql","sqlite"],"bash":["bash","shell scripting","shell"],"glsl":["glsl","shaders"]},"frameworks":{"react":["react","react.js","reactjs"],"next.js":["next.js","nextjs"],"node.js":["node.js","nodejs","node"],"svelte":["svelte","sveltekit"],"vue":["vue","vue.js"],"angular":["angular"],"tailwind":["tailwind","tailwindcss"],"django":["django"],"flask":["flask"],"fastapi":["fastapi"],"spring":["spring boot","spring"],"express":["express"],"jetpack compose":["jetpack compose","compose"],"android":["android"],"ios":["ios"],"flutter":["flutter"],"three.js":["three.js","threejs"],"webgl":["webgl"],"streamlit":["streamlit"],"pydantic":["pydantic"],"pytorch":["pytorch","torch"],"tensorflow":["tensorflow","keras"],"numpy":["numpy"],"pandas":["pandas"],"langchain":["langchain","langgraph"],"llamaindex":["llamaindex"],"vite":["vite"],"pyodide":["pyodide"],"graphql":["graphql"]},"ai":{"llm":["llm","llms","large language model","large language models","genai","generative ai"],"agents":["agent","agents","agentic","ai agents","autonomous agents"],"multi-agent":["multi-agent","multi agent","multiagent"],"rag":["rag","retrieval augmented","retrieval-augmented","vector database","embeddings","vector search"],"prompt engineering":["prompt engineering","prompting","prompt design"],"structured outputs":["structured output","structured outputs","function calling","tool use","tool calling"],"evals":["evals","evaluation","llm evaluation","benchmarks"],"fine-tuning":["fine-tuning","fine tuning","finetuning","rlhf","lora"],"transformers":["transformer","transformers","self-attention","attention mechanism"],"machine learning":["machine learning","ml","deep learning"],"openai":["openai","gpt-4","gpt"],"gemini":["gemini"],"anthropic":["anthropic","claude"],"openrouter":["openrouter"],"guardrails":["guardrails","safety filters","content filtering","context filtering"],"tts":["tts","text-to-speech","speech synthesis"],"ocr":["ocr","tesseract"],"computer use":["computer use","computer-use","browser automation"],"mcp":["mcp","model context protocol"]},"infra":{"aws":["aws","amazon web services","lambda","s3","ec2"],"gcp":["gcp","google cloud"],"azure":["azure"],"docker":["docker","containers","containerization"],"kubernetes":["kubernetes","k8s"],"terraform":["terraform","infrastructure as code"],"ci/cd":["ci/cd","ci","continuous integration","continuous delivery","continuous deployment"],"github actions":["github actions"],"linux":["linux","unix"],"git":["git","version control"],"vercel":["vercel"],"firebase":["firebase","firestore"],"redis":["redis"],"kafka":["kafka"],"postgres":["postgresql","postgres"],"mongodb":["mongodb","nosql"]},"concepts":{"distributed systems":["distributed systems","distributed"],"microservices":["microservices","microservice"],"rest api":["rest","restful","rest api","api design","apis"],"websockets":["websocket","websockets"],"sse":["server-sent events","sse","streaming"],"oauth":["oauth","oauth2","oauth 2.0","sso"],"authentication":["authentication","auth","authorization"],"testing":["testing","unit testing","unit tests","integration tests","tdd","test-driven"],"performance":["performance","latency","optimization","profiling"],"security":["security","encryption","aes","keystore"],"data structures":["data structures","algorithms"],"system design":["system design","architecture","scalable","scalability"],"offline-first":["offline-first","offline first"],"full-stack":["full-stack","full stack","fullstack"],"frontend":["frontend","front-end"],"backend":["backend","back-end"],"mobile":["mobile"],"data pipelines":["data pipeline","data pipelines","etl"],"observability":["observability","monitoring","logging"],"concurrency":["concurrency","multithreading","multi-threaded","parallel","openmp"],"full-text search":["full-text search","fts5","search indexing"],"customer-facing":["customer-facing","client-facing","forward deployed","forward-deployed","stakeholders"]},"verbs":["built","shipped","designed","architected","deployed","scaled","optimized","automated","integrated","led","owned","debugged","migrated","prototyped"]};
+const CATW={languages:3,frameworks:3,ai:2.5,infra:2,concepts:1};
+const STATUSES=[
+  ["scraped","Scraped","--l-scraped"],["tailored","Tailored","--l-tailored"],["pending_approval","Pending approval","--l-pending"],
+  ["applied","Applied","--l-applied"],["cold_email_drafted","Email drafted","--l-emailed"],["cold_email_sent","Email sent","--l-emailed"],
+  ["interviewing","Interviewing","--l-interview"],["closed","Closed","--l-closed"]];
+const SLABEL=Object.fromEntries(STATUSES.map(s=>[s[0],s[1]]));
+const SCOLOR=Object.fromEntries(STATUSES.map(s=>[s[0],s[2]]));
+const ACTIVE=["applied","cold_email_drafted","cold_email_sent","interviewing"];
+const PERSONAS={
+  enterprise:[["Engineering manager","engineering manager"],["Tech lead","tech lead"],["Early-careers recruiter","early careers recruiter"]],
+  mid:[["Engineering manager","engineering manager"],["Head of engineering","head of engineering"]],
+  startup:[["CTO","CTO"],["VP Engineering","VP engineering"],["Technical co-founder","technical co-founder"]]};
+const DEFAULT_SETTINGS={maxYears:3,companyCap:2,dailyCap:15,hasClearance:false,targetRoles:"Graduate / Junior / Associate Software Engineer, Applied AI Engineer, Full-Stack Engineer, Forward-Deployed Engineer",location:"London, UK (hybrid, on-site, UK remote)"};
+
+/* ---------- deterministic ATS scoring (port of vanguard/keywords.py) ---------- */
+const PATTERNS=(()=>{const out=[];for(const [cat,terms] of Object.entries(LEXICON)){if(cat.startsWith("_")||cat==="verbs")continue;
+  for(const [canon,aliases] of Object.entries(terms)){const alts=[...new Set([...aliases,...(canon.length>2?[canon]:[])].map(a=>a.trim()).filter(Boolean))].sort((a,b)=>b.length-a.length);
+    const rx=new RegExp("(?<![\\w+#.])(?:"+alts.map(a=>a.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")).join("|")+")(?![\\w+#])","gi");out.push([canon,cat,rx]);}}return out;})();
+const CAT=Object.fromEntries(PATTERNS.map(p=>[p[0],p[1]]));
+function extract(text){const f={};for(const [c,,rx] of PATTERNS){const m=(text||"").match(rx);if(m)f[c]=m.length;}return f;}
+function coverage(jd,cv){const ks=Object.keys(jd);if(!ks.length)return 0;let t=0,h=0;for(const k of ks){const w=CATW[CAT[k]]||1;t+=w;if(cv[k])h+=w;}return h/t;}
+function missing(jd,cv){return Object.keys(jd).filter(k=>!cv[k]).sort((a,b)=>(CATW[CAT[b]]-CATW[CAT[a]])||(jd[b]-jd[a]));}
+function evidenceOf(p){return [p.name,(p.skills||[]).join(" "),(p.features||[]).join(" "),(p.metrics||[]).join(" "),(p.problem_solution||[]).map(x=>x.problem+" "+x.solution).join(" ")].join(" ");}
+const NUM=/\d[\d,.]*/g;const normN=n=>n.replace(/,/g,"").replace(/\.$/,"");
+const docId=s=>String(s).replace(/[^A-Za-z0-9_.~-]+/g,"_").slice(0,120);
+const noUrls=s=>(s||"").replace(/https?:\/\/\S+|\b[\w.-]+\.(?:com|io|xyz|ai|dev|app)\/\S*/g," ");
+function ground(text,evidence,allowExtra){text=noUrls(text);evidence=noUrls(evidence);const allowed=extract(evidence);const v=[];for(const t of Object.keys(extract(text))){if(!allowed[t]){v.push(allowExtra&&allowExtra[t]?{kind:"theirs",t}:{kind:"skill",t});}}
+  const ev=new Set((evidence.match(NUM)||[]).map(normN));for(const n of (text.match(NUM)||[]))if(!ev.has(normN(n)))v.push({kind:"number",t:n});return v;}
+function rankProjects(kg,jd){const s=kg.projects.map(p=>({p,overlap:coverage(jd,extract(evidenceOf(p)))+(p.flagship?0.02:0)})).sort((a,b)=>b.overlap-a.overlap);
+  const top=s.filter(x=>x.overlap>0.02).slice(0,4);return top.length>=3?top:s.slice(0,3);}
+function minYears(text){let best=null;const rx=/(?:(?:minimum|at least|min\.?)\s+(?:of\s+)?)?(\d{1,2})\s*(?:\+|-\s*\d{1,2}|to\s+\d{1,2})?\s*\+?\s*years?/gi;let m;
+  while((m=rx.exec(text))){const w=text.slice(Math.max(0,m.index-80),m.index+m[0].length+80);if(/experience|commercial|industry|professional|production/i.test(w)){const n=+m[1];if(n<=15)best=best==null?n:Math.max(best,n);}}return best;}
+const CLEAR=/\b(sc clearance|dv clearance|developed vetting|security clearance|eligible for (sc|dv)|active (sc|dv)|british citizens? only|sole british nationals?)\b/i;
+const NOSPON=/(not able to|unable to|cannot|can't|do not|don't|will not|won't)\s+(offer|provide)?\s*(visa\s+)?sponsor/i;
+const SENIOR=/\b(senior|sr\.?|staff|principal|lead|head of|director|manager|architect|ii|iii|iv|l4|l5|e4|e5)\b/i;
+const ENTRY=/\b(graduate|grad|new grad|entry[- ]level|junior|jr\.?|associate|early careers?|l3|e3)\b/i;
+function screen(job,settings){const flags=[];const y=minYears(job.description||"");
+  if(SENIOR.test(job.title)&&!ENTRY.test(job.title))flags.push({level:"bad",msg:"Title reads senior or non-entry level."});
+  if(y!=null&&y>settings.maxYears)flags.push({level:"bad",msg:`Asks for ${y}+ years of experience (your limit is ${settings.maxYears}).`});
+  else if(y!=null)flags.push({level:"warn",msg:`Mentions ${y} years of experience.`});
+  if(CLEAR.test(job.description||"")&&!settings.hasClearance)flags.push({level:"bad",msg:"Requires UK security clearance (SC/DV)."});
+  if(NOSPON.test(job.description||""))flags.push({level:"warn",msg:"States it will not sponsor visas. Your right to work runs to 30 June 2028, so this only matters for longer-term plans."});
+  return {flags,minYears:y,blocked:flags.some(f=>f.level==="bad")};}
+
+/* ---------- LaTeX (port of vanguard/latex.py) ---------- */
+const ESC={"\\":"\\textbackslash{}","&":"\\&","%":"\\%","$":"\\$","#":"\\#","_":"\\_","{":"\\{","}":"\\}","~":"\\textasciitilde{}","^":"\\textasciicircum{}"};
+const esc=s=>(s||"").replace(/[\\&%$#_{}~^]/g,c=>ESC[c]);
+const href=u=>`\\href{${u}}{${esc(u.replace("https://",""))}}`;
+function renderLatex(kg,job,sel,bulletsByProject,summary){const c=kg.candidate,jd=job.jdKeywords||{};
+  const have={};kg.projects.forEach(p=>Object.assign(have,extract(evidenceOf(p))));
+  const groups=[["Languages","languages"],["Frameworks & Platforms","frameworks"],["AI & LLM Systems","ai"],["Infrastructure & Delivery","infra"],["Engineering","concepts"]];
+  const L=[String.raw`\documentclass[10.5pt,a4paper]{article}
+\usepackage[margin=1.6cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\pdfgentounicode=1
+\setlist[itemize]{leftmargin=1.2em,itemsep=1pt,topsep=2pt}
+\titleformat{\section}{\large\bfseries}{}{0pt}{}[\vspace{-6pt}\rule{\linewidth}{0.4pt}]
+\titlespacing{\section}{0pt}{8pt}{4pt}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\begin{document}`];
+  const headTerms=Object.keys(jd).filter(t=>have[t]).slice(0,6);
+  L.push(`{\\LARGE\\bfseries ${esc(c.name)}}\\\\[2pt]`,`${esc("Software Engineer | "+headTerms.join(", "))}\\\\`,
+    `${esc(c.location)} \\textbar{} ${esc(c.email)} \\textbar{} ${href(c.website)} \\textbar{} ${href("https://github.com/"+c.github)} \\textbar{} ${href(c.linkedin)}\\\\`,
+    esc(c.right_to_work),"\\section{Summary}",esc(summary),"\\section{Technical Skills}","\\begin{itemize}");
+  for(const [lab,cat] of groups){const items=Object.keys(have).filter(t=>CAT[t]===cat).sort((a,b)=>((jd[a]?0:1)-(jd[b]?0:1))||a.localeCompare(b)).slice(0,10);if(items.length)L.push(`\\item \\textbf{${esc(lab)}:} ${esc(items.join(", "))}`);}
+  L.push("\\end{itemize}","\\section{Projects}");
+  for(const {p} of sel){const link=p.repo||p.demo;const terms=Object.keys(extract(evidenceOf(p)));const shown=[...terms.filter(t=>jd[t]),...terms.filter(t=>!jd[t])].slice(0,5);
+    L.push(`\\textbf{${esc(p.name)}}${link?" \\textbar{} "+href(link):""} \\hfill ${esc(p.years)}\\\\`,`\\textit{${esc(shown.join(", "))}}`,"\\begin{itemize}",...(bulletsByProject[p.id]||[]).map(b=>`\\item ${esc(b)}`),"\\end{itemize}");}
+  L.push("\\section{Experience}");for(const e of c.experience){L.push(`\\textbf{${esc(e.title)}}, ${esc(e.company)}, ${esc(e.location)} \\hfill ${esc(e.years)}`,"\\begin{itemize}",...e.bullets.map(b=>`\\item ${esc(b)}`),"\\end{itemize}");}
+  L.push("\\section{Education}");for(const ed of c.education)L.push(`\\textbf{${esc(ed.degree)}}, ${esc(ed.school)} \\hfill ${esc(ed.years)}`);
+  L.push("\\end{document}");return L.join("\n")+"\n";}
+
+/* ---------- capability plumbing ---------- */
+const caps={db:null,sample:null,mcp:null,downloads:null};
+const wc=s=>(s||"").trim().split(/\s+/).filter(Boolean).length;
+const slug=s=>(s||"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"").slice(0,60);
+const todayISO=()=>new Date().toISOString().slice(0,10);
+const pct=x=>x==null?"–":Math.round(x*100)+"%";
+const errMsg=e=>(e&&e.code?`${e.code}: `:"")+((e&&e.message)||String(e));
+const LS={get(k){try{return JSON.parse(localStorage.getItem(k))}catch{return null}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch{}}};
+
+/* Icons (Lucide paths, inlined) */
+const ICON={
+  user:"M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2M12 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8z",
+  scan:"M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2M7 12h10",
+  send:"M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z",
+  route:"M6 19a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM18 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM9 16h6.5a3.5 3.5 0 0 0 0-7H12",
+  sparkle:"M12 3l1.9 5.8L20 11l-6.1 2.2L12 19l-1.9-5.8L4 11l6.1-2.2z",
+  copy:"M9 9h11v11H9zM5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1",
+  down:"M12 3v12M7 10l5 5 5-5M5 21h14",
+  up:"M12 21V9M7 14l5-5 5 5M5 3h14",
+  search:"M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16zM21 21l-4.3-4.3",
+  check:"M20 6 9 17l-5-5",
+  ext:"M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"};
+const Icon=({n})=>html`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d=${ICON[n]}/></svg>`;
+
+async function copyText(t,toast){try{await navigator.clipboard.writeText(t);toast("Copied to clipboard");}catch{toast("Copy was blocked here. Select the text and copy it manually.");}}
+async function saveFile(name,data,toast){const d=caps.downloads;if(!d){toast("Downloads aren't available in this view. Use Copy instead.");return;}
+  try{await d.save({filename:name,data});toast("Saved "+name);}catch(e){if(e&&e.code!=="cancelled"&&e.code!=="declined")toast("Couldn't save: "+errMsg(e));}}
+
+/* ---------- data layer: db when available, browser storage otherwise ---------- */
+function useStore(){
+  const [kgDoc,setKgDoc]=useState(null);const [jobs,setJobs]=useState([]);const [mode,setMode]=useState("loading");
+  useEffect(()=>{let un1,un2,alive=true;
+    window.claude?.use("db").then(db=>{if(!alive)return;caps.db=db;
+      if(!db){setMode("local");setKgDoc(LS.get("vg.kg"));setJobs(LS.get("vg.jobs")||[]);return;}
+      setMode("db");
+      un1=db.doc("profile/main").onSnapshot(s=>setKgDoc(s.exists?s.data():{}),e=>setMode("error:"+errMsg(e)));
+      un2=db.collection("jobs").onSnapshot(s=>setJobs(s.docs.map(d=>({...d.data(),id:d.id}))),e=>setMode("error:"+errMsg(e)));
+    }) ?? (setMode("local"),setKgDoc(LS.get("vg.kg")),setJobs(LS.get("vg.jobs")||[]));
+    return()=>{alive=false;un1&&un1();un2&&un2();};},[]);
+  const saveProfile=useCallback(async data=>{if(caps.db){await caps.db.doc("profile/main").set(data);}else{LS.set("vg.kg",data);setKgDoc(data);}},[]);
+  const saveJob=useCallback(async job=>{const j={...job,updatedAt:new Date().toISOString()};
+    if(caps.db){const {id,...rest}=j;await caps.db.doc("jobs/"+id).set(rest);}else{setJobs(prev=>{const n=[...prev.filter(x=>x.id!==j.id),j];LS.set("vg.jobs",n);return n;});}return j;},[]);
+  return {kgDoc,jobs,mode,saveProfile,saveJob};}
+
+/* ---------- views ---------- */
+function ScoreMeter({label,value,after}){return html`<div className="meter"><h3>${label}</h3><div className="num">${pct(value)}</div><div className="bar"><i className=${after?"after":""} style=${{width:pct(value||0)}}></i></div></div>`;}
+
+function Profile({store,toast}){
+  const doc=store.kgDoc||{};const kg=doc.kg;const settings={...DEFAULT_SETTINGS,...(doc.settings||{})};
+  const [text,setText]=useState("");const [base,setBase]=useState("");const [s,setS]=useState(settings);const [err,setErr]=useState(null);
+  useEffect(()=>{if(kg)setText(JSON.stringify(kg,null,2));setBase(doc.baseResume||"");setS({...DEFAULT_SETTINGS,...(doc.settings||{})});},[store.kgDoc]);
+  async function save(){try{const parsed=JSON.parse(text);if(!parsed.candidate||!Array.isArray(parsed.projects))throw new Error("Needs a candidate object and a projects list.");
+      await store.saveProfile({kg:parsed,baseResume:base,settings:s});setErr(null);toast("Profile saved");}catch(e){setErr(errMsg(e));}}
+  const projects=kg?.projects||[];
+  return html`<div className="stack">
+    <div className="head"><div><h1>Profile & GitHub evidence</h1><p className="sub">Everything the tailoring engine is allowed to say about you. A skill or number that isn't in this graph is rejected from any bullet or email, so this page is the ceiling on what Claude can claim.</p></div>
+      <button className="btn primary" onClick=${save}><${Icon} n="check"/>Save profile</button></div>
+    ${err&&html`<div className="note bad">${err}</div>`}
+    ${!kg&&html`<div className="empty">No profile stored yet. Paste your knowledge graph JSON below (the backend writes it to data/knowledge_graph.json) and save.</div>`}
+    <div className="grid g2">
+      <div className="panel stack"><h2>Candidate</h2>
+        ${kg&&html`<dl className="kv"><dt>Name</dt><dd>${kg.candidate.name}</dd><dt>GitHub</dt><dd><a href=${"https://github.com/"+kg.candidate.github} target="_blank" rel="noopener">github.com/${kg.candidate.github}</a></dd>
+          <dt>Right to work</dt><dd>${kg.candidate.right_to_work}</dd><dt>Commercial SWE</dt><dd>${kg.candidate.commercial_swe_years} years (IT support at ${kg.candidate.experience[0]?.company})</dd>
+          <dt>Graph built</dt><dd>${kg.generated_at}</dd><dt>Projects</dt><dd>${projects.length}</dd></dl>`}
+        <div className="grid g2">
+          <label>Max years a JD may ask for<input id="s-years" type="number" min="0" max="10" value=${s.maxYears} onChange=${e=>setS({...s,maxYears:+e.target.value})}/></label>
+          <label>Applications per company / 30 days<input id="s-cap" type="number" min="1" max="5" value=${s.companyCap} onChange=${e=>setS({...s,companyCap:+e.target.value})}/></label>
+          <label>Gmail drafts per day<input id="s-daily" type="number" min="1" max="40" value=${s.dailyCap} onChange=${e=>setS({...s,dailyCap:+e.target.value})}/></label>
+          <label>UK security clearance<select id="s-clear" value=${s.hasClearance?"yes":"no"} onChange=${e=>setS({...s,hasClearance:e.target.value==="yes"})}><option value="no">None</option><option value="yes">Held (SC/DV)</option></select></label>
+        </div>
+        <label>Target roles<input id="s-roles" value=${s.targetRoles} onChange=${e=>setS({...s,targetRoles:e.target.value})}/></label>
+        <label>Location<input id="s-loc" value=${s.location} onChange=${e=>setS({...s,location:e.target.value})}/></label>
+      </div>
+      <div className="panel stack"><h2>Evidence by project</h2>
+        ${projects.map(p=>{const t=Object.keys(extract(evidenceOf(p)));return html`<div className="projcard" key=${p.id}>
+          <div className="spread"><strong>${p.name}${p.flagship?html` <span className="chip acc">flagship</span>`:null}</strong>${(p.repo||p.demo)&&html`<a href=${p.repo||p.demo} target="_blank" rel="noopener" className="mono">${(p.repo||p.demo).replace("https://","")}</a>`}</div>
+          <div className="chips">${t.slice(0,14).map(x=>html`<span className="chip" key=${x}>${x}</span>`)}${t.length>14&&html`<span className="chip">+${t.length-14}</span>`}</div>
+          ${p.metrics?.length?html`<div className="mono" style=${{color:"var(--ink-3)"}}>${p.metrics.join(" · ")}</div>`:null}</div>`;})}
+      </div>
+    </div>
+    <div className="grid g2">
+      <div className="panel stack"><div className="spread"><h2>Knowledge graph JSON</h2><span className="chip">python -m vanguard.ghgraph rebuilds it</span></div>
+        <textarea id="kg-json" className="code" style=${{minHeight:"360px"}} value=${text} onChange=${e=>setText(e.target.value)} spellCheck="false"></textarea></div>
+      <div className="panel stack"><h2>Base resume (scored as "before")</h2>
+        <textarea id="base-resume" style=${{minHeight:"360px"}} value=${base} onChange=${e=>setBase(e.target.value)}></textarea></div>
+    </div></div>`;}
+
+function JobPicker({jobs,selected,onSelect}){return html`<select id="job-pick" value=${selected||""} onChange=${e=>onSelect(e.target.value||null)}>
+  <option value="">New job from pasted JD</option>${[...jobs].sort((a,b)=>(b.updatedAt||"").localeCompare(a.updatedAt||"")).map(j=>html`<option key=${j.id} value=${j.id}>${j.company} · ${j.title} (${SLABEL[j.status]||j.status})</option>`)}</select>`;}
+
+function Workbench({store,toast,selected,setSelected,go}){
+  const doc=store.kgDoc||{};const kg=doc.kg;const settings={...DEFAULT_SETTINGS,...(doc.settings||{})};
+  const job=store.jobs.find(j=>j.id===selected);
+  const [form,setForm]=useState({company:"",title:"",size:"enterprise",tier:"A",url:"",description:""});
+  const [busy,setBusy]=useState(false);const [err,setErr]=useState(null);
+  useEffect(()=>{if(job)setForm({company:job.company,title:job.title,size:job.size||"enterprise",tier:job.tier||"A",url:job.url||"",description:job.description||""});},[selected,job?.id]);
+  const jd=useMemo(()=>extract(form.title+"\n"+form.description),[form.title,form.description]);
+  const base=useMemo(()=>extract(doc.baseResume||""),[doc.baseResume]);
+  const ranked=useMemo(()=>kg?rankProjects(kg,jd):[],[kg,jd]);
+  const sc=useMemo(()=>screen(form,settings),[form.title,form.description,settings.maxYears,settings.hasClearance]);
+  const before=coverage(jd,base);const gaps=missing(jd,base);
+  const companyActive=store.jobs.filter(j=>slug(j.company)===slug(form.company)&&j.id!==selected&&ACTIVE.includes(j.status)&&j.approvedAt&&(Date.now()-Date.parse(j.approvedAt))<30*864e5).length;
+  if(!kg)return html`<div className="empty">Add your profile first. <button className="btn" onClick=${()=>go("profile")}>Open profile</button></div>`;
+
+  async function tailor(){setErr(null);if(!form.company||!form.title||form.description.length<200){setErr("Add the company, the role title and the full job description (at least a few paragraphs).");return;}
+    const sample=caps.sample;if(!sample){setErr("Claude isn't available in this view, so tailoring can't run here. The backend's deterministic mode still selects projects and scores the JD.");return;}
+    setBusy(true);
+    try{const ev=ranked.map(r=>`### ${r.p.id} (${r.p.name})\n${evidenceOf(r.p)}`).join("\n\n");
+      const prompt=`You are tailoring a resume for an entry-level London engineering role. Follow every rule.
+RULES
+- Use ONLY facts in EVIDENCE. Never add a technology, number, user count, percentage or outcome not written there. If a JD skill has no evidence, leave it out and list it in "gaps".
+- Bullets in XYZ form where the evidence allows: accomplished X, measured by Y, by doing Z. With no metric in the evidence, drop Y; never invent one.
+- Use the JD's exact wording for a skill only when the evidence shows it. Each bullet <= 30 words, past tense, no first person. Exactly 2 bullets per project.
+- Cover letter: at most 200 words, plain text, no greeting or sign-off. Hook = a specific technical initiative named in the JD; Proof = two engineering problems from EVIDENCE that mirror their stack; one-sentence call to action. Banned phrases: "I am writing to", "passion", "excited to apply", "fast-paced".
+- summary: 2 sentences, factual, for the top of the resume.
+Return JSON only: {"summary":"...","bullets":[{"project_id":"...","tailored":"..."}],"cover_letter":"...","gaps":["..."],"hook":"..."}
+
+ROLE: ${form.title} at ${form.company}
+JD KEYWORDS: ${Object.keys(jd).join(", ")}
+JOB DESCRIPTION:
+${form.description.slice(0,9000)}
+
+EVIDENCE (projects ranked by stack overlap):
+${ev}
+
+CURRENT EXPERIENCE (not software engineering; do not inflate): ${kg.candidate.experience.map(e=>e.title+" at "+e.company).join("; ")}`;
+      const res=await sample.json(prompt,{modelTier:"complex"});
+      const byProj={};const bullets=[];
+      for(const r of ranked){const originals=[...r.p.features].sort((a,b)=>coverage(jd,extract(b))-coverage(jd,extract(a))).slice(0,2);
+        const news=(res.bullets||[]).filter(b=>b.project_id===r.p.id).map(b=>b.tailored);
+        byProj[r.p.id]=originals.map((o,i)=>{const n=news[i]||o;const v=n===o?[]:ground(n,evidenceOf(r.p)).filter(x=>x.kind!=="theirs");bullets.push({projectId:r.p.id,original:o,tailored:n,grounded:!v.length,violations:v.map(x=>`${x.kind}: ${x.t}`)});return v.length?o:n;});}
+      const allEv=ranked.map(r=>evidenceOf(r.p)).join(" ");
+      let cover=(res.cover_letter||"").trim();const cv=cover?ground(cover,allEv,jd):[];
+      if(wc(cover)>200)cover=cover.split(/\s+/).slice(0,200).join(" ");
+      const summary=res.summary||`Software engineer (BSc Information Technology, 2024) who ships LLM systems, Android and web applications end to end.`;
+      const draft={id:job?.id||docId(slug(form.company)+"_"+slug(form.title)+"_"+Date.now().toString(36)),...(job||{}),...form,source:job?.source||"manual",status:(job&&job.status!=="scraped"&&job.status!=="tailored")?job.status:"pending_approval",
+        jdKeywords:jd,scoreBefore:before,missing:gaps,projects:ranked.map(r=>({id:r.p.id,overlap:+r.overlap.toFixed(3)})),bullets,summary,
+        coverLetter:cover,coverViolations:cv.map(x=>`${x.kind}: ${x.t}`),gapsClaude:res.gaps||[],hook:res.hook||"",createdAt:job?.createdAt||new Date().toISOString()};
+      const tex=renderLatex(kg,{jdKeywords:jd},ranked,byProj,summary);
+      const after=coverage(jd,extract([summary,tex.replace(/\\[a-zA-Z]+|[{}]/g," ")].join(" ")));
+      const saved=await store.saveJob({...draft,latex:tex,scoreAfter:after});setSelected(saved.id);toast("Tailored. Review the diff, then approve in Outreach.");
+    }catch(e){setErr(e.code==="not_granted"?"Claude access was declined for this page, so tailoring is off. Allow it from the page's permissions to turn it on.":e.code==="rate_limited"?"Claude is rate-limited right now. Try again in a minute.":"Tailoring failed: "+errMsg(e));}
+    finally{setBusy(false);}}
+
+  const t=job&&job.bullets?job:null;
+  return html`<div className="stack">
+    <div className="head"><div><h1>JD analyzer & tailoring</h1><p className="sub">Scores are computed in the page from a fixed skill lexicon (the same one the backend uses), so before and after numbers are reproducible. Claude only rewrites; a guard reverts any bullet that claims something your graph doesn't show.</p></div>
+      <div style=${{minWidth:"min(320px,100%)"}}><${JobPicker} jobs=${store.jobs} selected=${selected} onSelect=${setSelected}/></div></div>
+    <div className="grid g2">
+      <div className="panel stack">
+        <div className="grid g2"><label>Company<input id="f-company" value=${form.company} onChange=${e=>setForm({...form,company:e.target.value})} placeholder="e.g. Stripe"/></label>
+          <label>Role title<input id="f-title" value=${form.title} onChange=${e=>setForm({...form,title:e.target.value})} placeholder="e.g. Software Engineer, New Grad"/></label>
+          <label>Company size<select id="f-size" value=${form.size} onChange=${e=>setForm({...form,size:e.target.value,tier:e.target.value==="enterprise"?"A":"B"})}><option value="enterprise">Enterprise (500+)</option><option value="mid">Scale-up (250-500)</option><option value="startup">Startup (under 250)</option></select></label>
+          <label>Posting URL<input id="f-url" value=${form.url} onChange=${e=>setForm({...form,url:e.target.value})} placeholder="https://"/></label></div>
+        <label>Job description<textarea id="f-jd" style=${{minHeight:"260px"}} value=${form.description} onChange=${e=>setForm({...form,description:e.target.value})} placeholder="Paste the full JD, including requirements."></textarea></label>
+        <div className="row"><button className="btn primary" disabled=${busy} onClick=${tailor}>${busy?html`<span className="spin"></span>Tailoring with Claude…`:html`<${Icon} n="sparkle"/>Tailor resume and cover letter`}</button>
+          ${companyActive>=settings.companyCap&&html`<span className="chip miss">${companyActive} active at ${form.company} in 30 days: cap reached</span>`}</div>
+        ${err&&html`<div className="note bad">${err}</div>`}
+      </div>
+      <div className="panel stack">
+        <div className="grid g2"><${ScoreMeter} label="Base resume coverage" value=${Object.keys(jd).length?before:null}/><${ScoreMeter} label="Tailored coverage" value=${t?t.scoreAfter:null} after=${true}/></div>
+        ${sc.flags.map((f,i)=>html`<div key=${i} className=${"note "+(f.level==="bad"?"bad":"warn")}>${f.msg}</div>`)}
+        <div><h3>JD keywords (${Object.keys(jd).length})</h3><div className="chips">${Object.keys(jd).map(k=>html`<span key=${k} className=${"chip "+(base[k]?"hit":"miss")}>${k}${jd[k]>1?" ×"+jd[k]:""}</span>`)}${!Object.keys(jd).length&&html`<span className="chip">Paste a JD to extract keywords</span>`}</div></div>
+        ${gaps.length?html`<div className="note">Not in your base resume: <strong>${gaps.join(", ")}</strong>. Where your graph has evidence (green on the project list), tailoring can surface it. Where it doesn't, it stays a gap; build or learn it rather than claim it.</div>`:null}
+        <div><h3>Projects selected by stack overlap</h3><div className="stack">${ranked.map(r=>html`<div className="spread" key=${r.p.id}><span>${r.p.name}</span><span className="chip acc num">${pct(r.overlap)}</span></div>`)}</div></div>
+      </div></div>
+    ${t&&html`<div className="panel stack"><div className="spread"><h2>Bullet diff: ${t.company} · ${t.title}</h2>
+        <div className="row"><span className="chip">${t.bullets.filter(b=>b.grounded).length}/${t.bullets.length} rewrites passed the evidence check</span><button className="btn" onClick=${()=>go("outreach")}><${Icon} n="send"/>Go to outreach</button></div></div>
+      ${t.bullets.map((b,i)=>html`<div className="diff" key=${i}><div><div className="lab">${b.projectId} · original evidence</div>${b.original}</div>
+        <div className=${b.grounded?"new":"rej"}><div className="lab">${b.grounded?"tailored · kept":"tailored · reverted ("+b.violations.join(", ")+")"}</div>${b.tailored}</div></div>`)}</div>`}
+    ${t&&html`<div className="grid g2">
+      <div className="panel stack"><div className="spread"><h2>Cover letter</h2><span className=${"wc "+(wc(t.coverLetter)>200?"over":"")}>${wc(t.coverLetter)}/200 words</span></div>
+        ${t.coverViolations?.length?html`<div className="note warn">Check before sending. Mentions with no evidence in your graph: ${t.coverViolations.join(", ")}. "theirs" items are their stack, fine to name, not to claim.</div>`:null}
+        <textarea id="cover" style=${{minHeight:"220px"}} value=${t.coverLetter||""} onChange=${e=>store.saveJob({...t,coverLetter:e.target.value})}></textarea>
+        <div className="row"><button className="btn" onClick=${()=>copyText(t.coverLetter||"",toast)}><${Icon} n="copy"/>Copy</button></div>
+        ${t.gapsClaude?.length?html`<div className="note">Claude's gap read: ${t.gapsClaude.join("; ")}</div>`:null}</div>
+      <div className="panel stack"><div className="spread"><h2>ATS resume (LaTeX)</h2><span className="chip">single column · no tables</span></div>
+        <pre className="out">${t.latex}</pre>
+        <div className="row"><button className="btn" onClick=${()=>copyText(t.latex,toast)}><${Icon} n="copy"/>Copy LaTeX</button>
+          <button className="btn" onClick=${()=>saveFile(slug(t.company)+"-resume.tex",t.latex,toast)}><${Icon} n="down"/>Download .tex</button>
+          <a className="btn" href="https://www.overleaf.com/project" target="_blank" rel="noopener"><${Icon} n="ext"/>Open Overleaf to compile</a></div></div></div>`}
+  </div>`;}
+
+function Outreach({store,toast,selected,setSelected,go}){
+  const doc=store.kgDoc||{};const kg=doc.kg;const settings={...DEFAULT_SETTINGS,...(doc.settings||{})};
+  const job=store.jobs.find(j=>j.id===selected);
+  const [busy,setBusy]=useState("");const [err,setErr]=useState(null);
+  const [c,setC]=useState({persona:0,name:"",email:"",linkedinUrl:""});const [mail,setMail]=useState({subject:"",body:""});
+  useEffect(()=>{setErr(null);if(job){const k=job.contact||{};setC({persona:k.persona||0,name:k.name||"",email:k.email||"",linkedinUrl:k.linkedinUrl||""});setMail(job.email||{subject:"",body:""});}},[selected,job?.updatedAt]);
+  const draftsToday=store.jobs.filter(j=>(j.draftedAt||"").startsWith(todayISO())).length;
+  if(!kg)return html`<div className="empty">Add your profile first.</div>`;
+  if(!job)return html`<div className="stack"><div className="head"><div><h1>Cold outreach</h1><p className="sub">Pick a tailored job to route outreach for.</p></div><div style=${{minWidth:"min(320px,100%)"}}><${JobPicker} jobs=${store.jobs} selected=${selected} onSelect=${setSelected}/></div></div><div className="empty">No job selected. Tailor one in the workbench, or pull jobs into the pipeline.</div></div>`;
+  const personas=PERSONAS[job.size||"enterprise"];
+  const team=(job.description||"").match(/\b(?:join|on) (?:our|the) ([A-Z][\w&-]*(?: [A-Z][\w&-]*){0,3}) (?:team|group|org)/)?.[1]||"";
+  const search=t=>`https://www.linkedin.com/search/results/people/?keywords=${encodeURIComponent(`"${job.company}" ${t} ${team} London`.replace(/\s+/g," ").trim())}`;
+  const projIds=(job.projects||[]).map(p=>p.id);
+  const flagship=kg.projects.filter(p=>projIds.includes(p.id)&&(p.repo||p.demo)&&p.on_resume!==false).sort((a,b)=>coverage(job.jdKeywords||{},extract(evidenceOf(b)))-coverage(job.jdKeywords||{},extract(evidenceOf(a))))[0]||kg.projects.find(p=>p.flagship);
+  const words=wc(mail.body);const v=mail.body?ground(mail.subject+" "+mail.body,evidenceOf(flagship),job.jdKeywords||{}):[];
+  const own=v.filter(x=>x.kind!=="theirs");
+  const companyActive=store.jobs.filter(j=>slug(j.company)===slug(job.company)&&j.id!==job.id&&ACTIVE.includes(j.status)&&j.approvedAt&&(Date.now()-Date.parse(j.approvedAt))<30*864e5).length;
+  const capHit=companyActive>=settings.companyCap;const dayHit=draftsToday>=settings.dailyCap;
+
+  async function write(){setErr(null);const s=caps.sample;if(!s){setErr("Claude isn't available in this view. Write the email by hand below; the checks still run.");return;}
+    setBusy("write");
+    try{const persona=personas[c.persona][0];const link=flagship.repo||flagship.demo;
+      const r=await s.json(`Write a cold email to a ${persona} at ${job.company} in London. Rules, all mandatory:
+- Body strictly under 90 words, 4 to 5 sentences. Start "Hi {first_name},". End with "Thanks,\\nKhalid".
+- Sentence 1: saw the London ${job.title} opening working on a specific technology or problem named in the JD.
+- Sentence 2-3: one project, ${flagship.name} (${link}), naming one specific architectural feature from EVIDENCE only. Include the link.
+- Last sentence: low-friction ask: are they the right person to route the profile to, or open to a brief look at the repo.
+- No flattery, no "I hope this finds you well", no claims beyond EVIDENCE, no attachments mentioned.
+- Subject: lowercase, internal engineering style, like "question re: ${job.company.toLowerCase()} london <team or stack> role + <one metric from EVIDENCE>".
+Return JSON only: {"subject":"...","body":"..."}
+JD (excerpt): ${(job.description||"").slice(0,4000)}
+EVIDENCE: ${evidenceOf(flagship)}`,{modelTier:"default"});
+      setMail({subject:(r.subject||"").toLowerCase(),body:r.body||""});
+    }catch(e){setErr("Couldn't write the email: "+errMsg(e));}finally{setBusy("");}}
+
+  async function approve(){setErr(null);
+    if(capHit){setErr(`You already have ${companyActive} active applications at ${job.company} in the last 30 days.`);return;}
+    if(dayHit){setErr(`Daily cap reached: ${draftsToday} drafts today. Come back tomorrow to protect your sender reputation.`);return;}
+    if(!c.email||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(c.email)){setErr("Add the contact's email address first.");return;}
+    if(words>=90){setErr(`The email is ${words} words. Cut it under 90.`);return;}
+    const first=(c.name||"there").trim().split(/\s+/)[0];const body=mail.body.replace(/\{first_name\}/g,first);
+    if(/\{first_name\}|\[.*?\]/.test(body)){setErr("The body still has a placeholder in it.");return;}
+    const base={...job,contact:{...c,persona:c.persona,role:personas[c.persona][0]},email:mail,approvedAt:new Date().toISOString(),status:["scraped","tailored"].includes(job.status)?"pending_approval":job.status};
+    const m=caps.mcp;
+    if(!m){await store.saveJob(base);setErr("Gmail isn't reachable from this view. Approval is recorded; export approvals from the Pipeline and let the backend's mailer.py create the draft.");return;}
+    setBusy("gmail");
+    try{const res=await m.callTool("Gmail","create_draft",{to:[c.email],subject:mail.subject,body});
+      const p=res.payload||{};const id=p.id||p.draft?.id||"created";
+      await store.saveJob({...base,status:"cold_email_drafted",gmailDraftId:id,gmailUrl:p.viewUrl||null,draftedAt:new Date().toISOString()});
+      toast("Draft created in Gmail. Open Gmail to review and send it yourself.");
+    }catch(e){const code=e&&e.code;
+      setErr(code==="server_not_connected"||code==="needs_reauth"?"Gmail isn't connected for this page. Connect Gmail in claude.ai settings, or export approvals for the backend.":code==="consent_required"||code==="not_granted"?"Gmail access was declined for this page. Nothing was created.":"Gmail draft failed: "+errMsg(e));
+      await store.saveJob(base);}
+    finally{setBusy("");}}
+
+  return html`<div className="stack">
+    <div className="head"><div><h1>Cold outreach</h1><p className="sub">Routed by company size. Contacts come from a LinkedIn search you open yourself; this page never logs into LinkedIn or guesses a person. Approving creates a Gmail draft. Nothing is ever sent from here.</p></div>
+      <div style=${{minWidth:"min(320px,100%)"}}><${JobPicker} jobs=${store.jobs} selected=${selected} onSelect=${setSelected}/></div></div>
+    <div className="row"><span className="status" style=${{"--lc":`var(${SCOLOR[job.status]||"--l-scraped"})`}}>${SLABEL[job.status]||job.status}</span>
+      <span className="chip">${job.company} · ${job.size==="startup"?"startup route: founders":job.size==="mid"?"scale-up route":"enterprise route: managers"}</span>
+      <span className=${"chip "+(dayHit?"miss":"")}>${draftsToday}/${settings.dailyCap} drafts today</span>
+      <span className=${"chip "+(capHit?"miss":"")}>${companyActive}/${settings.companyCap} active at ${job.company} (30 days)</span>
+      ${job.gmailUrl&&html`<a className="chip acc" href=${job.gmailUrl} target="_blank" rel="noopener">Open draft in Gmail</a>`}</div>
+    <div className="grid g2">
+      <div className="panel stack"><h2>1. Find the right person</h2>
+        <div className="grid" style=${{gridTemplateColumns:"repeat(auto-fit,minmax(170px,1fr))"}}>${personas.map((p,i)=>html`<div key=${i} className="persona" role="radio" tabIndex="0" aria-checked=${c.persona===i} onClick=${()=>setC({...c,persona:i})} onKeyDown=${e=>{if(e.key===" "||e.key==="Enter"){e.preventDefault();setC({...c,persona:i});}}}>
+          <strong>${p[0]}</strong><a href=${search(p[1])} target="_blank" rel="noopener" onClick=${e=>e.stopPropagation()}>Search LinkedIn <${Icon} n="ext"/></a></div>`)}</div>
+        <div className="grid g2"><label>Name<input id="c-name" value=${c.name} onChange=${e=>setC({...c,name:e.target.value})} placeholder="From the search results"/></label>
+          <label>LinkedIn URL<input id="c-li" value=${c.linkedinUrl} onChange=${e=>setC({...c,linkedinUrl:e.target.value})} placeholder="https://linkedin.com/in/…"/></label></div>
+        <label>Email<input id="c-email" value=${c.email} onChange=${e=>setC({...c,email:e.target.value})} placeholder="first.last@company.com"/></label>
+        <div className="note">Work out the address from the company's pattern (Hunter.io's free tier shows it), or ask on LinkedIn instead. A wrong guess bounces and hurts your sender reputation more than a skipped email.</div>
+      </div>
+      <div className="panel stack"><div className="spread"><h2>2. Write it</h2><button className="btn" disabled=${!!busy} onClick=${write}>${busy==="write"?html`<span className="spin"></span>Writing…`:html`<${Icon} n="sparkle"/>Write with Claude`}</button></div>
+        <div className="note">Proof project: <strong>${flagship.name}</strong> (best stack overlap with this JD among your linked repos).</div>
+        <label>Subject<input id="m-subj" className="mono" value=${mail.subject} onChange=${e=>setMail({...mail,subject:e.target.value})}/></label>
+        <label><span className="spread">Body <span className=${"wc "+(words>=90?"over":"")}>${words}/89 words</span></span><textarea id="m-body" style=${{minHeight:"190px"}} value=${mail.body} onChange=${e=>setMail({...mail,body:e.target.value})}></textarea></label>
+        ${own.length?html`<div className="note warn">Not backed by ${flagship.name}'s evidence: ${own.map(x=>x.t).join(", ")}. Remove it unless it's true and you add it to your graph.</div>`:mail.body?html`<div className="note good">Every skill and number in this email traces to ${flagship.name}'s evidence.</div>`:null}
+        ${err&&html`<div className="note bad">${err}</div>`}
+        <div className="row"><button className="btn primary" disabled=${!!busy||capHit||dayHit} onClick=${approve}>${busy==="gmail"?html`<span className="spin"></span>Creating Gmail draft…`:html`<${Icon} n="check"/>Approve & stage Gmail draft`}</button>
+          <button className="btn" onClick=${()=>store.saveJob({...job,contact:c,email:mail}).then(()=>toast("Saved"))}>Save without approving</button></div>
+      </div></div></div>`;}
+
+function parseIndeed(md){return (md||"").split(/\n\s*\n(?=\*\*Job Title)/).map(b=>{const g=k=>(b.match(new RegExp("\\*\\*"+k+":\\*\\*\\s*(.+)"))||[])[1]?.trim();
+  return {id:g("Job Id"),title:g("Job Title"),company:g("Company"),location:g("Location"),url:g("View Job URL"),posted:g("Posted on")};}).filter(x=>x.id&&x.title);}
+
+function Pipeline({store,toast,setSelected,go}){
+  const doc=store.kgDoc||{};const settings={...DEFAULT_SETTINGS,...(doc.settings||{})};
+  const [filter,setFilter]=useState(LS.get("vg.filter")||"all");const [q,setQ]=useState({query:"graduate software engineer",source:"workable",days:21});
+  const [found,setFound]=useState([]);const [busy,setBusy]=useState(false);const [err,setErr]=useState(null);const fileRef=useRef(null);
+  const counts=Object.fromEntries(STATUSES.map(s=>[s[0],store.jobs.filter(j=>j.status===s[0]).length]));
+  const shown=store.jobs.filter(j=>filter==="all"||j.status===filter).sort((a,b)=>(b.updatedAt||"").localeCompare(a.updatedAt||""));
+  const known=new Set(store.jobs.map(j=>j.id));
+  useEffect(()=>LS.set("vg.filter",filter),[filter]);
+
+  async function find(){setErr(null);const m=caps.mcp;if(!m){setErr("Job connectors aren't reachable from this view.");return;}setBusy(true);
+    try{if(q.source==="workable"){const r=await m.callTool("Jobs by Workable","search_jobs",{query:q.query,location:"London",day_range:+q.days});
+        setFound(((r.payload||{}).jobs||[]).map(j=>({id:docId("workable_"+j.uid),title:j.title,company:j.company?.name||"",location:j.location,url:j.url,description:j.description||"",workplace:j.workplace,source:"workable"})));}
+      else{const r=await m.callTool("Indeed","search_jobs",{search:q.query,location:"London",country_code:"GB",job_type:"fulltime"});
+        const p=r.payload;setFound(parseIndeed(typeof p==="string"?p:p?.result).map(j=>({...j,id:docId("indeed_"+j.id),indeedId:j.id,description:"",source:"indeed"})));}
+    }catch(e){setErr((e.code==="server_not_connected"||e.code==="needs_reauth")?`${q.source==="workable"?"Jobs by Workable":"Indeed"} isn't connected. Connect it in claude.ai settings.`:"Search failed: "+errMsg(e));}finally{setBusy(false);}}
+
+  async function add(f){let desc=f.description;
+    if(!desc&&f.source==="indeed"&&caps.mcp){try{const r=await caps.mcp.callTool("Indeed","get_job_details",{job_id:f.indeedId});const p=r.payload;desc=typeof p==="string"?p:(p?.result||JSON.stringify(p));}catch(e){toast("Couldn't load the Indeed description: "+errMsg(e));}}
+    const sc=screen({title:f.title,description:desc||""},settings);
+    const size=/startup/i.test(desc||"")?"startup":"enterprise";
+    await store.saveJob({id:f.id,company:f.company,title:f.title,location:f.location,url:f.url,description:desc||"",source:f.source,size,tier:size==="enterprise"?"A":"B",status:"scraped",
+      screen:sc.flags.map(x=>x.msg),createdAt:new Date().toISOString()});toast(`Added ${f.title}. Check the company size in the workbench.`);}
+
+  async function importQueue(file){try{const data=JSON.parse(await file.text());let n=0;
+      for(const raw of data.jobs||[]){if(raw.status==="filtered_out")continue;const j={...raw,id:docId(raw.id),backendId:raw.id,
+          bullets:(raw.bullets||[]).map(b=>({projectId:b.project_id||b.projectId,original:b.original,tailored:b.tailored,grounded:b.grounded,violations:b.violations||[]}))};
+        if(!j.bullets.length)delete j.bullets;const ex=store.jobs.find(x=>x.id===j.id);
+        await store.saveJob({...(ex||{}),...j,jdKeywords:extract(j.title+"\n"+j.description),email:ex?.email||j.email||null,source:"backend",createdAt:ex?.createdAt||new Date().toISOString(),status:ex?.status&&ex.status!=="scraped"?ex.status:j.status==="pending_approval"?"pending_approval":"scraped"});n++;}
+      toast(`Imported ${n} jobs from the backend queue`);}catch(e){setErr("That file isn't a Vanguard queue.json: "+errMsg(e));}}
+  function exportApprovals(){const approvals=store.jobs.filter(j=>j.approvedAt).map(j=>({jobId:j.backendId||j.id,approvedAt:j.approvedAt,status:j.status==="cold_email_drafted"&&j.gmailDraftId?"cold_email_drafted":"approved",
+      contact:j.contact?{name:j.contact.name,email:j.contact.email,linkedinUrl:j.contact.linkedinUrl}:null,email:j.email||null,alreadyDrafted:!!j.gmailDraftId}));
+    saveFile(`approvals-${todayISO()}.json`,JSON.stringify({exportedAt:new Date().toISOString(),approvals},null,1),toast);}
+  async function move(j,status){await store.saveJob({...j,status,...(status==="cold_email_sent"?{sentAt:new Date().toISOString()}:{})});}
+
+  return html`<div className="stack">
+    <div className="head"><div><h1>Pipeline</h1><p className="sub">Every job from scraped to interview. Pull new postings from your job connectors, or import the backend's queue.json after each cron run.</p></div>
+      <div className="row"><input ref=${fileRef} type="file" accept="application/json,.json" hidden onChange=${e=>e.target.files[0]&&importQueue(e.target.files[0])}/>
+        <button className="btn" onClick=${()=>fileRef.current.click()}><${Icon} n="up"/>Import queue.json</button>
+        <button className="btn" onClick=${exportApprovals}><${Icon} n="down"/>Export approvals</button></div></div>
+    <div className="panel"><div className="line" role="group" aria-label="Filter by stage">
+      ${STATUSES.map(([k,lab,col])=>html`<button key=${k} className="stn" style=${{"--lc":`var(${col})`}} aria-pressed=${filter===k} onClick=${()=>setFilter(filter===k?"all":k)}><span className="ring">${counts[k]}</span><span className="nm">${lab}</span></button>`)}</div></div>
+    <div className="panel stack"><div className="spread"><h2>Find jobs</h2><span className="chip">via your claude.ai connectors</span></div>
+      <div className="row"><select id="q-src" style=${{width:"auto"}} value=${q.source} onChange=${e=>setQ({...q,source:e.target.value})}><option value="workable">Jobs by Workable</option><option value="indeed">Indeed</option></select>
+        <input id="q-text" style=${{flex:"1 1 220px",width:"auto"}} value=${q.query} onChange=${e=>setQ({...q,query:e.target.value})}/>
+        ${q.source==="workable"&&html`<select id="q-days" style=${{width:"auto"}} value=${q.days} onChange=${e=>setQ({...q,days:e.target.value})}><option value="7">7 days</option><option value="21">21 days</option><option value="45">45 days</option></select>`}
+        <button className="btn primary" disabled=${busy} onClick=${find}>${busy?html`<span className="spin"></span>Searching…`:html`<${Icon} n="search"/>Search London`}</button></div>
+      ${err&&html`<div className="note bad">${err}</div>`}
+      ${found.length>0&&html`<div className="tw"><table><thead><tr><th>Role</th><th>Company</th><th>Screen</th><th></th></tr></thead><tbody>
+        ${found.map(f=>{const sc=screen({title:f.title,description:f.description},settings);return html`<tr key=${f.id} style=${{cursor:"default"}}><td><a href=${f.url} target="_blank" rel="noopener">${f.title}</a><div className="mono" style=${{color:"var(--ink-3)"}}>${f.location}${f.posted?" · "+f.posted:""}</div></td><td>${f.company}</td>
+          <td>${sc.blocked?html`<span className="chip miss">${sc.flags.find(x=>x.level==="bad").msg}</span>`:f.description?html`<span className="chip hit">passes filters</span>`:html`<span className="chip">screen after adding</span>`}</td>
+          <td>${known.has(f.id)?html`<span className="chip">in pipeline</span>`:html`<button className="btn" onClick=${()=>add(f)}>Add</button>`}</td></tr>`;})}</tbody></table></div>`}</div>
+    <div className="panel">${shown.length===0?html`<div className="empty">${store.jobs.length?"No jobs at this stage.":"Your pipeline is empty. Search above, paste a JD in the workbench, or import the backend's queue.json."}</div>`:
+      html`<div className="tw"><table><thead><tr><th>Company · role</th><th>Stage</th><th className="num">Match</th><th>Contact</th><th>Move to</th></tr></thead><tbody>
+      ${shown.map(j=>html`<tr key=${j.id} onClick=${()=>{setSelected(j.id);go(j.bullets?"outreach":"workbench");}}>
+        <td><strong>${j.company}</strong><div>${j.title}</div>${j.screen?.length?html`<div className="chips" style=${{marginTop:"4px"}}>${j.screen.map((s,i)=>html`<span key=${i} className="chip warn">${s}</span>`)}</div>`:null}</td>
+        <td><span className="status" style=${{"--lc":`var(${SCOLOR[j.status]||"--l-scraped"})`}}>${SLABEL[j.status]||j.status}</span></td>
+        <td className="num">${pct(j.scoreBefore)} → <strong>${pct(j.scoreAfter)}</strong></td>
+        <td>${j.contact?.name||html`<span style=${{color:"var(--ink-3)"}}>none yet</span>`}</td>
+        <td onClick=${e=>e.stopPropagation()}><select aria-label="Move stage" style=${{width:"auto"}} value=${j.status} onChange=${e=>move(j,e.target.value)}>${STATUSES.map(s=>html`<option key=${s[0]} value=${s[0]}>${s[1]}</option>`)}</select></td></tr>`)}
+      </tbody></table></div>`}</div></div>`;}
+
+function App(){
+  const store=useStore();const [view,setView]=useState(()=>{const h=(location.hash||"").slice(1);return ["profile","workbench","outreach","pipeline"].includes(h)?h:(LS.get("vg.view")||"pipeline");});
+  const [selected,setSelected]=useState(LS.get("vg.sel"));const [msg,setMsg]=useState(null);const [cap,setCap]=useState({});
+  const t=useRef();const toast=useCallback(m=>{setMsg(m);clearTimeout(t.current);t.current=setTimeout(()=>setMsg(null),4200);},[]);
+  useEffect(()=>{LS.set("vg.view",view);},[view]);useEffect(()=>{LS.set("vg.sel",selected);},[selected]);
+  useEffect(()=>{const u=window.claude?.use;if(!u)return;Promise.all(["sample","mcp","downloads"].map(n=>window.claude.use(n).then(v=>{caps[n]=v;return [n,!!v];}))).then(r=>setCap(Object.fromEntries(r)));},[]);
+  const nav=[["pipeline","Pipeline","route"],["workbench","JD workbench","scan"],["outreach","Outreach","send"],["profile","Profile","user"]];
+  const V={profile:Profile,workbench:Workbench,outreach:Outreach,pipeline:Pipeline}[view];
+  return html`<div className="app">
+    <aside className="rail"><div className="brand">Vanguard<small>London · entry-level SWE / applied AI</small></div>
+      <nav className="nav">${nav.map(([k,l,i])=>html`<button key=${k} aria-current=${view===k?"page":undefined} onClick=${()=>setView(k)}><${Icon} n=${i}/>${l}</button>`)}</nav>
+      <div className="railfoot">
+        <div className="cap"><span className=${"dot "+(store.mode==="db"?"on":store.mode==="loading"?"":"off")}></span>${store.mode==="db"?"Saved to your Vanguard store":store.mode==="loading"?"Connecting…":store.mode==="local"?"This browser only":"Store error"}</div>
+        <div className="cap"><span className=${"dot "+(cap.sample?"on":cap.sample===false?"off":"")}></span>Claude for tailoring</div>
+        <div className="cap"><span className=${"dot "+(cap.mcp?"on":cap.mcp===false?"off":"")}></span>Gmail and job connectors</div>
+        <div style=${{marginTop:"6px"}}>Drafts only. Nothing is sent from here.</div></div></aside>
+    <main>${store.mode.startsWith("error")&&html`<div className="note bad" style=${{marginBottom:"12px"}}>${store.mode.slice(6)}</div>`}
+      <${V} store=${store} toast=${toast} selected=${selected} setSelected=${setSelected} go=${setView}/></main>
+    ${msg&&html`<div className="toast" role="status">${msg}</div>`}</div>`;}
+
+ReactDOM.createRoot(document.getElementById("root")).render(html`<${App}/>`);
+</script>

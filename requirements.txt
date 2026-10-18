@@ -1,0 +1,5 @@
+requests>=2.32
+anthropic>=0.40        # optional: only used when ANTHROPIC_API_KEY is set
+playwright>=1.48       # optional: only for the opt-in Google adapter (then: playwright install chromium)
+google-auth-oauthlib>=1.2  # only for the one-time `python mailer.py --auth`
+pytest>=8

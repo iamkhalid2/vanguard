@@ -1,0 +1,8 @@
+__pycache__/
+.venv/
+.pytest_cache/
+out/*
+!out/queue.json
+client_secret*.json
+data/sponsors.csv
+!out/.gitkeep
