@@ -91,3 +91,13 @@ def test_end_to_end(tmpdb, monkeypatch):
     assert mailer.run(dry_run=True)["drafted"] == 1
     assert sync.export(ROOT / "out" / "_test_queue.json") == 1
     (ROOT / "out" / "_test_queue.json").unlink()
+
+
+def test_graduation_window_filter():
+    from vanguard import filters
+    job = {"title": "Graduate Programme 2027: Applied AI Engineer", "location": "London",
+           "description": "To have graduated in 2025, 2026, or 2027. Proficiency in Python."}
+    keep, reason, parsed = filters.evaluate(job, {"graduation_year": 2024})
+    assert not keep and reason == "graduation window [2025, 2026, 2027] excludes 2024"
+    assert filters.evaluate(job, {"graduation_year": 2026})[0]
+    assert filters.grad_years("graduating between 2024 and 2026") == {2024, 2025, 2026}

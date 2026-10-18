@@ -204,9 +204,11 @@ def answer(label: str, table: list[tuple[str, str]]) -> str | None:
     return None
 
 
-def fill_form(page, p: dict, kind: str, resume: Path) -> tuple[list[str], list[str]]:
-    """Returns (filled labels, missing required labels)."""
-    text_rules, opt_rules = rules(p, kind), choice_rules(p)
+def fill_form(page, p: dict, kind: str, resume: Path, job: dict | None = None) -> tuple[list[str], list[str]]:
+    """Returns (filled labels, missing required labels). job["answers"]/job["choices"] are per-job overrides."""
+    job = job or {}
+    text_rules = list(job.get("answers", {}).items()) + rules(p, kind)
+    opt_rules = list(job.get("choices", {}).items()) + choice_rules(p)
     filled, missing = [], []
     scope = page.frame_locator("iframe#grnhse_iframe").locator("body") if page.locator("iframe#grnhse_iframe").count() else page.locator("body")
 
@@ -249,8 +251,8 @@ def fill_form(page, p: dict, kind: str, resume: Path) -> tuple[list[str], list[s
         if not radios.count():
             continue
         lab = label_of(page, grp)
-        target = None if re.search(AMBIGUOUS, lab, re.I) else \
-            next((rx for pat, rx in opt_rules if re.search(pat, lab, re.I)), None)
+        target = next((rx for pat, rx in job.get("choices", {}).items() if re.search(pat, lab, re.I)), None) or \
+            (None if re.search(AMBIGUOUS, lab, re.I) else next((rx for pat, rx in opt_rules if re.search(pat, lab, re.I)), None))
         done = False
         for r in radios.all():
             if target and re.search(target, label_of(page, r), re.I):
@@ -289,6 +291,8 @@ def open_and_fill(ctx, job: dict, p: dict) -> tuple[object, dict]:
     base = {"id": job_id(job), "company": company, "role": role, "url": url, "missing_fields": [], "screenshots": []}
     if "linkedin.com" in urlparse(url).netloc:
         return None, {**base, "status": "skipped", "reason": "LinkedIn is not automated"}
+    if job.get("skip"):
+        return None, {**base, "status": "skipped", "reason": job["skip"]}
     if job.get("hold"):
         return None, {**base, "status": "paused", "reason": job["hold"]}
     resume = resume_for(kind)
@@ -311,7 +315,7 @@ def open_and_fill(ctx, job: dict, p: dict) -> tuple[object, dict]:
     if has_captcha(page) and not wait_out_captcha(page, f"{company} - {role}"):
         return page, {**base, "status": "paused", "reason": "captcha not solved; window left open"}
 
-    filled, missing = fill_form(page, p, kind, resume)
+    filled, missing = fill_form(page, p, kind, resume, job)
     base["filled"], base["resume"] = filled, resume.name
     pre = shots / f"{base['id']}-filled.png"; page.screenshot(path=str(pre), full_page=True)
     base["screenshots"].append(str(pre.relative_to(ROOT)))

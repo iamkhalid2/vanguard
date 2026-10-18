@@ -1,12 +1,43 @@
 [
-  {"company": "Revolut", "role": "Graduate 2027 Android Engineer", "kind": "android",
-   "url": "https://www.revolut.com/careers/position/dc268c11-5ef2-4398-8fe7-6e89dc8aebee/",
-   "hold": "eligibility: programme requires graduating in 2025-2027 and a first-class degree; profile says BSc 2024, degree class not recorded"},
-  {"company": "Revolut", "role": "Graduate 2027 Applied AI Engineer", "kind": "ai",
-   "url": "https://www.revolut.com/careers/position/graduate-programme-2027-applied-ai-engineer-d149dd16-43e9-4372-a4f7-e706d7840797/",
-   "hold": "eligibility: programme requires graduating in 2025-2027 and a first-class degree; profile says BSc 2024, degree class not recorded"},
-  {"company": "Engine by Starling", "role": "Android Engineer", "kind": "android", "url": "https://jobs.workable.com/view/8642e582-1832-476b-adb0-b53fac1ff82a"},
-  {"company": "Permutable", "role": "AI Engineer", "kind": "ai", "url": "https://apply.workable.com/permutable/j/C9EC53D835/",
-   "note": "no Graduate AI Engineer posting exists; AI Engineer is the closest open role"},
-  {"company": "Our Future Health", "role": "Software Engineer (TypeScript/Node)", "kind": "fullstack", "url": "https://jobs.workable.com/view/c97f8c80-beef-4a08-ba9e-024f660181e4"}
+  {
+    "company": "Revolut",
+    "role": "Graduate 2027 Android Engineer",
+    "kind": "android",
+    "url": "https://www.revolut.com/careers/position/dc268c11-5ef2-4398-8fe7-6e89dc8aebee/",
+    "skip": "ineligible: programme requires graduating in 2025-2027; graduated 2024"
+  },
+  {
+    "company": "Revolut",
+    "role": "Graduate 2027 Applied AI Engineer",
+    "kind": "ai",
+    "url": "https://www.revolut.com/careers/position/graduate-programme-2027-applied-ai-engineer-d149dd16-43e9-4372-a4f7-e706d7840797/",
+    "skip": "ineligible: programme requires graduating in 2025-2027; graduated 2024"
+  },
+  {
+    "company": "Engine by Starling",
+    "role": "Android Engineer",
+    "kind": "android",
+    "url": "https://jobs.workable.com/view/8642e582-1832-476b-adb0-b53fac1ff82a"
+  },
+  {
+    "company": "Permutable",
+    "role": "AI Engineer",
+    "kind": "ai",
+    "url": "https://apply.workable.com/permutable/j/C9EC53D835/",
+    "note": "no Graduate AI Engineer posting exists; AI Engineer is the closest open role",
+    "answers": {
+      "llm or nlp system .*production": "Not yet in a production team. The closest is KWealth, a personal four-agent stock analysis system in Python that I built and ran myself: a data scout feeds bull and bear analyst agents in parallel, and a synthesizer weighs both memos. Gemini outputs are validated into Pydantic models (ScoutReport, AnalystMemo, FinalRecommendation) with a 0.0-1.0 confidence score and caveats, and it handles invalid tickers, Gemini 503s and timeouts. I owned all of it; it is a personal project, not used by external users. https://github.com/iamkhalid2/kwealth",
+      "demanding python data or model pipeline": "Not at production scale yet. The most demanding is Invent a GPT, a 19-chapter course that rebuilds Karpathy's 200-line pure-Python GPT. Learners run real Python in the browser through Pyodide, and chapter 16 trains the real microgpt.py on a 32,033-name dataset in the browser. Deployed as a static site to GitHub Pages via GitHub Actions. Reliability challenge: making the in-browser model match the Python implementation, which I solved by checking every exercise with hidden tests and verifying the in-browser model against Python reference outputs. https://iamkhalid2.github.io/microgpt-course",
+      "^cover letter": "Right to work: I have the right to work in the UK until 30 June 2028 and will need sponsorship after that."
+    },
+    "choices": {
+      "vauxhall office.*three days": "^yes\\b"
+    }
+  },
+  {
+    "company": "Our Future Health",
+    "role": "Software Engineer (TypeScript/Node)",
+    "kind": "fullstack",
+    "url": "https://jobs.workable.com/view/c97f8c80-beef-4a08-ba9e-024f660181e4"
+  }
 ]
