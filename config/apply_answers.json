@@ -1,0 +1,9 @@
+{
+  "android": {
+    "relevant (android )?(project|experience)|tell us about (a|an android) project|android experience|why (this role|android)": "Kepler: an Android reading app in Kotlin. Readium 3.4 EPUB reader with FTS5 full-text search, a Media3 read-along player (0.5x-3.5x), WorkManager background generation, and an AI Fence that stops the AI from spoiling chapters the reader has not reached. https://github.com/iamkhalid2/Kepler"
+  },
+  "ai": {
+    "relevant (ai )?(project|experience)|tell us about a project|ai experience|why (this role|ai)": "KWealth: four-agent stock analysis with Pydantic structured outputs and confidence scores (https://github.com/iamkhalid2/kwealth). Invent a GPT: a 19-chapter course that rebuilds a GPT from scratch, with an in-browser model tested against Python reference outputs (https://iamkhalid2.github.io/microgpt-course)."
+  },
+  "fullstack": {}
+}

@@ -1,0 +1,12 @@
+[
+  {"company": "Revolut", "role": "Graduate 2027 Android Engineer", "kind": "android",
+   "url": "https://www.revolut.com/careers/position/dc268c11-5ef2-4398-8fe7-6e89dc8aebee/",
+   "hold": "eligibility: programme requires graduating in 2025-2027 and a first-class degree; profile says BSc 2024, degree class not recorded"},
+  {"company": "Revolut", "role": "Graduate 2027 Applied AI Engineer", "kind": "ai",
+   "url": "https://www.revolut.com/careers/position/graduate-programme-2027-applied-ai-engineer-d149dd16-43e9-4372-a4f7-e706d7840797/",
+   "hold": "eligibility: programme requires graduating in 2025-2027 and a first-class degree; profile says BSc 2024, degree class not recorded"},
+  {"company": "Engine by Starling", "role": "Android Engineer", "kind": "android", "url": "https://jobs.workable.com/view/8642e582-1832-476b-adb0-b53fac1ff82a"},
+  {"company": "Permutable", "role": "AI Engineer", "kind": "ai", "url": "https://apply.workable.com/permutable/j/C9EC53D835/",
+   "note": "no Graduate AI Engineer posting exists; AI Engineer is the closest open role"},
+  {"company": "Our Future Health", "role": "Software Engineer (TypeScript/Node)", "kind": "fullstack", "url": "https://jobs.workable.com/view/c97f8c80-beef-4a08-ba9e-024f660181e4"}
+]
