@@ -38,7 +38,10 @@ CAPTCHA_SELECTORS = ["iframe[src*='recaptcha']", "iframe[src*='hcaptcha']", "ifr
                      ".g-recaptcha", ".h-captcha", ".cf-turnstile"]
 APPLY_BUTTONS = [r"^apply( now| for this job)?$", r"^i'?m interested$", r"^apply on company site$"]
 # right-to-work wording the profile can't answer with a plain yes/no (time-limited visa, sponsorship after June 2028)
-AMBIGUOUS = r"without (any )?restrictions?|indefinite|permanent(ly)?|in the future|now or in the future|at any (point|time)"
+AMBIGUOUS = r"without (any )?restrictions?|without requiring sponsorship|indefinite|permanent(ly)?|in the future|at any (point|time)"
+# "will you now or in the future require sponsorship": truthful answer is yes (after 30 June 2028)
+FUTURE_SPONSOR = r"(require|need)\w*\b.{0,40}sponsorship.{0,40}(future|ever|at any)|(now|currently),? or in the future.{0,40}sponsor"
+FUTURE_SPONSOR_TEXT = "Yes, after 30 June 2028. I have the right to work in the UK until then and do not need sponsorship before that date."
 COUNTED = {"submitted", "submit_unconfirmed"}
 
 
@@ -51,6 +54,8 @@ def load_profile() -> dict:
     phone = re.search(r"\+44[\d ]{9,14}\d", resume_txt)
     answers_path = ROOT / "config" / "apply_answers.json"
     answers = json.loads(answers_path.read_text()) if answers_path.exists() else {}
+    private_path = Path.home() / ".vanguard" / "private.json"   # address etc.; never committed
+    private = json.loads(private_path.read_text()) if private_path.exists() else {}
     first, *rest = c["name"].split()
     return {"first": first, "last": " ".join(rest), "full": c["name"], "email": c["email"],
             "phone": phone.group(0) if phone else "", "location": c.get("location", "London, UK"),
@@ -61,7 +66,12 @@ def load_profile() -> dict:
             "degree": c["education"][0]["degree"], "school": c["education"][0]["school"],
             "grad_year": c["education"][0]["years"].split("-")[-1],
             "employer": c["experience"][0]["company"], "title": c["experience"][0]["title"],
+            "address": private.get("address", ""), "postcode": private.get("postcode", ""),
+            "rtw_unrestricted": private.get("rtw_without_restrictions", ""),
             "answers": answers}
+
+
+PROFILE: dict = {}
 
 
 def rules(p: dict, kind: str) -> list[tuple[str, str]]:
@@ -78,7 +88,9 @@ def rules(p: dict, kind: str) -> list[tuple[str, str]]:
         (r"website|portfolio|personal site|other url", p["website"]),
         (r"\bcity\b|town", p["city"]),
         (r"country of residence|\bcountry\b", p["country"]),
-        (r"location|where are you (based|located)|current address", p["location"]),
+        (r"post ?code|zip", p["postcode"]),
+        (r"^\W*(home |current |street )?address|address line 1", p["address"]),
+        (r"location|where are you (based|located)", p["location"]),
         (r"right to work|eligib\w* to work|work authori[sz]ation|legally (allowed|entitled)", p["rtw"]),
         (r"require (visa )?sponsorship|need sponsorship|visa sponsorship", "Not currently. " + p["rtw"]),
         (r"in(to)? production|production system|scale|users|revenue|team size|managed", ""),   # never invent
@@ -196,8 +208,12 @@ def pick_radio(r) -> None:
 
 
 def answer(label: str, table: list[tuple[str, str]]) -> str | None:
-    if re.search(AMBIGUOUS, label, re.I):
+    if re.search(FUTURE_SPONSOR, label, re.I):
+        return FUTURE_SPONSOR_TEXT
+    if re.search(r"indefinite|permanent", label, re.I):
         return None
+    if re.search(AMBIGUOUS, label, re.I):
+        return PROFILE.get("rtw_unrestricted") or None
     for pat, ans in table:
         if re.search(pat, label, re.I):
             return ans or None   # empty answer = deliberately unanswerable
@@ -228,7 +244,11 @@ def fill_form(page, p: dict, kind: str, resume: Path, job: dict | None = None) -
         lab = label_of(page, el)
         ans = answer(lab, text_rules)
         if ans:
-            el.fill(ans); filled.append(lab)
+            try:
+                el.fill(ans, timeout=5000); filled.append(lab)
+            except Exception:   # read-only / custom widget: count as unanswered if required
+                if is_required(el, lab):
+                    missing.append(f"{lab} (could not type into field)")
         elif is_required(el, lab):
             if el.input_value():   # stale draft restored by the ATS: never keep an answer we can't stand behind
                 el.fill("")
@@ -252,7 +272,9 @@ def fill_form(page, p: dict, kind: str, resume: Path, job: dict | None = None) -
             continue
         lab = label_of(page, grp)
         target = next((rx for pat, rx in job.get("choices", {}).items() if re.search(pat, lab, re.I)), None) or \
-            (None if re.search(AMBIGUOUS, lab, re.I) else next((rx for pat, rx in opt_rules if re.search(pat, lab, re.I)), None))
+            (r"^yes\b" if re.search(FUTURE_SPONSOR, lab, re.I) else
+             None if re.search(r"indefinite|permanent", lab, re.I) else
+             (r"^yes\b" if p["rtw_unrestricted"] else None) if re.search(AMBIGUOUS, lab, re.I) else next((rx for pat, rx in opt_rules if re.search(pat, lab, re.I)), None))
         done = False
         for r in radios.all():
             if target and re.search(target, label_of(page, r), re.I):
@@ -364,6 +386,7 @@ def main() -> None:
 
     from playwright.sync_api import sync_playwright
     p = load_profile()
+    PROFILE.update(p)
     PROFILE_DIR.mkdir(parents=True, exist_ok=True)
     results, ready_out, keep_open = [], [], False
     with sync_playwright() as pw:
