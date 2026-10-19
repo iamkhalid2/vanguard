@@ -23,6 +23,9 @@ from .profile import ROOT, Profile
 
 ANSWERS_DIR = ROOT / "config" / "answers"
 
+# facts that only the profile may answer; a job's authored answers can override anything else
+IDENTITY = {"first_name", "last_name", "full_name", "preferred_name", "email", "phone", "linkedin", "github",
+            "website", "links_combined", "school", "degree", "grad_year", "current_employer", "current_title"}
 # fields that are correct to leave empty when optional
 INTENTIONAL_SKIP = {"eeo", "pronouns", "photo", "how_heard_other", "referral", "unknown_choice"}
 
@@ -232,7 +235,7 @@ def plan(fields: list[dict], job: dict, prof: Profile) -> list[Item]:
                     it.status = "needs_writer"
                     it.problems.append("free-text question with no authored answer; write one with `apply.py brief`")
             else:
-                text = _authored_for(table, label, intent) if intent not in fx else None
+                text = _authored_for(table, label, intent) if intent not in IDENTITY else None
                 val = text or fx.get(intent, "")
                 if val:
                     it.action, it.value, it.source = "type", val, "authored" if text else "fact"

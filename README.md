@@ -13,8 +13,10 @@ tailor.py       Module C  ATS scoring, project selection, grounded bullets, LaTe
 enricher.py     Module D  persona routing, LinkedIn search links, <90-word email
 mailer.py       Module D/E  approved emails -> Gmail drafts (never sends), 15/day cap
 sync.py         bridge     export out/queue.json, import approvals JSON
+apply.py        Module E  fill + verify application forms; submit only ids a human approved (see ARCHITECTURE.md 3b)
 run.py          the cron entry point (all of the above in order)
-vanguard/       db.py (schema), keywords.py, filters.py, grounding.py, latex.py, llm.py, ghgraph.py (Module B)
+vanguard/       db.py (schema), keywords.py, filters.py, grounding.py, latex.py, llm.py, ghgraph.py (Module B),
+                profile.py, evidence.py, questions.py, writer.py, answers.py, forms.py, tracker.py, shortlist.py
 config/         targets.json (companies + caps), skills_lexicon.json, base_resume.txt
 data/           knowledge_graph.json, vanguard.db (created on first run)
 tests/          offline end-to-end test (fake board -> draft)
@@ -25,10 +27,20 @@ tests/          offline end-to-end test (fake board -> draft)
 ```bash
 python -m venv .venv && . .venv/bin/activate
 pip install -r requirements.txt
-pytest -q                       # 4 tests, offline
+python -m playwright install chromium   # once, for the form tests
+pytest -q                       # all modules + the whole-machine test, offline
 python scraper.py --check       # which board tokens resolve (fix 404s in config/targets.json)
 python run.py                   # full pipeline; deterministic unless ANTHROPIC_API_KEY is set
 python sync.py export           # -> out/queue.json, import it in the Command Center Pipeline
+```
+
+## Apply step
+
+```bash
+python apply.py --plan --batch config/apply_batch.json   # read each form, write runs/plans/<id>.md answer sheets, touch nothing
+python apply.py --brief <id>                             # what Claude needs to write a better answer for <id>
+python apply.py --batch config/apply_batch.json          # fill, read every value back, screenshot -> runs/ready-to-submit.json
+python apply.py --submit <id>,<id>                        # submit exactly the ids a human approved
 ```
 
 ## Deploy on GitHub Actions ($0)

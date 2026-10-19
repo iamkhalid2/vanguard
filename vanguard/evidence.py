@@ -64,4 +64,6 @@ def allowed_leads(projects: list[dict], jd_text: str = "", intent: str = "free_t
     ordered = rank(projects, jd_text, intent)
     if intent in IMPACT_INTENTS and not REQUIRES.get(intent):
         return {p["id"] for p in ordered if p.get("showcase_rank", 99) <= SHOWCASE_TOP}
+    if REQUIRES.get(intent):   # any substantial project with the required stack is a fair answer
+        return {p["id"] for p in ordered if REQUIRES[intent] & set(p.get("skills", [])) and p.get("showcase_rank", 99) <= SHOWCASE_TOP + 1}
     return {p["id"] for p in ordered[:2]}
