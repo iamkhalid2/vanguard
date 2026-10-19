@@ -26,6 +26,16 @@ ANSWERS_DIR = ROOT / "config" / "answers"
 # facts that only the profile may answer; a job's authored answers can override anything else
 IDENTITY = {"first_name", "last_name", "full_name", "preferred_name", "email", "phone", "linkedin", "github",
             "website", "links_combined", "school", "degree", "grad_year", "current_employer", "current_title"}
+# facts Vanguard has no source for; never guessed, so they go to Khalid when required and stay empty otherwise
+NEVER_GUESS = {"pronunciation", "high_school", "high_school_year"}
+# short values typed into searchable dropdowns (comboboxes), whose options are only known once opened
+COMBO_VALUES = {"rtw": "Yes", "sponsorship": "Yes", "office": "Yes", "relocation": "No", "enrolled_recently": "No",
+                "previously_employed_here": "No", "clearance": "No", "messaging_opt_in": "No", "deadline": "No",
+                "recording_consent": "Yes", "privacy_consent": "Yes", "school": "Other", "degree": "Bachelor",
+                "how_heard": "Job board", "years_experience": "0"}
+PREFERENCE_TERMS = {"android": ["Mobile", "Android", "AI", "Machine Learning", "Full", "Product", "Front"],
+                    "ai": ["AI", "Machine Learning", "Full", "Product", "Back", "Mobile"],
+                    "fullstack": ["Full", "Product", "Front", "AI", "Back"]}
 # fields that are correct to leave empty when optional
 INTENTIONAL_SKIP = {"eeo", "pronouns", "photo", "how_heard_other", "referral", "unknown_choice"}
 
@@ -46,7 +56,7 @@ CHOICES = {   # intent -> option regexes in preference order
     "city": [r"london"],
     "years_experience": [r"^0\b|^<\s*1|less than (1|one)|none|no experience|^0\s*-\s*1"],
     "degree": [r"bachelor|\bbsc\b|undergraduate|\bba\b|b\.sc"],
-    "school": [r"other|not listed"],
+    "school": [r"^other\b|not listed|isn.t listed|not on (the|this) list"],
     "deadline": [r"^no\b"],
     "privacy_consent": [r"^yes\b|agree|accept|consent|i have read"],
     "grad_year": [],          # filled from profile below
@@ -82,12 +92,11 @@ def facts(p: Profile) -> dict[str, str]:
     links = ", ".join(x for x in (p.linkedin, p.github, p.website) if x)
     return {
         "first_name": p.first, "last_name": p.last, "full_name": p.full, "preferred_name": p.first,
-        "pronunciation": d.get("pronunciation", ""), "email": p.email, "phone": p.phone,
+        "pronunciation": "", "email": p.email, "phone": p.phone,
         "linkedin": p.linkedin, "github": p.github, "website": p.website or p.github, "links_combined": links,
         "city": p.city, "country": p.country, "location": p.location, "address": p.address, "postcode": p.postcode,
         "current_employer": p.employer, "current_title": p.title, "school": p.school, "degree": p.degree,
-        "grad_year": str(p.grad_year), "high_school": d.get("high_school", ""),
-        "high_school_year": str(p.grad_year - 3), "test_scores": d.get("test_scores", ""),
+        "grad_year": str(p.grad_year), "high_school": "", "high_school_year": "", "test_scores": d.get("test_scores", ""),
         "years_experience": str(p.commercial_swe_years),
         "rtw": (f"Yes. I have the right to work in the UK until {p.rtw_until}, with no restrictions before then. "
                 f"I would need sponsorship after that date."),
@@ -101,6 +110,10 @@ def facts(p: Profile) -> dict[str, str]:
         "enrolled_recently": "No", "recording_consent": d.get("recording_consent", "Yes"),
         "messaging_opt_in": d.get("messaging_opt_in", "No"), "referral": "",
     }
+
+
+def norm_opt(s: str) -> str:
+    return re.sub(r"\W+", " ", s or "").strip().lower()
 
 
 def pick_option(intent: str, options: list[str], want: str = "") -> str | None:
@@ -189,7 +202,11 @@ def plan(fields: list[dict], job: dict, prof: Profile) -> list[Item]:
             else:
                 it.status = "skip"
         elif kind in ("select", "radio", "combobox") or (kind == "checkbox" and opts):
-            if intent == "preferences":
+            if intent == "preferences" and kind == "combobox" and not opts:
+                rank = len([i for i in items if i.intent == "preferences"])
+                terms = PREFERENCE_TERMS.get(job.get("kind", "fullstack"), PREFERENCE_TERMS["fullstack"])
+                it.action, it.value, it.source = "select", terms[min(rank, len(terms) - 1)], "choice"
+            elif intent == "preferences":
                 vals = pick_preferences(opts, job.get("kind", "fullstack"), 3 if kind == "checkbox" else 1)
                 rank = len([i for i in items if i.intent == "preferences"])   # 2nd/3rd preference selects
                 if kind != "checkbox":
@@ -198,10 +215,15 @@ def plan(fields: list[dict], job: dict, prof: Profile) -> list[Item]:
                 it.action, it.value, it.source = "select", vals if kind == "checkbox" else (vals[0] if vals else ""), "choice"
             else:
                 want = fx.get(intent, "")
-                if intent in ("grad_year", "high_school_year"):
+                if intent in NEVER_GUESS:
+                    choice = None
+                elif intent in ("grad_year", "high_school_year"):
                     choice = pick_option(intent, opts, want)
                 elif kind == "combobox":
-                    choice = want or None     # typed, then matched against live suggestions
+                    # typed, then matched against live suggestions; a dropdown takes a short option, never a sentence
+                    choice = COMBO_VALUES.get(intent) or (want if want and len(want) <= 40 else None)
+                elif intent == "school":
+                    choice = next((o for o in opts if norm_opt(o) == norm_opt(want)), None) or pick_option(intent, opts)
                 else:
                     choice = pick_option(intent, opts, want if intent not in ("rtw", "sponsorship", "office") else "")
                 if choice:
@@ -239,7 +261,10 @@ def plan(fields: list[dict], job: dict, prof: Profile) -> list[Item]:
                 val = text or fx.get(intent, "")
                 if val:
                     it.action, it.value, it.source = "type", val, "authored" if text else "fact"
-                elif intent in INTENTIONAL_SKIP or intent == "unknown" and not it.required:
+                elif intent in NEVER_GUESS and it.required:
+                    it.status = "needs_khalid"
+                    it.problems.append(f"no source for '{label}'; never guessed")
+                elif intent in INTENTIONAL_SKIP or intent in NEVER_GUESS or intent == "unknown" and not it.required:
                     it.status = "skip"
                 else:
                     it.status = "needs_khalid" if it.required else "skip"

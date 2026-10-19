@@ -70,11 +70,24 @@ READ_JS = r"""
   };
   const requiredMark = t => /[*✱]\s*$/.test(t) || /\(required\)/i.test(t);
   const fields = []; const seen = new Set(); let n = 0;
+  // a text control the user can't see or reach: react-select's required-validation input (opacity 0,
+  // tabindex -1) and anything inside aria-hidden. Stripe's form has one beside every dropdown.
+  const ghost = e => e.closest('[aria-hidden="true"]') ||
+      (getComputedStyle(e).opacity === '0' && (e.tabIndex < 0 || e.readOnly));
+  // radios/checkboxes without a name: the group is the nearest ancestor holding more than one of them
+  const unnamedGroup = (e, type) => {
+    for (let box = e.parentElement; box && box !== root.parentElement; box = box.parentElement) {
+      const g = [...box.querySelectorAll(`input[type=${type}]`)].filter(x => !x.name && shown(x));
+      if (g.length > 1) return controlsIn(box).every(c => g.includes(c)) ? g : [e];
+    }
+    return [e];
+  };
   for (const e of root.querySelectorAll(CONTROL)) {
     if (seen.has(e) || !shown(e)) continue;
     const type = (e.getAttribute('type') || e.tagName).toLowerCase();
-    if ((type === 'radio' || type === 'checkbox') && e.name) {
-      const group = [...root.querySelectorAll(`input[name="${CSS.escape(e.name)}"]`)].filter(shown);
+    if (!['radio', 'checkbox', 'file'].includes(type) && e.tagName !== 'SELECT' && ghost(e)) { seen.add(e); continue; }
+    if (type === 'radio' || type === 'checkbox') {
+      const group = e.name ? [...root.querySelectorAll(`input[name="${CSS.escape(e.name)}"]`)].filter(shown) : unnamedGroup(e, type);
       group.forEach(g => seen.add(g));
       if (type === 'radio' || group.length > 1) {
         const key = `vg${n++}`;
@@ -95,7 +108,8 @@ READ_JS = r"""
     const key = `vg${n++}`; e.setAttribute('data-vg', key);
     const combo = e.getAttribute('role') === 'combobox' || e.getAttribute('aria-autocomplete') === 'list';
     const kind = e.tagName === 'TEXTAREA' ? 'textarea' : e.tagName === 'SELECT' ? 'select' :
-                 type === 'file' ? 'file' : type === 'checkbox' ? 'checkbox' : combo ? 'combobox' : 'text';
+                 type === 'file' ? 'file' : type === 'checkbox' ? 'checkbox' : type === 'radio' ? 'radio' :
+                 combo ? 'combobox' : 'text';
     let label = wired(e) || above(e, [e]);
     const ph = clean(e.getAttribute('placeholder'));
     if (!label && ph && !GENERIC.test(ph)) label = ph;
@@ -264,9 +278,11 @@ def fill(page, scope, items, root: Path = Path(".")) -> list[str]:
                 el.fill("")
                 want = str(it.value).split(",")[0].strip()      # "London, UK" -> type "London"
                 el.press_sequentially(want, delay=60)
-                opt = page.locator("[role=option]").filter(has_text=re.compile(re.escape(want), re.I))
-                opt.first.wait_for(state="visible", timeout=8000)
-                opt.first.click()
+                opts = page.locator("[role=option]")
+                opts.first.wait_for(state="visible", timeout=8000)
+                exact = opts.filter(has_text=re.compile(rf"^\s*{re.escape(want)}\s*$", re.I))
+                opt = exact if exact.count() else opts.filter(has_text=re.compile(rf"\b{re.escape(want)}", re.I))
+                opt.first.click(timeout=5000)
         except Exception as e:
             errors.append(f"{it.label or it.key}: {type(e).__name__}: {str(e)[:120]}")
     page.wait_for_timeout(500)

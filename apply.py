@@ -25,7 +25,7 @@ import sys
 from pathlib import Path
 from urllib.parse import urlparse
 
-from vanguard import answers, forms, profile, tracker, writer
+from vanguard import answers, filters, forms, profile, tracker, writer
 
 ROOT = Path(__file__).resolve().parent
 PROFILE_DIR = Path.home() / ".vanguard" / "profile"
@@ -111,6 +111,9 @@ def process(ctx, job: dict, prof: profile.Profile, mode: str, runs: Path) -> dic
 
     page = open_form(ctx, j)
     rec["final_url"] = page.url
+    window = sorted(filters.grad_years(j.get("jd_text") or page.inner_text("body")))
+    if window and prof.grad_year not in window:
+        return {**rec, "status": "skipped", "reason": f"ineligible: graduation window {window} excludes {prof.grad_year}"}
     if forms.has_captcha(page):
         return {**rec, "status": "parked-captcha", "reason": "CAPTCHA on the form; left for later"}
     scope = forms.scope_of(page)

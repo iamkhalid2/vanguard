@@ -88,3 +88,8 @@ def test_classify(label, kind, intent):
 def test_empty_and_unknown():
     assert classify("", "text") == "unknown"
     assert classify("+44", "select") == "unknown"
+
+
+def test_url_in_question_does_not_decide_intent():
+    label = "Which role resonates more with you, FDSE or SWE, and why? (https://www.palantir.com/careers/students)"
+    assert classify(label, "textarea") == "free_text"
