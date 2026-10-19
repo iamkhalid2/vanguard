@@ -41,19 +41,19 @@ _R = [
     ("github", r"^\W*(link to )?(your )?github( profile| url| username)?\W*$|github (profile|url|link|username)"),
     ("website", r"\b(website|portfolio|personal site|blog|other (url|link|website))\b"),
     ("full_name", r"^\W*(full |legal )?name\W*$|^\W*your (full )?name\b|^\W*name\b(?!.*pronoun)"),
-    # --- location
-    ("postcode", r"\b(post ?code|zip( code)?|postal code)\b"),
-    ("address", r"^\W*(home |current |street |postal |residential )?address\b|address line 1"),
-    ("country", r"\bcountry\b"),
-    ("city", r"^\W*(city|town)\b|location \(city\)"),
-    ("relocation", r"\brelocat\w*"),
-    ("office", r"\b(office|on-?site|in person|hybrid|days a week|commute)\b"),
-    ("location", r"\b(location|where are you (currently )?(based|located)|where do you live|currently resid\w*|confirm your current location)\b"),
     # --- right to work
     ("rtw_document", r"\b(document|passport|settled status|ilr|visa type|type of visa|immigration status)\b"),
     ("rtw", r"\b(right to work|eligib\w* to work|work authori[sz]\w*|legally (allowed|entitled|authori[sz]ed)|permission to work)\b"),
     ("sponsorship", r"\bsponsor\w*\b"),
     ("clearance", r"\b(security clearance|sc clearance|dv clearance|vetting)\b"),
+    # --- location
+    ("postcode", r"\b(post ?code|zip( code)?|postal code)\b"),
+    ("address", r"^\W*(home |current |street |postal |residential )?address\b|address line 1"),
+    ("country", r"^\W*(country|nationality)\b|country (of|where|you)|which country|(select|choose) (the|your) country"),
+    ("city", r"^\W*(city|town)\b|location \(city\)"),
+    ("relocation", r"\brelocat\w*"),
+    ("office", r"\b(office|on-?site|in person|hybrid|days a week|commute)\b"),
+    ("location", r"\b(location|where are you (currently )?(based|located)|where do you live|currently resid\w*|confirm your current location)\b"),
     # --- education and employment facts
     ("high_school_year", r"\bhigh school\b.*\b(year|date|graduat\w*)\b"),
     ("high_school", r"\b(high school|secondary school|a-?levels?)\b"),

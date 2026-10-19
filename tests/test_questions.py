@@ -41,6 +41,7 @@ CASES = [
     ("Applicants must already have the legal right to work in the UK, as we are unable to offer visa sponsorship. Please confirm", "radio", "rtw"),
     ("Are you currently eligible to work in United Kingdom?*", "radio", "rtw"),
     ("Do you have the right to work in the UK without requiring sponsorship?", "radio", "rtw"),
+    ("Are you legally authorized to work in the country for which you are applying?*", "select", "rtw"),
     ("Will you now, or in the future, require sponsorship to work in the UK?", "radio", "sponsorship"),
     ("Do you require visa sponsorship, now or in the future, to continue working in United Kingdom?*", "select", "sponsorship"),
     ("* Please confirm the current right to work document you hold, eg. British passport, settled status, ILR, Skilled Worker", "text", "rtw_document"),

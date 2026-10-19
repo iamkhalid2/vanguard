@@ -1,0 +1,25 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Software Engineer, New Grad</title></head><body>
+<form id="application_form">
+ <div class="field"><label for="first_name">First Name<span class="asterisk">*</span></label><input id="first_name" name="first_name" aria-required="true"></div>
+ <div class="field"><label for="last_name">Last Name<span class="asterisk">*</span></label><input id="last_name" name="last_name" aria-required="true"></div>
+ <div class="field"><label for="email">Email<span class="asterisk">*</span></label><input id="email" name="email" aria-required="true"></div>
+ <div class="field"><label for="phone">Phone</label><input id="phone" name="phone"></div>
+ <div class="field"><label for="resume">Resume/CV<span>*</span></label><input type="file" id="resume" name="resume"></div>
+ <div class="field"><label for="cover">Cover Letter</label><input type="file" id="cover" name="cover"></div>
+ <div class="field"><label for="q1">LinkedIn Profile</label><input id="q1" name="q1"></div>
+ <div class="field"><label for="q2">Website</label><input id="q2" name="q2"></div>
+ <div class="field"><label for="q3">Will you now, or in the future, require sponsorship to work in the UK?*</label>
+   <select id="q3" name="q3"><option value="">Select...</option><option>Yes</option><option>No</option></select></div>
+ <div class="field"><label for="q4">Are you legally authorized to work in the country for which you are applying?*</label>
+   <select id="q4" name="q4"><option value="">Select...</option><option>Yes</option><option>No</option></select></div>
+ <div class="field"><label for="q5">What are your salary expectations?</label><input id="q5" name="q5"></div>
+ <div class="field"><label for="q6">Why Exampleco?*</label><textarea id="q6" name="q6" required></textarea></div>
+ <div class="field"><label for="q7">Do you opt-in to receive WhatsApp messages from Exampleco Recruiting?*</label>
+   <select id="q7" name="q7"><option value="">Select...</option><option>Yes</option><option>No</option></select></div>
+ <div class="field"><label for="gender">Gender</label>
+   <select id="gender" name="gender"><option value="">Select...</option><option>Male</option><option>Female</option><option>I don't wish to answer</option></select></div>
+ <div class="field"><label><input type="checkbox" id="gdpr" name="gdpr"> I have read, understand and accept the content of the Privacy Notice and consent to the processing of my data as part of this application.</label></div>
+ <button type="submit">Submit Application</button>
+</form>
+<script>document.getElementById('application_form').addEventListener('submit', e => { e.preventDefault();
+  document.body.innerHTML = '<h1>Thank you for applying.</h1>'; });</script></body></html>
