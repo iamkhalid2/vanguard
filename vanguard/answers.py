@@ -78,7 +78,7 @@ class Item:
     kind: str
     intent: str
     required: bool
-    action: str = "skip"          # type | select | check | upload | skip
+    action: str = "skip"          # type | select | check | upload | sight (visual filler only) | skip
     value: str | list = ""
     source: str = ""              # fact | default | choice | authored | llm | composer | file
     status: str = "ok"            # ok | skip | needs_writer | needs_khalid
@@ -185,6 +185,18 @@ def plan(fields: list[dict], job: dict, prof: Profile) -> list[Item]:
         it = Item(key=f["key"], label=label, kind=kind, intent=intent, required=bool(f.get("required")))
         opts = f.get("options") or []
 
+        if kind == "orphan":
+            # a question the reader found on the page but no control for; the visual filler answers it
+            it.intent = questions.classify(label, "radio")
+            val = COMBO_VALUES.get(it.intent) or fx.get(it.intent, "")
+            if it.intent in questions.PERSONAL or it.intent in NEVER_GUESS or not val or len(val) > 40:
+                it.status = "needs_khalid" if it.required else "skip"
+                if it.required:
+                    it.problems.append(f"question '{label}' has no readable control and no short answer")
+            else:
+                it.action, it.value, it.source = "sight", val, "default"
+            items.append(it)
+            continue
         if intent in questions.PERSONAL:
             ans = prof.defaults.get("legal_declarations", {}).get(label) if isinstance(prof.defaults.get("legal_declarations"), dict) else None
             if ans and kind in ("select", "radio"):
@@ -363,5 +375,6 @@ def sheet(items: list[Item]) -> str:
         if i.status == "skip":
             continue
         v = ", ".join(i.value) if isinstance(i.value, list) else ("[tick]" if i.value is True else i.value)
-        lines.append(f"### {i.label or i.key}  ({i.kind}, {i.intent}, {i.source or i.status})\n{v if i.status == 'ok' else i.status.upper()}\n")
+        how = "pick on screen by sight; no control was readable" if i.action == "sight" else i.kind
+        lines.append(f"### {i.label or i.key}  ({how}, {i.intent}, {i.source or i.status})\n{v if i.status == 'ok' else i.status.upper()}\n")
     return "\n".join(lines)

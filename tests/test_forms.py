@@ -117,3 +117,16 @@ def test_test_run_regressions_2026_10_19(browser):
     assert items["How did you hear about ExampleVoice?"].value == "Job board"
     assert items["Which university did you last attend?"].value == "Other (School Not Listed)"
     assert items["High School Name*"].status == "needs_khalid"          # never guessed
+
+
+def test_question_without_a_control_reaches_the_sheet(browser):
+    """2026-10-19: Ashby's required "How did you hear" question never made it onto the sheets."""
+    page = browser.new_page()
+    page.goto((FIX / "ashby_buttons.html").as_uri())
+    fields = forms.read(forms.scope_of(page))
+    orphans = [f for f in fields if f["kind"] == "orphan"]
+    assert [f["label"] for f in orphans] == ["How did you hear about ExampleVoice?*"]
+    items = {i.label: i for i in answers.plan(fields, job("ExampleVoice"), P)}
+    heard = items["How did you hear about ExampleVoice?*"]
+    assert (heard.action, heard.value, heard.status) == ("sight", "Job board", "ok")
+    assert "by sight" in answers.sheet(list(items.values()))
