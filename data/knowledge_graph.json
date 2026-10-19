@@ -115,7 +115,26 @@
       ],
       "on_resume": true,
       "tagline": "Open-source (GPL-3.0) Android app to read, listen to and remember books",
-      "_verify": "Resumes earlier claimed GitHub Actions CI and signed APK releases; the README does not show either, so they are left out until the workflow exists."
+      "_verify": "Resumes earlier claimed GitHub Actions CI and signed APK releases; the README does not show either, so they are left out until the workflow exists.",
+      "showcase_rank": 1,
+      "story": {
+        "hook": "my open-source (GPL-3.0) Android app for reading, listening to and remembering books, which I designed and built alone in Kotlin and Jetpack Compose",
+        "contribution": "The architecture is mine end to end: app, core, engine and feature modules covering the reader, the narration engine, the AI features and the spaced-repetition scheduler",
+        "hard_problem": "keeping everything anchored to the text, because bookmarks, highlights, audio sync and flashcards all break when a book re-paginates",
+        "solution": "a Text Spine of deterministic sentence and paragraph IDs that every feature shares as one coordinate system",
+        "verification": "Each module has its own unit tests that run through Gradle, so a regression in the EPUB, TTS, playback, AI or spaced-repetition engines shows up before it reaches the app. Because a highlight, bookmark or audio position is just a deterministic Text Spine ID, I can change the typography, re-paginate, and confirm each one still lands on the same sentence. The AI Fence is enforced where the prompt is assembled, not by asking the model to behave, so verifying it means inspecting the assembled context and confirming nothing past the reading position is in it.",
+        "display": "Kepler",
+        "highlights": [
+          "Narration runs through a Media3 read-along player with sentence-level highlighting, using offline system TTS or Fish Audio neural voices, with long chapters generated in the background by WorkManager.",
+          "An AI Fence clips every LLM prompt (OpenRouter, bring your own key) to the reader's current position, so chapter summaries and recaps never spoil unread chapters.",
+          "Search runs on SQLite FTS5 over a Readium 3.4 EPUB reader, and reviews use FSRS-6 spaced repetition.",
+          "Privacy is built in: no telemetry, and API keys are encrypted with Android Keystore AES-256-GCM.",
+          "The code is split into app, core, engine and feature modules, and each module has its own unit tests run through Gradle."
+        ]
+      },
+      "aliases": [
+        "Kepler"
+      ]
     },
     {
       "id": "computer-use",
@@ -155,6 +174,23 @@
           "problem": "Hands-free control of a desktop by voice",
           "solution": "Gemini Live over WebSockets plus OCR-grounded screen actions"
         }
+      ],
+      "showcase_rank": 2,
+      "story": {
+        "hook": "a Python project that streams speech and commands both ways to the Gemini Live API over WebSockets and acts on the screen",
+        "contribution": "I built it end to end: the audio capture threads, the streaming client, the OCR screen reader and the mouse and keyboard control layer",
+        "hard_problem": "turning a live voice stream into reliable actions on a screen the model cannot see directly",
+        "solution": "multi-threaded audio capture with noise reduction and adaptive silence detection, plus Tesseract OCR so every click is grounded in text actually on screen",
+        "verification": "Success meant saying a command and watching the agent find the right element by its on-screen text and act on it, in voice or text mode.",
+        "display": "a voice-controlled desktop agent",
+        "highlights": [
+          "Audio capture runs on its own threads with noise reduction and adaptive silence detection, so the WebSocket stream to Gemini Live carries clean speech.",
+          "Tesseract OCR reads the screen, so every mouse and keyboard action is grounded in text that is actually there."
+        ]
+      },
+      "aliases": [
+        "Computer-Use",
+        "desktop agent"
       ]
     },
     {
@@ -194,6 +230,22 @@
           "problem": "Single-prompt LLM stock takes are one-sided",
           "solution": "Adversarial bull/bear agents reconciled by a synthesizer with typed outputs"
         }
+      ],
+      "showcase_rank": 4,
+      "story": {
+        "hook": "a four-agent stock analysis system in Python, where a data scout feeds bull and bear analyst agents in parallel and a synthesizer weighs their memos",
+        "contribution": "I designed the agent roles and wrote the pipeline, the Pydantic schemas and the error handling",
+        "hard_problem": "single-prompt LLM stock takes are one-sided and their output is unstructured",
+        "solution": "adversarial bull and bear agents reconciled by a synthesizer, with every Gemini output validated into Pydantic models carrying a confidence score",
+        "verification": "Every agent output must validate into its Pydantic model (ScoutReport, AnalystMemo, FinalRecommendation) or the run fails loudly, and the pipeline handles invalid tickers, Gemini 503s, timeouts and missing data.",
+        "display": "KWealth",
+        "highlights": [
+          "Every Gemini output is validated into a Pydantic model (ScoutReport, AnalystMemo, FinalRecommendation) with a confidence score and caveats.",
+          "It handles invalid tickers, Gemini 503s, timeouts and missing data instead of failing silently."
+        ]
+      },
+      "aliases": [
+        "KWealth"
       ]
     },
     {
@@ -238,6 +290,23 @@
           "problem": "Transformer internals are opaque to beginners",
           "solution": "Fog-of-war walkthrough of every line with runnable, tested exercises"
         }
+      ],
+      "showcase_rank": 3,
+      "story": {
+        "hook": "a 19-chapter interactive course that rebuilds Andrej Karpathy's 200-line pure-Python GPT from scratch, with real Python running in the browser through Pyodide",
+        "contribution": "I wrote the course, the exercise checker and the Svelte front end, and deployed it to GitHub Pages with GitHub Actions",
+        "hard_problem": "making transformer internals checkable for a beginner without a server",
+        "solution": "hidden tests on every exercise and an in-browser model verified against Python reference outputs",
+        "verification": "Every exercise is checked by a hidden test, and the in-browser model is verified against Python reference outputs, so I know the browser version computes the same thing as the reference implementation. Chapter 16 trains the real microgpt.py in the browser.",
+        "display": "Invent a GPT",
+        "highlights": [
+          "Every exercise is checked by a hidden test, and the in-browser model is verified against Python reference outputs.",
+          "Chapter 16 trains the real microgpt.py in the browser on a 32,033-name dataset, and the site deploys to GitHub Pages through GitHub Actions."
+        ]
+      },
+      "aliases": [
+        "Invent a GPT",
+        "microgpt"
       ]
     },
     {
@@ -275,6 +344,23 @@
           "problem": "Editing site content without a database",
           "solution": "Atomic commits through the GitHub git data API with conflict detection"
         }
+      ],
+      "showcase_rank": 5,
+      "story": {
+        "hook": "a Next.js site at iamkhalid.xyz whose admin edits content without a database",
+        "contribution": "I built the site, the CMS and the CI that deploys it to Vercel",
+        "hard_problem": "editing site content safely without a database",
+        "solution": "schema-driven admin forms that commit content atomically through the GitHub git data API with conflict detection and retries, behind GitHub OAuth",
+        "verification": "CI runs typecheck, lint and build on every change before Vercel deploys it.",
+        "display": "my portfolio's git-backed CMS",
+        "highlights": [
+          "Schema-driven admin forms commit content atomically through the GitHub git data API, with conflict detection and retries, behind GitHub OAuth and signed HttpOnly session cookies.",
+          "CI runs typecheck, lint and build before every Vercel deploy."
+        ]
+      },
+      "aliases": [
+        "git-backed CMS",
+        "iamkhalid.xyz"
       ]
     },
     {
@@ -313,6 +399,22 @@
           "problem": "Performance and SEO regress silently on a small business site",
           "solution": "CI-enforced budgets and automated SEO tests"
         }
+      ],
+      "showcase_rank": 6,
+      "story": {
+        "hook": "a statically generated Next.js site for a bakery, live at bustanbakers.com",
+        "contribution": "I built and deployed it, including the CI pipeline",
+        "hard_problem": "performance and SEO regressing silently on a small business site",
+        "solution": "a GitHub Actions pipeline that fails the build if any route exceeds its JavaScript or transfer budget, plus automated per-route SEO checks",
+        "verification": "The build fails if any route exceeds 178 KB gzipped JavaScript or 900 KB transfer, and per-route SEO checks run in CI.",
+        "display": "the Bustan Bakers website",
+        "highlights": [
+          "A GitHub Actions pipeline fails the build if any route exceeds 178 KB of gzipped JavaScript or 900 KB of transfer, and per-route SEO checks run in CI."
+        ]
+      },
+      "aliases": [
+        "Bustan",
+        "bakery"
       ]
     },
     {
@@ -340,7 +442,11 @@
         "15 forks",
         "10-conversation context window"
       ],
-      "problem_solution": []
+      "problem_solution": [],
+      "showcase_rank": 7,
+      "aliases": [
+        "WhatsAppGPT"
+      ]
     },
     {
       "id": "kiraya",
@@ -368,7 +474,11 @@
         "6 platforms",
         "5 GitHub stars"
       ],
-      "problem_solution": []
+      "problem_solution": [],
+      "showcase_rank": 8,
+      "aliases": [
+        "Kiraya"
+      ]
     },
     {
       "id": "blackhole-c",
@@ -387,7 +497,12 @@
         "Dependency-free general-relativity ray tracer in C99, parallelised with OpenMP"
       ],
       "metrics": [],
-      "problem_solution": []
+      "problem_solution": [],
+      "showcase_rank": 9,
+      "aliases": [
+        "Black Hole Simulation",
+        "ray tracer"
+      ]
     },
     {
       "id": "usage-band",
@@ -405,7 +520,11 @@
         "Claude Code mod showing a slim 5-hour and weekly usage line above the prompt"
       ],
       "metrics": [],
-      "problem_solution": []
+      "problem_solution": [],
+      "showcase_rank": 10,
+      "aliases": [
+        "usage-band"
+      ]
     }
   ]
 }
