@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-18",
+  "generated_at": "2026-10-19",
   "source": "Seeded from github.com/iamkhalid2 READMEs (fetched 2026-10-18) and the current resumes in career/ (FullStack, Frontend, ITSupport, replaced 2026-10-18). Rebuild from the live API with: python -m vanguard.ghgraph",
   "candidate": {
     "name": "Mohammad Khalid",
@@ -50,7 +50,10 @@
         "aes-gcm",
         "android",
         "android keystore",
+        "anthropic",
         "architecture",
+        "bash",
+        "ci/cd",
         "context filtering",
         "datastore",
         "epub",
@@ -58,6 +61,8 @@
         "fish audio",
         "fsrs",
         "fts5",
+        "full-text search",
+        "git",
         "gradle",
         "guardrails",
         "jetpack compose",
@@ -68,15 +73,21 @@
         "modular architecture",
         "offline-first",
         "openrouter",
+        "performance",
         "privacy",
         "prompt engineering",
         "readium",
+        "rest api",
         "room",
+        "security",
         "spaced repetition",
+        "sql",
         "sqlite",
         "sse",
         "streaming",
+        "system design",
         "testing",
+        "transformers",
         "tts",
         "unit testing",
         "workmanager"
@@ -97,7 +108,8 @@
         "0.5x to 3.5x playback speed",
         "recap after 3+ days away",
         "27 commits",
-        "GPL-3.0"
+        "GPL-3.0",
+        "1 GitHub stars"
       ],
       "problem_solution": [
         {
@@ -134,7 +146,87 @@
       },
       "aliases": [
         "Kepler"
-      ]
+      ],
+      "auto_evidence": {
+        "languages": [
+          "Kotlin"
+        ],
+        "dependencies": [
+          "activityCompose",
+          "agp",
+          "alias",
+          "android",
+          "android-application",
+          "android-library",
+          "androidx-activity-compose",
+          "androidx-compose-animation",
+          "androidx-compose-bom",
+          "androidx-compose-foundation",
+          "androidx-compose-material3",
+          "androidx-compose-ui",
+          "androidx-compose-ui-graphics",
+          "androidx-compose-ui-text",
+          "androidx-compose-ui-tooling",
+          "androidx-compose-ui-tooling-preview",
+          "androidx-core-ktx",
+          "androidx-datastore-preferences",
+          "androidx-fragment-compose",
+          "androidx-lifecycle-runtime-compose",
+          "androidx-lifecycle-viewmodel-compose",
+          "androidx-sqlite-bundled",
+          "androidx-sqlite-bundled-jvm",
+          "androidx-work-runtime",
+          "applicationId",
+          "applicationIdSuffix",
+          "buildConfig",
+          "buildConfigField",
+          "buildFeatures",
+          "buildTypes",
+          "coil",
+          "coil-compose",
+          "compileOptions",
+          "compileSdk",
+          "compose",
+          "composeBom",
+          "coreKtx",
+          "coreLibraryDesugaring",
+          "coroutines",
+          "datastore",
+          "debug",
+          "debugImplementation",
+          "defaultConfig",
+          "dependencies",
+          "desugar-jdk-libs",
+          "fragmentCompose",
+          "fsrskt",
+          "fun",
+          "if",
+          "implementation",
+          "import",
+          "isCoreLibraryDesugaringEnabled",
+          "isMinifyEnabled",
+          "isShrinkResources",
+          "jsoup",
+          "junit",
+          "kotlin",
+          "kotlin-compose",
+          "kotlin-jvm",
+          "kotlin-serialization"
+        ],
+        "recent_commits": [
+          "Merge pull request #2 from iamkhalid2/claude/project-thread-l49cqw",
+          "docs: make README feature claims match the code",
+          "Fix release publishing directory context for git release notes",
+          "Fix CI workflow environment syntax",
+          "Fix Android SDK package name to platforms;android-37.0 in workflows",
+          "Add automated release workflow and enhance in-app About section",
+          "Untrack internal docs and roadmap; move logo and license to standard asset paths",
+          "Complete v1.1 UI refactor, comprehensive documentation, and test fixes",
+          "V1.1 foundations: design system v2 and shell, streaming latency-ranked AI, position progress and chapter timing",
+          "Research: V1 post-mortem, latency benchmark, inspiration board; decisions 107-112; V1.1 workflow"
+        ],
+        "pushed_at": "2026-10-15T22:25:34Z"
+      }
     },
     {
       "id": "computer-use",
@@ -144,19 +236,28 @@
       "years": "2025",
       "flagship": true,
       "skills": [
-        "python",
+        "agents",
+        "audio processing",
+        "automation",
+        "bash",
+        "computer use",
+        "concurrency",
         "gemini",
         "gemini live",
+        "git",
+        "linux",
         "llm",
-        "agents",
-        "computer use",
-        "websockets",
         "multithreading",
-        "audio processing",
         "noise reduction",
-        "tesseract",
+        "numpy",
+        "observability",
         "ocr",
-        "automation"
+        "python",
+        "pytorch",
+        "system design",
+        "tesseract",
+        "transformers",
+        "websockets"
       ],
       "features": [
         "Bidirectional WebSocket streaming of voice and commands to the Gemini Live API",
@@ -166,8 +267,8 @@
         "Voice or text input modes"
       ],
       "metrics": [
-        "11 GitHub stars",
-        "15 commits"
+        "15 commits",
+        "11 GitHub stars"
       ],
       "problem_solution": [
         {
@@ -191,7 +292,47 @@
       "aliases": [
         "Computer-Use",
         "desktop agent"
-      ]
+      ],
+      "auto_evidence": {
+        "languages": [
+          "Python"
+        ],
+        "dependencies": [
+          "Pillow",
+          "SpeechRecognition",
+          "exceptiongroup",
+          "google-genai",
+          "mss",
+          "numpy",
+          "opencv-python",
+          "pyaudio",
+          "pyautogui",
+          "pytesseract",
+          "python-dotenv",
+          "scipy",
+          "sounddevice",
+          "soundfile",
+          "taskgroup",
+          "torch",
+          "torchvision",
+          "transformers",
+          "wave",
+          "websockets"
+        ],
+        "recent_commits": [
+          "Fix directory name in installation instructions from 'computer_control' to 'computer-use'",
+          "Update README.md",
+          "Update README.md",
+          "Update README.md",
+          "Update README.md",
+          "Update ComputerActions to use update_context instead of record_action for improved action handling",
+          "Enhance APIClient and VoiceControl for improved context management and action handling",
+          "kkk",
+          "Add generate_templates.py module for template generation functionality",
+          "Update requirements and enhance README for clarity and additional features"
+        ],
+        "pushed_at": "2025-03-27T19:42:58Z"
+      }
     },
     {
       "id": "kwealth",
@@ -201,17 +342,21 @@
       "years": "2026",
       "flagship": false,
       "skills": [
-        "python",
-        "gemini",
-        "llm",
         "agents",
-        "multi-agent",
-        "structured outputs",
-        "pydantic",
-        "streamlit",
-        "yfinance",
+        "bash",
         "error handling",
-        "prompt engineering"
+        "gemini",
+        "git",
+        "linux",
+        "llm",
+        "multi-agent",
+        "prompt engineering",
+        "pydantic",
+        "python",
+        "streamlit",
+        "structured outputs",
+        "system design",
+        "yfinance"
       ],
       "features": [
         "Four cooperating agents: data scout, bear analyst, bull analyst, synthesizer",
@@ -223,7 +368,8 @@
         "4 agents",
         "5 recommendation levels",
         "confidence score 0.0-1.0",
-        "30 s request timeout"
+        "30 s request timeout",
+        "1 GitHub stars"
       ],
       "problem_solution": [
         {
@@ -246,7 +392,32 @@
       },
       "aliases": [
         "KWealth"
-      ]
+      ],
+      "auto_evidence": {
+        "languages": [
+          "Python"
+        ],
+        "dependencies": [
+          "google-genai",
+          "pydantic",
+          "python-dotenv",
+          "streamlit",
+          "yfinance"
+        ],
+        "recent_commits": [
+          "chore: Update GEMINI_MODEL from flash to pro.",
+          "Update README.md to include instructions for creating and activating a virtual environment",
+          "Update README.md to include virtual environment activation instructions for running the Streamlit UI",
+          "Merge branch 'main' of https://github.com/iamkhalid2/kwealth",
+          "Update .gitignore, add LICENSE, and create README.md with project details",
+          "Remove SPEC.md from repository (internal documentation)",
+          "Remove remaining __pycache__ file",
+          "Remove __pycache__ files from repository",
+          "Remove agents/__pycache__ files from repository",
+          "Remove agents/__pycache__ files from repository"
+        ],
+        "pushed_at": "2026-02-09T09:44:30Z"
+      }
     },
     {
       "id": "microgpt-course",
@@ -256,21 +427,30 @@
       "years": "2026-Present",
       "flagship": true,
       "skills": [
-        "svelte",
-        "vite",
-        "javascript",
-        "python",
-        "pyodide",
-        "webassembly",
-        "transformers",
-        "self-attention",
-        "tokenization",
-        "machine learning",
+        "anthropic",
+        "bash",
+        "ci/cd",
+        "css",
         "github actions",
         "github pages",
-        "ci/cd",
+        "html",
+        "javascript",
+        "machine learning",
+        "mobile",
+        "npm",
+        "openai",
+        "pyodide",
+        "python",
+        "rag",
+        "self-attention",
+        "svelte",
+        "system design",
+        "testing",
+        "tokenization",
+        "transformers",
         "unit testing",
-        "npm"
+        "vite",
+        "webassembly"
       ],
       "features": [
         "19-chapter interactive course rebuilding Karpathy's 200-line pure-Python GPT from scratch",
@@ -281,9 +461,9 @@
       ],
       "metrics": [
         "19 chapters",
-        "12 GitHub stars",
         "32,033-name training dataset",
-        "14 commits"
+        "14 commits",
+        "12 GitHub stars"
       ],
       "problem_solution": [
         {
@@ -307,7 +487,30 @@
       "aliases": [
         "Invent a GPT",
         "microgpt"
-      ]
+      ],
+      "auto_evidence": {
+        "languages": [
+          "Svelte",
+          "JavaScript",
+          "Python",
+          "CSS",
+          "HTML"
+        ],
+        "dependencies": [],
+        "recent_commits": [
+          "Add interactive 3D transformer hero, fix mobile layout bugs, fix microgpt.py link",
+          "Rebuild the course as an interactive site (web/)",
+          "Fix workflow: remove pip cache line",
+          "Add auto-deploy workflow and fix microgpt.py link",
+          "Remove all inline Mermaid styles - let theme handle colors natively",
+          "Fix Mermaid: remove hardcoded text color (theme-adaptive), add mobile scrolling, fix \\\\n to br",
+          "Switch entire theme to teal gradients, remove all purple/red/orange",
+          "Update README, delete old course/ directory (migrated to docs/)",
+          "Fix repo URL and creator references to iamkhalid2/microgpt-course",
+          "Add MkDocs Material course with Mermaid, KaTeX, admonitions, and tabs"
+        ],
+        "pushed_at": "2026-10-01T15:36:41Z"
+      }
     },
     {
       "id": "portfolio-cms",
@@ -425,28 +628,55 @@
       "years": "2023",
       "flagship": false,
       "skills": [
-        "javascript",
-        "node.js",
-        "openai",
-        "gemini",
-        "llm",
         "chatbot",
-        "open source"
+        "gemini",
+        "git",
+        "javascript",
+        "llm",
+        "node.js",
+        "open source",
+        "openai",
+        "security"
       ],
       "features": [
         "Open-source WhatsApp chatbot on whatsapp-web.js routing messages to OpenAI GPT or Google Gemini",
         "Keeps the last 10 conversations as context"
       ],
       "metrics": [
-        "17 GitHub stars",
         "15 forks",
-        "10-conversation context window"
+        "10-conversation context window",
+        "17 GitHub stars"
       ],
       "problem_solution": [],
       "showcase_rank": 7,
       "aliases": [
         "WhatsAppGPT"
-      ]
+      ],
+      "auto_evidence": {
+        "languages": [
+          "JavaScript"
+        ],
+        "dependencies": [
+          "@google/generative-ai",
+          "dotenv",
+          "openai",
+          "qrcode-terminal",
+          "whatsapp-web.js"
+        ],
+        "recent_commits": [
+          "docs: update README to reflect Gemini AI integration and usage instructions",
+          "refactor: update dependencies and integrate Google Generative AI for enhanced messaging capabilities",
+          "update index.js",
+          "deleted package lock json",
+          "update",
+          "package name update",
+          "updated package-lock.json and package.json to fix security issues",
+          "Update index.js",
+          "Update README.md",
+          "Update README.md"
+        ],
+        "pushed_at": "2024-12-31T21:05:55Z"
+      }
     },
     {
       "id": "kiraya",
@@ -456,14 +686,31 @@
       "years": "2025",
       "flagship": false,
       "skills": [
+        "android",
+        "authentication",
+        "backend",
+        "bash",
+        "c",
+        "c++",
+        "cmake",
+        "cross-platform",
         "dart",
-        "flutter",
         "firebase",
         "firestore",
-        "authentication",
-        "oauth",
+        "flutter",
+        "frontend",
+        "git",
+        "github actions",
+        "html",
+        "ios",
+        "kotlin",
+        "linux",
         "material 3",
-        "cross-platform"
+        "oauth",
+        "objective-c",
+        "security",
+        "swift",
+        "testing"
       ],
       "features": [
         "Cross-platform rent management app (6 platforms) with Firebase Auth, Firestore real-time sync and Storage for KYC documents",
@@ -478,7 +725,72 @@
       "showcase_rank": 8,
       "aliases": [
         "Kiraya"
-      ]
+      ],
+      "auto_evidence": {
+        "languages": [
+          "Dart",
+          "C++",
+          "CMake",
+          "Swift",
+          "C",
+          "HTML",
+          "Kotlin",
+          "Objective-C"
+        ],
+        "dependencies": [
+          "animations",
+          "assets",
+          "build_runner",
+          "cloud_firestore",
+          "collection",
+          "countup",
+          "cupertino_icons",
+          "dependencies",
+          "description",
+          "dev_dependencies",
+          "environment",
+          "fake_cloud_firestore",
+          "firebase_auth",
+          "firebase_auth_mocks",
+          "firebase_core",
+          "fl_chart",
+          "flutter",
+          "flutter_launcher_icons",
+          "flutter_layout_grid",
+          "flutter_lints",
+          "flutter_staggered_grid_view",
+          "flutter_test",
+          "google_nav_bar",
+          "google_sign_in",
+          "google_sign_in_mocks",
+          "image_picker",
+          "intl",
+          "mockito",
+          "name",
+          "network_image_mock",
+          "path_provider",
+          "provider",
+          "publish_to",
+          "sdk",
+          "shimmer",
+          "url_launcher",
+          "uses-material-design",
+          "version"
+        ],
+        "recent_commits": [
+          "Update README.md",
+          "Add Firebase configuration generation to hosting workflows",
+          "Update Firebase Hosting workflow to deploy on merge to main branch",
+          "Merge branch 'main' of https://github.com/iamkhalid2/kiraya_app",
+          "Fix typo in login screen subheading text",
+          "Update firebase-hosting-merge.yml",
+          "Enhance Firebase Hosting workflow by removing existing firebase_options.dart and adding verification step",
+          "Refactor DefaultFirebaseOptions to support only web platform",
+          "Refactor Firebase Hosting workflow to enhance Flutter setup and streamline Firebase options generation",
+          "Merge branch 'main' of https://github.com/iamkhalid2/kiraya_app"
+        ],
+        "pushed_at": "2026-10-07T14:13:20Z"
+      }
     },
     {
       "id": "blackhole-c",
@@ -488,21 +800,45 @@
       "years": "2026",
       "flagship": false,
       "skills": [
+        "bash",
         "c",
+        "concurrency",
+        "graphics",
+        "makefile",
         "openmp",
         "parallel computing",
-        "graphics"
+        "performance"
       ],
       "features": [
         "Dependency-free general-relativity ray tracer in C99, parallelised with OpenMP"
       ],
-      "metrics": [],
+      "metrics": [
+        "1 GitHub stars"
+      ],
       "problem_solution": [],
       "showcase_rank": 9,
       "aliases": [
         "Black Hole Simulation",
         "ray tracer"
-      ]
+      ],
+      "auto_evidence": {
+        "languages": [
+          "C",
+          "Makefile"
+        ],
+        "dependencies": [],
+        "recent_commits": [
+          "feat: Add blackhole simulation GIF to README and simplify .gitignore rules.",
+          "chore: Ignore generated PPM output files in the `output/` directory.",
+          "feat: added all blackhole generated versions and update gitignore to exclude specific output files.",
+          "Merge branch 'main' of https://github.com/iamkhalid2/blackhole-with-c",
+          "feat: add generated image and GIF outputs and update gitignore.",
+          "feat: Implement a C blackhole rendering program, generate initial output frames, and update project metadata.",
+          "feat: implement Kerr black hole simulation with relativistic effects including frame dragging, Doppler beaming, and gravitational redshift.",
+          "feat: Add initial C project for blackhole rendering and simulation, including source code, build system, and example output."
+        ],
+        "pushed_at": "2026-02-09T05:45:34Z"
+      }
     },
     {
       "id": "usage-band",
@@ -512,19 +848,89 @@
       "years": "2026",
       "flagship": false,
       "skills": [
-        "typescript",
+        "anthropic",
+        "bash",
+        "claude code",
         "developer tools",
-        "claude code"
+        "typescript"
       ],
       "features": [
         "Claude Code mod showing a slim 5-hour and weekly usage line above the prompt"
       ],
-      "metrics": [],
+      "metrics": [
+        "1 GitHub stars"
+      ],
       "problem_solution": [],
       "showcase_rank": 10,
       "aliases": [
         "usage-band"
-      ]
+      ],
+      "auto_evidence": {
+        "languages": [
+          "TypeScript"
+        ],
+        "dependencies": [],
+        "recent_commits": [
+          "Add usage-band mod and marketplace"
+        ],
+        "pushed_at": "2026-10-03T00:47:35Z"
+      }
+    },
+    {
+      "id": "stuff",
+      "name": "stuff",
+      "repo": "https://github.com/iamkhalid2/stuff",
+      "demo": null,
+      "years": "2026",
+      "flagship": false,
+      "skills": [],
+      "features": [
+        "random stuff"
+      ],
+      "metrics": [],
+      "problem_solution": [],
+      "auto_evidence": {
+        "languages": [],
+        "dependencies": [],
+        "recent_commits": [
+          "Add files via upload"
+        ],
+        "pushed_at": "2026-01-27T15:22:33Z"
+      }
+    },
+    {
+      "id": "evil-py",
+      "name": "evil-py",
+      "repo": "https://github.com/iamkhalid2/evil-py",
+      "demo": null,
+      "years": "2022",
+      "flagship": false,
+      "skills": [
+        "python"
+      ],
+      "features": [
+        "most vague yet fun things to do with python libraries"
+      ],
+      "metrics": [
+        "3 GitHub stars"
+      ],
+      "problem_solution": [],
+      "auto_evidence": {
+        "languages": [
+          "Python"
+        ],
+        "dependencies": [],
+        "recent_commits": [
+          "UHBH",
+          "Create shutdown-computer-in-2-lines.py",
+          "Rename python code.py to spambot-in-5-lines.py",
+          "Update python code.py",
+          "Update python code.py",
+          "ll",
+          "finished"
+        ],
+        "pushed_at": "2023-03-18T19:52:47Z"
+      }
     }
   ]
 }
