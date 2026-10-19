@@ -23,6 +23,21 @@ NO_SPONSOR = re.compile(r"(not able to|unable to|cannot|can't|do not|don't|will 
 SPONSOR = re.compile(r"(visa sponsorship (is )?(available|offered|provided)|we (can|will) sponsor|sponsorship available)", re.I)
 
 
+# "graduated in 2025, 2026, or 2027", "graduating between 2025 and 2027", "class of 2026/2027"
+GRAD_WINDOW = re.compile(r"(?:graduat\w*|class of)[^.]{0,40}?((?:20\d\d\W{1,6}(?:and\W+|or\W+|to\W+)?)+20\d\d|20\d\d)", re.I)
+
+
+def grad_years(text: str) -> set[int]:
+    """Graduation years a JD accepts. Empty set if it names none."""
+    years: set[int] = set()
+    for m in GRAD_WINDOW.finditer(text):
+        found = [int(y) for y in re.findall(r"20\d\d", m.group(1))]
+        if len(found) == 2 and re.search(r"between|to|-|–", m.group(0)):
+            found = list(range(min(found), max(found) + 1))
+        years.update(found)
+    return years
+
+
 def min_years(text: str) -> float | None:
     """Largest 'N years' figure that appears near an experience phrase. None if the JD states none."""
     best = None
@@ -51,6 +66,7 @@ def evaluate(job: dict, cfg: dict) -> tuple[bool, str | None, dict]:
         "needs_clearance": int(bool(CLEARANCE.search(desc))),
         "sponsorship": sponsorship(desc),
     }
+    window = sorted(grad_years(desc))   # not a db column, so kept out of parsed
     if not TITLE_INCLUDE.search(title):
         return False, "role family not targeted", parsed
     if TITLE_EXCLUDE.search(title) and not TITLE_ENTRY.search(title):
@@ -61,6 +77,8 @@ def evaluate(job: dict, cfg: dict) -> tuple[bool, str | None, dict]:
         return False, f"requires {parsed['min_years']:g}+ years", parsed
     if parsed["needs_clearance"] and not cfg.get("has_clearance", False):
         return False, "security clearance required", parsed
+    if cfg.get("graduation_year") and window and cfg["graduation_year"] not in window:
+        return False, f"graduation window {window} excludes {cfg['graduation_year']}", parsed
     if cfg.get("drop_if_no_sponsorship") and parsed["sponsorship"] == "not_offered":
         return False, "states no visa sponsorship", parsed
     return True, None, parsed

@@ -1,0 +1,30 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Junior Software Engineer</title>
+<style>.hidden-radio{position:absolute;opacity:0;width:1px;height:1px}</style></head><body>
+<form id="lever">
+<ul>
+ <li class="application-question"><label><div class="application-label">Resume/CV<span class="required">✱</span></div>
+   <div class="application-field"><input type="file" name="resume"></div></label></li>
+ <li class="application-question"><label><div class="application-label">Full name<span class="required">✱</span></div>
+   <div class="application-field"><input type="text" name="name" required></div></label></li>
+ <li class="application-question"><label><div class="application-label">Email<span class="required">✱</span></div>
+   <div class="application-field"><input type="email" name="email" required></div></label></li>
+ <li class="application-question"><label><div class="application-label">Current location<span class="required">✱</span></div>
+   <div class="application-field"><input type="text" name="location" required></div></label></li>
+ <li class="application-question"><label><div class="application-label">Current company</div>
+   <div class="application-field"><input type="text" name="org"></div></label></li>
+ <li class="application-question"><label><div class="application-label">GitHub URL</div>
+   <div class="application-field"><input type="text" name="urls[GitHub]"></div></label></li>
+ <li class="application-question"><div class="application-label">Can you work from our Vauxhall office at least three days a week?<span class="required">✱</span></div>
+   <ul class="application-field">
+     <li><label><input class="hidden-radio" type="radio" name="cards[0][field0]" value="Yes"><span>Yes</span></label></li>
+     <li><label><input class="hidden-radio" type="radio" name="cards[0][field0]" value="No"><span>No</span></label></li>
+   </ul></li>
+ <li class="application-question"><div class="application-label">What is your Notice Period?<span class="required">✱</span></div>
+   <div class="application-field"><input type="text" name="cards[0][field1]" required></div></li>
+ <li class="application-question"><label><div class="application-label">Additional information</div>
+   <div class="application-field"><textarea name="comments"></textarea></div></label></li>
+</ul>
+<button type="submit">Submit application</button>
+</form>
+<script>document.getElementById('lever').addEventListener('submit', e => { e.preventDefault();
+  document.body.innerHTML = '<h2>Application submitted!</h2><p>Thank you.</p>'; });</script></body></html>

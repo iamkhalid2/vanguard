@@ -67,6 +67,24 @@ Job states: `scraped → filtered_out | pending_approval → approved → applie
 6. **Mail**: only rows a human approved, and only when the contact has an email. Creates Gmail drafts, at most 15 per UTC day.
 7. **Export** `out/queue.json` and commit state back to the repo.
 
+## 3b. The apply machine, module by module (rebuilt 2026-10-19)
+
+Each module has one job, one contract and its own tests. The runner (`apply.py`) only wires them together.
+
+| # | Module | Contract | Tests |
+|---|---|---|---|
+| 1 | `vanguard/profile.py` | Knowledge graph + resume + `config/answer_defaults.json` + `~/.vanguard/private.json` → one `Profile`. `validate()` lists every missing fact. | `test_answers.py::test_profile_valid`, CI step `python -m vanguard.profile` |
+| 2 | `vanguard/filters.py`, `vanguard/shortlist.py` | JD → keep/drop with reason (role, level, London, years, clearance, graduation window). Kept jobs → apply batch, sponsors first, 2 per company. | `test_pipeline.py`, `test_e2e.py` |
+| 3 | `vanguard/evidence.py` | (projects, JD, question intent) → projects best-first. Hand-set `showcase_rank` (Kepler 1) outranks keyword overlap; stack questions only use projects with that stack. | `test_answers.py` |
+| 4 | `vanguard/questions.py` | Form label → one intent (`why_company`, `impact_project`, `rtw`, `eeo`, ...). | `test_questions.py` (69 labels from real forms) |
+| 5 | `vanguard/writer.py`, `vanguard/answers.py` | Fields + job → one planned action per field. Write-ups come from authored answers (`config/answers/<job id>.json`), then Claude via API, then a grounded composer. `check()` blocks unbacked skills or numbers, clichés, invented experience, the wrong lead project, blank fields, and legal declarations only Khalid can make. | `test_answers.py` |
+| 6 | `vanguard/forms.py` | Page → fields tagged `data-vg` → fill exactly those elements → read every value back. A label belongs to one control or none. | `test_forms.py` on Ashby, Greenhouse, Lever and trap fixtures in headless Chromium |
+| 7 | `vanguard/tracker.py`, `apply.py` | Log, cap, already-submitted check; fill/plan/submit modes; answer sheets in `runs/plans/<id>.md`. | `test_e2e.py` |
+
+`tests/test_e2e.py` runs the whole machine offline: fake board → filters → shortlist → plan → fill + verify on fixture forms → submit only the approved id → cap. CI (`.github/workflows/tests.yml`) runs every test on each push and PR.
+
+Policy encoded in module 5: every field gets an answer, optional ones too, tailored to the company with Kepler as the flagship. Fields stay empty only when filling them would be wrong: voluntary diversity questions (most private option instead), marketing opt-ins (No), an "if other" box when Other wasn't picked, photos, and legal declarations (criminal record, CCJs, dismissals), which wait for Khalid.
+
 ### The zero-hallucination guard
 
 `vanguard/grounding.py` (and its JS twin) extracts every lexicon skill and every number from a rewritten bullet and checks it against that project's evidence. One unbacked term reverts the bullet to the original evidence text. The diff view shows which bullets were kept and why others were rejected. The cover letter and emails get the same check as warnings, and terms that come from the JD are marked as "theirs" (fine to name, not to claim).

@@ -6,3 +6,5 @@ out/*
 client_secret*.json
 data/sponsors.csv
 !out/.gitkeep
+runs/
+runs_fill.log

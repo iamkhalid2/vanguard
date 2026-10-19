@@ -5,7 +5,8 @@
     "has_clearance": false,
     "drop_if_no_sponsorship": false,
     "max_active_per_company_30d": 2,
-    "daily_draft_cap": 15
+    "daily_draft_cap": 15,
+    "graduation_year": 2024
   },
   "companies": [
     {"id": "stripe", "name": "Stripe", "tier": "A", "size_bucket": "enterprise", "employees": 8000, "ats": "greenhouse", "ats_token": "stripe", "email_domain": "stripe.com"},

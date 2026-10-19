@@ -25,7 +25,7 @@ PREAMBLE = r"""\documentclass[10.5pt,a4paper]{article}
 \usepackage[hidelinks]{hyperref}
 \usepackage{enumitem}
 \usepackage{titlesec}
-\pdfgentounicode=1
+\ifdefined\pdfgentounicode\pdfgentounicode=1\fi
 \setlist[itemize]{leftmargin=1.2em,itemsep=1pt,topsep=2pt}
 \titleformat{\section}{\large\bfseries}{}{0pt}{}[\vspace{-6pt}\rule{\linewidth}{0.4pt}]
 \titlespacing{\section}{0pt}{8pt}{4pt}
