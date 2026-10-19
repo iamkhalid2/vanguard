@@ -101,3 +101,19 @@ def test_verify_catches_a_wrong_field(browser):
     scope.locator("[data-vg='vg2']").fill("oops")              # and into an unplanned field
     bad = forms.verify(scope, items, {**before, "vg2": ""})
     assert any("Location" in p for p in bad) and any("changed but not planned" in p for p in bad)
+
+
+def test_test_run_regressions_2026_10_19(browser):
+    """Errors the first plan-sheet run found on Stripe, Ashby and Palantir forms."""
+    page = browser.new_page()
+    page.goto((FIX / "stripe_like.html").as_uri())
+    fields = forms.read(forms.scope_of(page))
+    labels = [f["label"] for f in fields]
+    assert "" not in labels                                   # the hidden react-select input is not a field
+    heard = next(f for f in fields if f["label"].startswith("How did you hear"))
+    assert heard["kind"] == "radio" and len(heard["options"]) == 3   # unnamed radios read as one group
+    items = {i.label: i for i in answers.plan(fields, job("ExampleVoice"), P)}
+    assert items["Do you have the right to work in the UK?*"].value == "Yes"   # an option, not a sentence
+    assert items["How did you hear about ExampleVoice?"].value == "Job board"
+    assert items["Which university did you last attend?"].value == "Other (School Not Listed)"
+    assert items["High School Name*"].status == "needs_khalid"          # never guessed

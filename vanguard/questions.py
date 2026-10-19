@@ -97,7 +97,8 @@ _RULES = [(intent, re.compile(rx, re.I)) for intent, rx in _R]
 
 def classify(label: str, kind: str = "text") -> str:
     """Intent for one field label. `kind` is the control type (text, textarea, select, radio, checkbox, file, combobox)."""
-    text = re.sub(r"\s+", " ", (label or ""))
+    text = re.sub(r"https?://\S+|www\.\S+", " ", label or "")   # a URL inside a question says nothing about its intent
+    text = re.sub(r"\s+", " ", text)
     text = re.sub(r"\((optional|required)\)", "", text, flags=re.I).strip(" *✱:")
     if not text:
         return "unknown"
