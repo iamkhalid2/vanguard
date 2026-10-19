@@ -90,7 +90,7 @@ def rules(p: dict, kind: str) -> list[tuple[str, str]]:
         (r"country of residence|\bcountry\b", p["country"]),
         (r"post ?code|zip", p["postcode"]),
         (r"^\W*(home |current |street )?address|address line 1", p["address"]),
-        (r"location|where are you (based|located)", p["location"]),
+        (r"location|where are you (based|located)|country you.re (currently )?residing", p["location"]),
         (r"right to work|eligib\w* to work|work authori[sz]ation|legally (allowed|entitled)", p["rtw"]),
         (r"require (visa )?sponsorship|need sponsorship|visa sponsorship", "Not currently. " + p["rtw"]),
         (r"in(to)? production|production system|scale|users|revenue|team size|managed", ""),   # never invent
@@ -116,6 +116,10 @@ def choice_rules(p: dict) -> list[tuple[str, str]]:
         (r"require (visa )?sponsorship|need sponsorship", r"not (now|currently)|until 2028"),
         (r"country", r"united kingdom|^uk$"),
         (r"security clearance", r"^no\b"),
+        (r"how did you hear", r"careers? (page|site)|company website|job board"),
+        # voluntary equal-opportunity questions: always the most private option
+        (r"gender|sex\b|race|ethnic|veteran|disabilit|sexual orientation|pronoun|transgender|hispanic",
+         r"decline|prefer not|don.t wish|do not wish|not to (say|disclose|answer)|rather not"),
         (r"years of (commercial|professional)|how many years", r"^0\b|less than 1|none|no experience"),
     ]
 
@@ -153,7 +157,26 @@ def company_count(company: str) -> int:
 # ---------------------------------------------------------------- browser helpers
 
 def has_captcha(page) -> bool:
-    return any(page.locator(s).count() for s in CAPTCHA_SELECTORS)
+    """True only for a challenge a human must solve. Invisible reCAPTCHA/hCaptcha (Greenhouse, Lever, Ashby)
+    sit hidden or as a 256x60 badge and need nothing unless they escalate to a visible challenge."""
+    for s in CAPTCHA_SELECTORS:
+        for el in page.locator(s).all():
+            try:
+                if not el.is_visible():
+                    continue
+                box = el.bounding_box() or {}
+                src = el.get_attribute("src") or ""
+                if "recaptcha" in src and "anchor" in src and round(box.get("width", 0)) <= 260:
+                    continue   # invisible-reCAPTCHA badge, not a checkbox
+                if box.get("width", 0) < 40 or box.get("height", 0) < 40:
+                    continue
+                return True
+            except Exception:
+                continue
+    # Turnstile renders in a closed shadow root, so its iframe is invisible to selectors; look for its text instead
+    if any("challenges.cloudflare.com" in f.url for f in page.frames):
+        return True
+    return page.get_by_text(re.compile(r"verify you are human", re.I)).count() > 0
 
 
 def dismiss_cookies(page) -> None:
@@ -177,7 +200,33 @@ def click_apply(page) -> None:
                 return
 
 
+QUESTION_JS = """e => { let n = e;
+            for (let i = 0; i < 7 && n; i++) { n = n.parentElement; if (!n) break;
+                const l = [...n.querySelectorAll('label, legend, [class*=question-title i], [class*=label i]')]
+                    .find(x => !x.contains(e) && !x.querySelector('input') && x.innerText.trim().length > 1);
+                if (l) return l.innerText.replace(/\\s+/g, ' ').trim(); }
+            return ''; }"""
+
+
+def question_of(el) -> str:
+    """Text of the nearest label/legend above a control (for widgets whose label isn't wired to the input)."""
+    try:
+        return el.evaluate(QUESTION_JS, timeout=5000)
+    except Exception:
+        return ""
+
+
 def label_of(page, el) -> str:
+    try:
+        t = _label_of(el)
+    except Exception:   # detached or slow element: treat as unlabelled
+        t = ""
+    if not t or t == (el.get_attribute("placeholder") or "").strip():
+        t = question_of(el) or t
+    return t
+
+
+def _label_of(el) -> str:
     return el.evaluate("""e => {
         const id = e.id; let t = '';
         if (id) { const l = document.querySelector(`label[for="${CSS.escape(id)}"]`); if (l) t = l.innerText; }
@@ -189,12 +238,39 @@ def label_of(page, el) -> str:
                   if (g) { const h = g.querySelector('legend, label, .label, [class*=label]'); if (h) t = h.innerText; } }
         if (!t) t = e.getAttribute('placeholder') || e.name || '';
         return t.replace(/\\s+/g, ' ').trim();
-    }""")
+    }""", timeout=5000)
 
 
 def is_required(el, label: str) -> bool:
     return bool(el.get_attribute("required") is not None or el.get_attribute("aria-required") == "true"
                 or label.endswith("*") or "required" in label.lower())
+
+
+def unfilled_required(page, scope) -> list[str]:
+    """Re-reads the form after filling: any required field still empty is reported, whatever we think we filled."""
+    return scope.evaluate("""root => {
+        const out = [];
+        const qtext = e => { let n = e; for (let i = 0; i < 5 && n; i++) { n = n.parentElement;
+            if (n && n.innerText && n.innerText.trim().length > 2) break; } return n ? n.innerText.split('\\n')[0].trim() : (e.name || ''); };
+        const lbl = e => { let n = e; for (let i = 0; i < 6 && n; i++) { n = n.parentElement; const l = n && n.querySelector('label, legend');
+            if (l) return l; } return null; };
+        const req = e => e.required || e.getAttribute('aria-required') === 'true' || /[*✱]/.test(qtext(e).slice(-3)) ||
+            (lbl(e) && (/required/i.test(lbl(e).className) || /[*✱]\\s*$/.test(lbl(e).innerText)));
+        for (const e of root.querySelectorAll('input:not([type=hidden]):not([type=radio]):not([type=checkbox]):not([type=file]):not([type=submit]), textarea, select')) {
+            if (e.offsetParent === null) continue;
+            if (req(e) && !String(e.value || '').trim()) out.push(qtext(e));
+        }
+        const names = new Set([...root.querySelectorAll('input[type=radio]')].map(e => e.name).filter(Boolean));
+        for (const n of names) {
+            const rs = [...root.querySelectorAll(`input[type=radio][name="${CSS.escape(n)}"]`)];
+            let c = rs[0].parentElement; while (c && !rs.every(r => c.contains(r))) c = c.parentElement;
+            const q = c ? (c.parentElement || c).innerText.split('\\n')[0].trim() : n;
+            const ql = c && c.parentElement && c.parentElement.querySelector('label, legend');
+            const rq = rs.some(r => r.required) || /[*✱]/.test(q.slice(-3)) || (ql && /required/i.test(ql.className));
+            if (rq && !rs.some(r => r.checked)) out.push(q);
+        }
+        return out;
+    }""")
 
 
 def pick_radio(r) -> None:
@@ -223,22 +299,35 @@ def answer(label: str, table: list[tuple[str, str]]) -> str | None:
 def fill_form(page, p: dict, kind: str, resume: Path, job: dict | None = None) -> tuple[list[str], list[str]]:
     """Returns (filled labels, missing required labels). job["answers"]/job["choices"] are per-job overrides."""
     job = job or {}
-    text_rules = list(job.get("answers", {}).items()) + rules(p, kind)
+    extra = dict(job.get("answers", {}))
+    if job.get("cover_text"):
+        extra.setdefault(r"^\W*cover letter|why (do you want|are you interested)|additional information",
+                         (ROOT / job["cover_text"]).read_text().strip())
+    text_rules = list(extra.items()) + rules(p, kind)
     opt_rules = list(job.get("choices", {}).items()) + choice_rules(p)
     filled, missing = [], []
     scope = page.frame_locator("iframe#grnhse_iframe").locator("body") if page.locator("iframe#grnhse_iframe").count() else page.locator("body")
 
     for f in scope.locator("input[type=file]").all():
         lab = label_of(page, f).lower()
-        if re.search(r"cover|photo|avatar|image|picture", lab):
+        if re.search(r"photo|avatar|image|picture|autofill|upload file$", lab) or \
+                f.evaluate("e => !!e.closest('[class*=autofill i]')"):
+            continue   # Ashby's "autofill from resume" re-parses and clears fields we filled
+        if "cover" in lab:
+            if job.get("cover_pdf"):
+                try:
+                    f.set_input_files(str(ROOT / job["cover_pdf"])); filled.append(f"file:{lab}")
+                    page.wait_for_timeout(1500)
+                except Exception:
+                    pass
             continue
         try:
             f.set_input_files(str(resume)); filled.append(f"file:{lab or 'resume'}")
-            page.wait_for_timeout(1500)
+            page.wait_for_timeout(4000)   # let upload-triggered parsing finish before typing
         except Exception:
             pass
 
-    for el in scope.locator("input:not([type=hidden]):not([type=file]):not([type=checkbox]):not([type=radio]):not([type=submit]), textarea").all():
+    for el in scope.locator("input:not([type=hidden]):not([type=file]):not([type=checkbox]):not([type=radio]):not([type=submit]):not([role=combobox]), textarea").all():
         if not el.is_visible():
             continue
         lab = label_of(page, el)
@@ -266,6 +355,60 @@ def fill_form(page, p: dict, kind: str, resume: Path, job: dict | None = None) -
         elif is_required(el, lab) and el.input_value() in ("", None):
             missing.append(lab)
 
+    for cb in scope.locator("input[type=checkbox]").all():
+        lab = label_of(page, cb)
+        if re.search(r"privacy (notice|policy)", lab, re.I) and re.search(r"this application|processing of my data|recruit", lab, re.I) \
+                and not re.search(r"marketing|newsletter|future (roles|opportunities)|talent (pool|community)", lab, re.I):
+            if not cb.is_checked():
+                pick_radio(cb)
+            filled.append(lab)
+
+    # radio groups outside fieldsets (Ashby, Lever): group by name, find the question text above the options
+    for name in set(scope.locator("input[type=radio]").evaluate_all("els => els.map(e => e.name).filter(Boolean)")):
+        radios = scope.locator(f"input[type=radio][name='{name}']")
+        if radios.first.evaluate("e => !!e.closest('fieldset, [role=radiogroup]')"):
+            continue   # handled below
+        q = question_of(radios.first) or radios.first.evaluate("""e => { const all = [...document.querySelectorAll(`input[type=radio][name="${CSS.escape(e.name)}"]`)];
+            let n = e.parentElement; while (n && !all.every(r => n.contains(r))) n = n.parentElement;
+            while (n && n.parentElement && n.innerText.trim() === [...n.querySelectorAll('label')].map(l => l.innerText).join('\\n').trim()) n = n.parentElement;
+            return (n ? n.innerText : '').split('\\n')[0].trim(); }""")
+        target = next((rx for pat, rx in opt_rules if re.search(pat, q, re.I)), None)
+        hit = next((r for r in radios.all() if target and re.search(target, label_of(page, r), re.I)), None)
+        if hit:
+            pick_radio(hit); filled.append(q)
+        elif not radios.evaluate_all("els => els.some(e => e.checked)") and ("*" in q or "✱" in q):
+            missing.append(q)
+
+    # type-ahead comboboxes (location pickers): type the answer, take the first suggestion
+    for cb in scope.locator("input[role=combobox], input[placeholder*='Start typing' i]").all():
+        if not cb.is_visible():
+            continue
+        lab = label_of(page, cb)
+        q = question_of(cb)
+        ans = answer(lab or q, text_rules) or answer(q, text_rules)
+        if not ans:
+            if "*" in (q + lab):
+                missing.append(q or lab)
+            continue
+        try:
+            cb.click(); cb.fill("")
+            tries = [p["country"], p["city"]] if re.search(r"country|residing|location|city", q + lab, re.I) else [ans]
+            opt = None
+            for want in tries:   # some pickers take countries ("United Kingdom"), others cities ("London")
+                cb.fill(""); cb.press_sequentially(want, delay=80)
+                page.wait_for_timeout(3500)
+                opts = page.locator("[role=option], [role=listbox] li").filter(has_text=re.compile(re.escape(want), re.I))
+                if opts.count():
+                    opt = opts.first; break
+            if opt is None:
+                missing.append(q or lab); continue
+            if opt.is_visible():
+                opt.click(); filled.append(q or lab)
+            elif "*" in (q + lab):
+                missing.append(q or lab)
+        except Exception:
+            missing.append(f"{q or lab} (could not pick an option)")
+
     for grp in scope.locator("fieldset, [role=radiogroup]").all():
         radios = grp.locator("input[type=radio]")
         if not radios.count():
@@ -281,6 +424,10 @@ def fill_form(page, p: dict, kind: str, resume: Path, job: dict | None = None) -
                 pick_radio(r); filled.append(lab); done = True; break
         if not done and (is_required(radios.first, lab) or "*" in lab):
             missing.append(lab)
+    page.wait_for_timeout(1500)
+    for q in unfilled_required(page, scope):
+        if q not in missing:
+            missing.append(q)
     return filled, missing
 
 
@@ -290,6 +437,7 @@ READY = RUNS / "ready-to-submit.json"
 SUBMIT_BUTTON = r"^(submit( application)?|send application|apply)$"
 CONFIRM_TEXT = r"thank you|application (has been )?(received|submitted)|we('ve| have) received"
 CAPTCHA_WAIT_S = 15 * 60
+PARK_CAPTCHA = True   # owner's call: park CAPTCHA forms for later instead of waiting (--wait-captcha to wait)
 
 
 def job_id(job: dict) -> str:
@@ -317,8 +465,8 @@ def open_and_fill(ctx, job: dict, p: dict) -> tuple[object, dict]:
         return None, {**base, "status": "skipped", "reason": job["skip"]}
     if job.get("hold"):
         return None, {**base, "status": "paused", "reason": job["hold"]}
-    resume = resume_for(kind)
-    if not resume:
+    resume = (ROOT / job["resume_path"]) if job.get("resume_path") else resume_for(kind)
+    if not resume or not resume.exists():
         return None, {**base, "status": "paused", "reason": f"resume not found: {RESUMES[kind]}"}
 
     shots = RUNS / "screenshots"; shots.mkdir(parents=True, exist_ok=True)
@@ -334,8 +482,11 @@ def open_and_fill(ctx, job: dict, p: dict) -> tuple[object, dict]:
         page = ctx.pages[-1]; page.wait_for_load_state("domcontentloaded"); page.wait_for_timeout(2000)
     dismiss_cookies(page)
     base["final_url"] = page.url
-    if has_captcha(page) and not wait_out_captcha(page, f"{company} - {role}"):
-        return page, {**base, "status": "paused", "reason": "captcha not solved; window left open"}
+    if has_captcha(page):
+        if PARK_CAPTCHA:
+            return page, {**base, "status": "parked-captcha", "reason": "CAPTCHA on the form; left for later"}
+        if not wait_out_captcha(page, f"{company} - {role}"):
+            return page, {**base, "status": "paused", "reason": "captcha not solved; window left open"}
 
     filled, missing = fill_form(page, p, kind, resume, job)
     base["filled"], base["resume"] = filled, resume.name
@@ -349,20 +500,43 @@ def open_and_fill(ctx, job: dict, p: dict) -> tuple[object, dict]:
     return page, {**base, "status": "filled"}
 
 
+def confirmed(page) -> bool:
+    return bool(re.search(CONFIRM_TEXT, page.inner_text("body"), re.I))
+
+
 def submit(page, rec: dict) -> dict:
+    """Clicks Submit, then waits for a real confirmation page. A CAPTCHA keeps it waiting for the human
+    (up to CAPTCHA_WAIT_S); a widget that flickers while reloading no longer counts as solved."""
     btn = page.get_by_role("button", name=re.compile(SUBMIT_BUTTON, re.I))
     if not btn.count():
         return {**rec, "status": "failed", "reason": "submit button not found"}
     btn.last.click()
-    page.wait_for_timeout(4000)
-    if has_captcha(page) and not wait_out_captcha(page, f"{rec['company']} - {rec['role']}"):
-        return {**rec, "status": "paused", "reason": "captcha at submit; window left open"}
-    page.wait_for_timeout(2000)
+    label, announced, saw_captcha, reclicked = f"{rec['company']} - {rec['role']}", False, False, False
+    for tick in range(CAPTCHA_WAIT_S // 5):
+        page.wait_for_timeout(5000)
+        if confirmed(page):
+            break
+        if has_captcha(page):
+            saw_captcha = True
+            if PARK_CAPTCHA:
+                break
+            if not announced:
+                print(f"[CAPTCHA] {label}: waiting up to {CAPTCHA_WAIT_S // 60} min for you to solve it in the open window.",
+                      flush=True)
+                log({**rec, "status": "captcha_wait"}); announced = True
+            continue
+        btn = page.get_by_role("button", name=re.compile(SUBMIT_BUTTON, re.I))
+        if saw_captcha and not reclicked and btn.count() and btn.last.is_enabled():
+            btn.last.click(); reclicked = True   # some ATSs need Submit again once the challenge clears
+        if not saw_captcha and tick >= 6:
+            break   # no challenge and nothing happening after 30 s
     post = RUNS / "screenshots" / f"{rec['id']}-confirmation.png"; page.screenshot(path=str(post), full_page=True)
     rec["screenshots"].append(str(post.relative_to(ROOT)))
-    ok = re.search(CONFIRM_TEXT, page.inner_text("body"), re.I)
-    return {**rec, "status": "submitted" if ok else "submit_unconfirmed",
-            "reason": "" if ok else "clicked Submit but saw no confirmation text; check the screenshot"}
+    if confirmed(page):
+        return {**rec, "status": "submitted", "reason": ""}
+    if saw_captcha:
+        return {**rec, "status": "parked-captcha", "reason": "CAPTCHA behind Submit; not submitted, left for later"}
+    return {**rec, "status": "submit_unconfirmed", "reason": "clicked Submit but saw no confirmation; check the screenshot"}
 
 
 def main() -> None:
@@ -370,8 +544,11 @@ def main() -> None:
     ap.add_argument("url", nargs="?")
     ap.add_argument("--company"); ap.add_argument("--role"); ap.add_argument("--kind", choices=RESUMES, default="fullstack")
     ap.add_argument("--batch", type=Path)
+    ap.add_argument("--wait-captcha", action="store_true", help="wait for a human to solve CAPTCHAs instead of parking")
     ap.add_argument("--submit", help="comma-separated ids from runs/ready-to-submit.json that the human approved")
     a = ap.parse_args()
+    global PARK_CAPTCHA
+    PARK_CAPTCHA = not a.wait_captcha
     if a.submit:
         ready = {r["id"]: r for r in json.loads(READY.read_text())}
         ids = [i.strip() for i in a.submit.split(",") if i.strip()]
@@ -408,7 +585,7 @@ def main() -> None:
                         else:
                             ready_out.append({"id": r["id"], "company": r["company"], "role": r["role"], "url": r["url"],
                                               "screenshot": r["screenshots"][0], "job": job})
-                    keep_open |= r["status"] == "paused" and "captcha" in r.get("reason", "")
+                    keep_open |= r["status"] == "paused" and "captcha" in r.get("reason", "") and not PARK_CAPTCHA
                 except Exception as e:
                     r = {"id": job_id(job), "company": job["company"], "role": job["role"], "url": job["url"],
                          "status": "failed", "reason": f"{type(e).__name__}: {e}"[:300], "missing_fields": [], "screenshots": []}
