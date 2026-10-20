@@ -1,5 +1,5 @@
 {
- "exportedAt": "2026-10-19T22:25:08+00:00",
+ "exportedAt": "2026-10-20T04:55:24+00:00",
  "jobs": [
   {
    "id": "stripe:7369543",
@@ -10,19 +10,107 @@
    "location": "United Kingdom",
    "url": "https://stripe.com/jobs/search?gh_jid=7369543",
    "description": "Who we are\n\nAbout Stripe\n\nStripe is a financial infrastructure platform for businesses. Millions of companies - from the world\u2019s largest enterprises to the most ambitious startups - use Stripe to accept payments, grow their revenue, and accelerate new business opportunities. Our mission is to increase the GDP of the internet, and we have a staggering amount of work ahead. That means you have an unprecedented opportunity to put the global economy within everyone's reach while doing the most important work of your career.\n\nAbout the Organization&nbsp;\n\nMoney as a Service (MaaS) oversees a diverse portfolio of Stripe's core platforms and services. Our Stripe Treasury suite helps users manage and move their funds with ease, providing the robust financial infrastructure and tools they need to power their businesses on a global scale.\n\nTeam Matching: exact team matching for one of the subteams within this org will begin during final stages. Please note we may also consider you for different orgs based on your experience, location, etc. More information on our team matching process can be found here.&nbsp;\n\nWhat you\u2019ll do\n\nWe\u2019re looking for Backend Engineers who want to make an impact on managing money at a global scale with a passion for building ergonomic APIs. You\u2019ll play a key role in extending our foundational Money Management APIs and services powering our Treasury products globally. Our team collaborates with many cross-functional teams \u2013 from Infrastructure to Product Manager \u2013 at Stripe to deliver innovative solutions that address evolving user needs.\n\nResponsibilities\n\nScope, design, build, and maintain APIs, services, and large-scale systems that reliably and efficiently handle billions of money movement requests\n\nDebug and solve critical production issues across services and multiple levels of the stack\n\nMentor engineers to help them grow\n\nCollaborate with stakeholders across the company to build new features at large-scale, while improving internal engineering standards, tooling, and processes\n\nCollaborate effectively in a distributed and hybrid team, maintaining open communication and strong connections with colleagues\n\nWho you are\n\nWe're looking for someone who meets the minimum requirements to be considered for the role. If you meet these requirements, you are encouraged to apply. The preferred qualifications are a bonus, not a requirement.\n\nMinimum requirements\n\n2-12+ years of industry software engineering experience (does not include internships nor includes co-ops)\n\nStrong coding skills in any programming language (we understand new languages can be learned on the job so our interview process is language agnostic)\n\nStrong collaboration skills, can work across workstreams within your team and contribute to your peers\u2019 success\n\nHave the ability to thrive on a high level of autonomy, responsibility, and think of yourself as entrepreneurial\n\nInterest in working as a generalist across varying technologies and stacks to solve problems and delight both internal and external users\n\nPreferred Qualifications\n\nExperience with large-scale financial tracking systems\n\nGood understanding and practical knowledge in cloud based services (e.g. gRPC, GraphQL, Docker/Kubernetes, cloud services such as AWS, etc.)",
-   "status": "scraped",
+   "status": "pending_approval",
    "sponsor": null,
-   "scoreBefore": null,
-   "scoreAfter": null,
-   "missing": [],
+   "scoreBefore": 0.1538,
+   "scoreAfter": 0.1538,
+   "missing": [
+    "graphql",
+    "aws",
+    "docker",
+    "kubernetes",
+    "distributed systems",
+    "customer-facing"
+   ],
    "minYears": 2.0,
    "sponsorship": "unknown",
-   "projects": [],
-   "bullets": [],
+   "projects": [
+    {
+     "id": "kepler",
+     "overlap": 0.0969
+    },
+    {
+     "id": "kiraya",
+     "overlap": 0.0769
+    },
+    {
+     "id": "computer-use",
+     "overlap": 0.02
+    }
+   ],
+   "bullets": [
+    {
+     "project_id": "kepler",
+     "original": "Native Android app (Kotlin, Jetpack Compose) in a multi-module architecture: app, core, engine (epub, tts, playback, ai, srs) and feature modules",
+     "tailored": "Native Android app (Kotlin, Jetpack Compose) in a multi-module architecture: app, core, engine (epub, tts, playback, ai, srs) and feature modules",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "kepler",
+     "original": "Text Spine: deterministic sentence and paragraph IDs that keep bookmarks, highlights, audio sync and flashcards intact across re-pagination",
+     "tailored": "Text Spine: deterministic sentence and paragraph IDs that keep bookmarks, highlights, audio sync and flashcards intact across re-pagination",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "kiraya",
+     "original": "Cross-platform rent management app (6 platforms) with Firebase Auth, Firestore real-time sync and Storage for KYC documents",
+     "tailored": "Cross-platform rent management app (6 platforms) with Firebase Auth, Firestore real-time sync and Storage for KYC documents",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "kiraya",
+     "original": "Dashboard with revenue, occupancy and payment status charts",
+     "tailored": "Dashboard with revenue, occupancy and payment status charts",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "computer-use",
+     "original": "Bidirectional WebSocket streaming of voice and commands to the Gemini Live API",
+     "tailored": "Bidirectional WebSocket streaming of voice and commands to the Gemini Live API",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "computer-use",
+     "original": "Multi-threaded audio capture with noise reduction and adaptive silence detection",
+     "tailored": "Multi-threaded audio capture with noise reduction and adaptive silence detection",
+     "grounded": true,
+     "violations": []
+    }
+   ],
    "coverLetter": null,
-   "latex": null,
-   "email": null,
-   "contacts": []
+   "latex": "\\documentclass[10.5pt,a4paper]{article}\n\\usepackage[margin=1.6cm]{geometry}\n\\usepackage[T1]{fontenc}\n\\usepackage{lmodern}\n\\usepackage[hidelinks]{hyperref}\n\\usepackage{enumitem}\n\\usepackage{titlesec}\n\\ifdefined\\pdfgentounicode\\pdfgentounicode=1\\fi\n\\setlist[itemize]{leftmargin=1.2em,itemsep=1pt,topsep=2pt}\n\\titleformat{\\section}{\\large\\bfseries}{}{0pt}{}[\\vspace{-6pt}\\rule{\\linewidth}{0.4pt}]\n\\titlespacing{\\section}{0pt}{8pt}{4pt}\n\\pagestyle{empty}\n\\setlength{\\parindent}{0pt}\n\\begin{document}\n\n{\\LARGE\\bfseries Mohammad Khalid}\\\\[2pt]\nSoftware Engineer | rest api, backend\\\\\nLondon, UK \\textbar{} contact@iamkhalid.xyz \\textbar{} \\href{https://iamkhalid.xyz}{iamkhalid.xyz} \\textbar{} \\href{https://github.com/iamkhalid2}{github.com/iamkhalid2} \\textbar{} \\href{https://linkedin.com/in/mmdkhalid}{linkedin.com/in/mmdkhalid}\\\\\nRight to work in the UK until 30 June 2028\n\\section{Summary}\nSoftware engineer (BSc Information Technology, 2024) who ships LLM systems, Android and web applications end to end. Selected work below is chosen for Backend/API Engineer, Money as a Service (Product)  and links to source.\n\\section{Technical Skills}\n\\begin{itemize}\n\\item \\textbf{Languages:} bash, c, c++, dart, glsl, javascript, kotlin, python, sql, swift\n\\item \\textbf{Frameworks \\& Platforms:} android, flutter, ios, jetpack compose, next.js, node.js, numpy, pydantic, pyodide, pytorch\n\\item \\textbf{AI \\& LLM Systems:} agents, anthropic, computer use, gemini, guardrails, llm, machine learning, multi-agent, ocr, openai\n\\item \\textbf{Infrastructure \\& Delivery:} ci/cd, firebase, git, github actions, linux, vercel\n\\item \\textbf{Engineering:} backend, rest api, authentication, concurrency, frontend, full-text search, mobile, oauth, observability, offline-first\n\\end{itemize}\n\\section{Projects}\n\\textbf{Kepler} \\textbar{} \\href{https://github.com/iamkhalid2/Kepler}{github.com/iamkhalid2/Kepler} \\hfill 2026-Present\\\\\n\\textit{rest api, kotlin, sql, bash, jetpack compose}\n\\begin{itemize}\n\\item Native Android app (Kotlin, Jetpack Compose) in a multi-module architecture: app, core, engine (epub, tts, playback, ai, srs) and feature modules\n\\item Text Spine: deterministic sentence and paragraph IDs that keep bookmarks, highlights, audio sync and flashcards intact across re-pagination\n\\end{itemize}\n\\textbf{Kiraya property management app (personal project, not published)} \\textbar{} \\href{https://github.com/iamkhalid2/kiraya_app}{github.com/iamkhalid2/kiraya\\_app} \\hfill 2025\\\\\n\\textit{backend, kotlin, c++, swift, dart}\n\\begin{itemize}\n\\item Cross-platform rent management app (6 platforms) with Firebase Auth, Firestore real-time sync and Storage for KYC documents\n\\item Dashboard with revenue, occupancy and payment status charts\n\\end{itemize}\n\\textbf{Computer-Use voice desktop agent} \\textbar{} \\href{https://github.com/iamkhalid2/computer-use}{github.com/iamkhalid2/computer-use} \\hfill 2025\\\\\n\\textit{python, bash, pytorch, numpy, llm}\n\\begin{itemize}\n\\item Bidirectional WebSocket streaming of voice and commands to the Gemini Live API\n\\item Multi-threaded audio capture with noise reduction and adaptive silence detection\n\\end{itemize}\n\\section{Experience}\n\\textbf{IT Support Specialist}, S\\&P Global, London, UK \\hfill 2026-Present\n\\begin{itemize}\n\\item Provide technical support to employees at a global financial intelligence and data company, handling incidents and service requests in ServiceNow.\n\\item Support and troubleshoot employee devices with Microsoft Intune.\n\\item Support user accounts and access in Active Directory.\n\\end{itemize}\n\\section{Education}\n\\textbf{BSc Information Technology}, Graphic Era University, Dehradun, India \\hfill 2021-2024\n\\end{document}\n",
+   "email": {
+    "subject": "question re: stripe london rest api role + 1 github stars",
+    "body": "Hi {first_name},\n\nI saw the London Backend/API Engineer, Money as a Service (Product)  opening on rest api. I built Kepler (https://github.com/iamkhalid2/Kepler), and the part closest to your work is this: native Android app (Kotlin, Jetpack Compose) in a multi-module architecture: app, core, engine (epub, tts, playback, ai, srs) and feature modules. Are you the right person to route my profile to, or open to a quick look at the repo?\n\nThanks,\nKhalid"
+   },
+   "contacts": [
+    {
+     "persona": "engineering_manager",
+     "name": null,
+     "linkedin_search_url": "https://www.linkedin.com/search/results/people/?keywords=%22Stripe%22+engineering+manager++London&origin=GLOBAL_SEARCH_HEADER",
+     "linkedin_url": null,
+     "email": null
+    },
+    {
+     "persona": "tech_lead",
+     "name": null,
+     "linkedin_search_url": "https://www.linkedin.com/search/results/people/?keywords=%22Stripe%22+tech+lead++London&origin=GLOBAL_SEARCH_HEADER",
+     "linkedin_url": null,
+     "email": null
+    },
+    {
+     "persona": "early_careers_recruiter",
+     "name": null,
+     "linkedin_search_url": "https://www.linkedin.com/search/results/people/?keywords=%22Stripe%22+early+careers+recruiter++London&origin=GLOBAL_SEARCH_HEADER",
+     "linkedin_url": null,
+     "email": null
+    }
+   ]
   },
   {
    "id": "stripe:8226261",
@@ -33,19 +121,120 @@
    "location": "London",
    "url": "https://stripe.com/jobs/search?gh_jid=8226261",
    "description": "Who we are\n\nAbout Stripe\n\nStripe is a financial infrastructure platform for businesses. Millions of companies\u2014from the world\u2019s largest enterprises to the most ambitious startups\u2014use Stripe to accept payments, grow their revenue, and accelerate new business opportunities.&nbsp;\n\nOur mission is to increase the GDP of the internet, and we have a staggering amount of work ahead. That means you have an unprecedented opportunity to put the global economy within everyone\u2019s reach while doing the most important work of your career.\n\n&nbsp;\n\nAbout the team\n\nThe Direct Surfaces Team\u2019s mission is to make it delightful for users to manage their money. We\u2019re rebuilding and unbundling the core of Stripe so that no matter what the business, the location or use-case there is a single place that can fulfil all financial needs: Stripe Treasury. This is a 0 \u2192 1 new business at Stripe so if that sounds exciting we\u2019d love to hear from you!\n\n&nbsp;\n\nWhat you\u2019ll do\n\nFull-stack engineers at Stripe are comfortable working on new products under fluid conditions, seamlessly balancing tactical and strategic considerations.&nbsp;\n\n&nbsp;\n\nResponsibilities\n\nScope and lead technical projects, laying the groundwork for our products to iteratively evolve and scale\n\nDesign, build, expand and maintain UIs their related APIs and services\n\nWork with our partners to design and launch new features and capabilities\n\nAlign our technical decisions with Stripe\u2019s broad strategic initiatives, while also advocating for needs specific to emerging new businesses\n\nWork with engineers across the company to understand when existing infrastructure can be leveraged vs. when building a bespoke solution is prudent\n\nDevelop and execute against both short- and long-term roadmaps. Make effective tradeoffs that consider business priorities, user experience, and a sustainable technical foundation\n\n&nbsp;\n\nWho you are\n\nWe\u2019re looking for fullstack software engineers with experience building scalable products who have an eye for detail and are happy delivering changes at any layer of the technical stack.\n\n&nbsp;\n\nMinimum requirements\n\nHave a strong technical background, including 3+ years of industry experience building high quality code and infrastructure\n\nHave experience in ensuring great user experience and ease of use of features and products you build\n\nUnderstand good practices of building and working with UIs and APIs\n\nMeasure your success in terms of business impact, not lines of code\n\nInternalize the best ideas from across the organization, humbly setting a vision that others are excited to get behind\n\nWork well cross-functionally and earn trust from co-workers at all levels. You are often cited as the inspiration for engineers that join your team\n\nCare deeply about mentorship and growing engineers\n\nPrefer simple solutions and designs over complex ones, and have a good intuition for what will last and scale\n\nThrive in a collaborative environment&nbsp;\n\nEnjoy working with a diverse group of people with different areas of expertise. Engineering works closely with a variety of teams: Sales and Support to better understand our customers\u2019 needs, Legal and Accounting to understand how global policies influence our money-moving infrastructure, etc.\n\n&nbsp;\n\nPreferred qualifications\n\nStrong React Expertise\n\nHave experience using React Native\n\nHave experience in ensuring great user experience and ease of use of features for products you build.\n\nHave experience with financial product companies and interest in financial products and markets\n\n&nbsp;",
-   "status": "scraped",
+   "status": "pending_approval",
    "sponsor": null,
-   "scoreBefore": null,
-   "scoreAfter": null,
-   "missing": [],
+   "scoreBefore": 0.8333,
+   "scoreAfter": 1.0,
+   "missing": [
+    "system design"
+   ],
    "minYears": 3.0,
    "sponsorship": "unknown",
-   "projects": [],
-   "bullets": [],
+   "projects": [
+    {
+     "id": "portfolio-cms",
+     "overlap": 0.52
+    },
+    {
+     "id": "bustan-bakers",
+     "overlap": 0.52
+    },
+    {
+     "id": "kepler",
+     "overlap": 0.3533
+    },
+    {
+     "id": "computer-use",
+     "overlap": 0.18669999999999998
+    }
+   ],
+   "bullets": [
+    {
+     "project_id": "portfolio-cms",
+     "original": "Git-backed CMS with GitHub OAuth, signed HttpOnly session cookies and an allow-list",
+     "tailored": "Git-backed CMS with GitHub OAuth, signed HttpOnly session cookies and an allow-list",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "portfolio-cms",
+     "original": "Next.js App Router site with markdown, YAML and JSON content, RSS, a sitemap, dynamic Open Graph images, Spotify and GitHub integrations, and CI (typecheck, lint, build) deploying to Vercel",
+     "tailored": "Next.js App Router site with markdown, YAML and JSON content, RSS, a sitemap, dynamic Open Graph images, Spotify and GitHub integrations, and CI (typecheck, lint, build) deploying to Vercel",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "bustan-bakers",
+     "original": "Statically generated multi-page Next.js site (menu, products, locations, product enquiry flow) on Vercel with scroll-driven CSS animation and a lazy-loaded WebGL hover shader",
+     "tailored": "Statically generated multi-page Next.js site (menu, products, locations, product enquiry flow) on Vercel with scroll-driven CSS animation and a lazy-loaded WebGL hover shader",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "bustan-bakers",
+     "original": "GitHub Actions pipeline (lint, typecheck, build, tests) that fails the build if any route exceeds 178 KB gzipped JavaScript or 900 KB transfer",
+     "tailored": "GitHub Actions pipeline (lint, typecheck, build, tests) that fails the build if any route exceeds 178 KB gzipped JavaScript or 900 KB transfer",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "kepler",
+     "original": "Native Android app (Kotlin, Jetpack Compose) in a multi-module architecture: app, core, engine (epub, tts, playback, ai, srs) and feature modules",
+     "tailored": "Native Android app (Kotlin, Jetpack Compose) in a multi-module architecture: app, core, engine (epub, tts, playback, ai, srs) and feature modules",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "kepler",
+     "original": "Text Spine: deterministic sentence and paragraph IDs that keep bookmarks, highlights, audio sync and flashcards intact across re-pagination",
+     "tailored": "Text Spine: deterministic sentence and paragraph IDs that keep bookmarks, highlights, audio sync and flashcards intact across re-pagination",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "computer-use",
+     "original": "Bidirectional WebSocket streaming of voice and commands to the Gemini Live API",
+     "tailored": "Bidirectional WebSocket streaming of voice and commands to the Gemini Live API",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "computer-use",
+     "original": "Multi-threaded audio capture with noise reduction and adaptive silence detection",
+     "tailored": "Multi-threaded audio capture with noise reduction and adaptive silence detection",
+     "grounded": true,
+     "violations": []
+    }
+   ],
    "coverLetter": null,
-   "latex": null,
-   "email": null,
-   "contacts": []
+   "latex": "\\documentclass[10.5pt,a4paper]{article}\n\\usepackage[margin=1.6cm]{geometry}\n\\usepackage[T1]{fontenc}\n\\usepackage{lmodern}\n\\usepackage[hidelinks]{hyperref}\n\\usepackage{enumitem}\n\\usepackage{titlesec}\n\\ifdefined\\pdfgentounicode\\pdfgentounicode=1\\fi\n\\setlist[itemize]{leftmargin=1.2em,itemsep=1pt,topsep=2pt}\n\\titleformat{\\section}{\\large\\bfseries}{}{0pt}{}[\\vspace{-6pt}\\rule{\\linewidth}{0.4pt}]\n\\titlespacing{\\section}{0pt}{8pt}{4pt}\n\\pagestyle{empty}\n\\setlength{\\parindent}{0pt}\n\\begin{document}\n\n{\\LARGE\\bfseries Mohammad Khalid}\\\\[2pt]\nSoftware Engineer | react, rest api, system design\\\\\nLondon, UK \\textbar{} contact@iamkhalid.xyz \\textbar{} \\href{https://iamkhalid.xyz}{iamkhalid.xyz} \\textbar{} \\href{https://github.com/iamkhalid2}{github.com/iamkhalid2} \\textbar{} \\href{https://linkedin.com/in/mmdkhalid}{linkedin.com/in/mmdkhalid}\\\\\nRight to work in the UK until 30 June 2028\n\\section{Summary}\nSoftware engineer (BSc Information Technology, 2024) who ships LLM systems, Android and web applications end to end. Selected work below is chosen for Full Stack Engineer, Money Movement and links to source.\n\\section{Technical Skills}\n\\begin{itemize}\n\\item \\textbf{Languages:} bash, c, c++, dart, glsl, javascript, kotlin, python, sql, swift\n\\item \\textbf{Frameworks \\& Platforms:} react, android, flutter, ios, jetpack compose, next.js, node.js, numpy, pydantic, pyodide\n\\item \\textbf{AI \\& LLM Systems:} agents, anthropic, computer use, gemini, guardrails, llm, machine learning, multi-agent, ocr, openai\n\\item \\textbf{Infrastructure \\& Delivery:} ci/cd, firebase, git, github actions, linux, vercel\n\\item \\textbf{Engineering:} rest api, system design, authentication, backend, concurrency, frontend, full-text search, mobile, oauth, observability\n\\end{itemize}\n\\section{Projects}\n\\textbf{Portfolio \\& git-backed CMS} \\textbar{} \\href{https://iamkhalid.xyz}{iamkhalid.xyz} \\hfill 2024-Present\\\\\n\\textit{react, typescript, glsl, next.js, tailwind}\n\\begin{itemize}\n\\item Git-backed CMS with GitHub OAuth, signed HttpOnly session cookies and an allow-list\n\\item Next.js App Router site with markdown, YAML and JSON content, RSS, a sitemap, dynamic Open Graph images, Spotify and GitHub integrations, and CI (typecheck, lint, build) deploying to Vercel\n\\end{itemize}\n\\textbf{Bustan Bakers website} \\textbar{} \\href{https://bustanbakers.com}{bustanbakers.com} \\hfill 2025-Present\\\\\n\\textit{react, typescript, javascript, next.js, tailwind}\n\\begin{itemize}\n\\item Statically generated multi-page Next.js site (menu, products, locations, product enquiry flow) on Vercel with scroll-driven CSS animation and a lazy-loaded WebGL hover shader\n\\item GitHub Actions pipeline (lint, typecheck, build, tests) that fails the build if any route exceeds 178 KB gzipped JavaScript or 900 KB transfer\n\\end{itemize}\n\\textbf{Kepler} \\textbar{} \\href{https://github.com/iamkhalid2/Kepler}{github.com/iamkhalid2/Kepler} \\hfill 2026-Present\\\\\n\\textit{rest api, system design, kotlin, sql, bash}\n\\begin{itemize}\n\\item Native Android app (Kotlin, Jetpack Compose) in a multi-module architecture: app, core, engine (epub, tts, playback, ai, srs) and feature modules\n\\item Text Spine: deterministic sentence and paragraph IDs that keep bookmarks, highlights, audio sync and flashcards intact across re-pagination\n\\end{itemize}\n\\textbf{Computer-Use voice desktop agent} \\textbar{} \\href{https://github.com/iamkhalid2/computer-use}{github.com/iamkhalid2/computer-use} \\hfill 2025\\\\\n\\textit{system design, python, bash, pytorch, numpy}\n\\begin{itemize}\n\\item Bidirectional WebSocket streaming of voice and commands to the Gemini Live API\n\\item Multi-threaded audio capture with noise reduction and adaptive silence detection\n\\end{itemize}\n\\section{Experience}\n\\textbf{IT Support Specialist}, S\\&P Global, London, UK \\hfill 2026-Present\n\\begin{itemize}\n\\item Provide technical support to employees at a global financial intelligence and data company, handling incidents and service requests in ServiceNow.\n\\item Support and troubleshoot employee devices with Microsoft Intune.\n\\item Support user accounts and access in Active Directory.\n\\end{itemize}\n\\section{Education}\n\\textbf{BSc Information Technology}, Graphic Era University, Dehradun, India \\hfill 2021-2024\n\\end{document}\n",
+   "email": {
+    "subject": "question re: stripe london react role + portfolio & git-backed cms",
+    "body": "Hi {first_name},\n\nI saw the London Full Stack Engineer, Money Movement opening on react. I built Portfolio & git-backed CMS (https://iamkhalid.xyz), and the part closest to your work is this: git-backed CMS with GitHub OAuth, signed HttpOnly session cookies and an allow-list. Are you the right person to route my profile to, or open to a quick look at the repo?\n\nThanks,\nKhalid"
+   },
+   "contacts": [
+    {
+     "persona": "engineering_manager",
+     "name": null,
+     "linkedin_search_url": "https://www.linkedin.com/search/results/people/?keywords=%22Stripe%22+engineering+manager++London&origin=GLOBAL_SEARCH_HEADER",
+     "linkedin_url": null,
+     "email": null
+    },
+    {
+     "persona": "tech_lead",
+     "name": null,
+     "linkedin_search_url": "https://www.linkedin.com/search/results/people/?keywords=%22Stripe%22+tech+lead++London&origin=GLOBAL_SEARCH_HEADER",
+     "linkedin_url": null,
+     "email": null
+    },
+    {
+     "persona": "early_careers_recruiter",
+     "name": null,
+     "linkedin_search_url": "https://www.linkedin.com/search/results/people/?keywords=%22Stripe%22+early+careers+recruiter++London&origin=GLOBAL_SEARCH_HEADER",
+     "linkedin_url": null,
+     "email": null
+    }
+   ]
   },
   {
    "id": "stripe:7208537",
@@ -56,19 +245,103 @@
    "location": "London",
    "url": "https://stripe.com/jobs/search?gh_jid=7208537",
    "description": "Who we are\n\nAbout Stripe\n\nStripe is a financial infrastructure platform for businesses. Millions of companies - from the world's largest enterprises to the most ambitious startups - use Stripe to accept payments, grow their revenue, and accelerate new business opportunities. Our mission is to increase the GDP of the internet, and we have a staggering amount of work ahead. That means you have an unprecedented opportunity to put the global economy within everyone's reach while doing the most important work of your career.\n\nAbout the team\n\nExact team matching for one of the subteams within the following orgs will begin during final stages. If you have a strong preference for a specific org, please flag this to your recruiter during your recruiter screen.\n\nMoney as a Service (MaaS)\n\nMoney as a Service is a new org within Stripe which is all about making money programmable through funding, FX'ing, sending, and spending. The Money as a Service (MaaS) teams build the APIs and product experience that allow Stripe users to perform these money management capabilities on Stripe globally.\n\nWe've recently launched several products.\n\nMulticurrency balances\n\nGlobal Payouts\n\nPayments and Risk\n\nThe Payments organization focuses on developing products and platforms that enable users to accept payments from customers efficiently. This includes building APIs for processing payments, enabling regional, non-card payment options, and extending Stripe's capabilities to make it easy for businesses to accept in-person payments. Optimized Checkout and Link teams work to create best-in-class checkout experiences that enhance customer satisfaction and drive merchant conversion rates. The Risk Engineering team develops products that minimize financial and regulatory risks while ensuring a seamless user experience, thereby safeguarding Stripe's brand and financial stability.\n\nWhat you'll do\n\nWe're looking for backend, frontend-leaning fullstack, and fullstack engineers who are interested in building software services and platforms that impact thousands of employees and millions of Stripe users, regardless of whether they're an end user, developer, or partner.\n\nResponsibilities\n\nScope, design, build, and maintain APIs, user experiences, services, and large-scale systems that reliably and efficiently handle billions of money movement requests\n\nDebug and solve critical production issues across services and multiple levels of the stack\n\nMentor engineers to help them grow\n\nMeet directly with our users to help shape product changes\n\nCollaborate with stakeholders across the company to build new features at large-scale, while improving internal engineering standards, tooling, and processes\n\nCollaborate effectively in a distributed and hybrid team, maintaining open communication and strong connections with colleagues\n\nWho you are\n\nWe're looking for someone who meets the minimum requirements to be considered for the role. If you meet these requirements, you are encouraged to apply. The preferred qualifications are a bonus, not a requirement.\n\nMinimum requirements\n\n2-12+ years of industry software engineering experience (does not include internships or co-ops)\n\nStrong coding skills in any programming language (we understand new languages can be learned on the job so our interview process is language agnostic)\n\nStrong collaboration skills and the ability to work across workstreams within your team and contribute to your peers' success\n\nAbility to thrive with a high level of autonomy and responsibility, and an entrepreneurial mindset\n\nInterest in working as a generalist across varying technologies and stacks to solve problems and delight both internal and external users\n\nPreferred qualifications\n\nExperience building user interfaces\n\nExperience with user research or interaction design\n\nExperience designing and building APIs",
-   "status": "scraped",
+   "status": "pending_approval",
    "sponsor": null,
-   "scoreBefore": null,
-   "scoreAfter": null,
-   "missing": [],
+   "scoreBefore": 0.6667,
+   "scoreAfter": 0.5,
+   "missing": [
+    "distributed systems",
+    "customer-facing"
+   ],
    "minYears": 2.0,
    "sponsorship": "unknown",
-   "projects": [],
-   "bullets": [],
+   "projects": [
+    {
+     "id": "kiraya",
+     "overlap": 0.3333
+    },
+    {
+     "id": "kepler",
+     "overlap": 0.18669999999999998
+    },
+    {
+     "id": "computer-use",
+     "overlap": 0.02
+    }
+   ],
+   "bullets": [
+    {
+     "project_id": "kiraya",
+     "original": "Cross-platform rent management app (6 platforms) with Firebase Auth, Firestore real-time sync and Storage for KYC documents",
+     "tailored": "Cross-platform rent management app (6 platforms) with Firebase Auth, Firestore real-time sync and Storage for KYC documents",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "kiraya",
+     "original": "Dashboard with revenue, occupancy and payment status charts",
+     "tailored": "Dashboard with revenue, occupancy and payment status charts",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "kepler",
+     "original": "Native Android app (Kotlin, Jetpack Compose) in a multi-module architecture: app, core, engine (epub, tts, playback, ai, srs) and feature modules",
+     "tailored": "Native Android app (Kotlin, Jetpack Compose) in a multi-module architecture: app, core, engine (epub, tts, playback, ai, srs) and feature modules",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "kepler",
+     "original": "Text Spine: deterministic sentence and paragraph IDs that keep bookmarks, highlights, audio sync and flashcards intact across re-pagination",
+     "tailored": "Text Spine: deterministic sentence and paragraph IDs that keep bookmarks, highlights, audio sync and flashcards intact across re-pagination",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "computer-use",
+     "original": "Bidirectional WebSocket streaming of voice and commands to the Gemini Live API",
+     "tailored": "Bidirectional WebSocket streaming of voice and commands to the Gemini Live API",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "computer-use",
+     "original": "Multi-threaded audio capture with noise reduction and adaptive silence detection",
+     "tailored": "Multi-threaded audio capture with noise reduction and adaptive silence detection",
+     "grounded": true,
+     "violations": []
+    }
+   ],
    "coverLetter": null,
-   "latex": null,
-   "email": null,
-   "contacts": []
+   "latex": "\\documentclass[10.5pt,a4paper]{article}\n\\usepackage[margin=1.6cm]{geometry}\n\\usepackage[T1]{fontenc}\n\\usepackage{lmodern}\n\\usepackage[hidelinks]{hyperref}\n\\usepackage{enumitem}\n\\usepackage{titlesec}\n\\ifdefined\\pdfgentounicode\\pdfgentounicode=1\\fi\n\\setlist[itemize]{leftmargin=1.2em,itemsep=1pt,topsep=2pt}\n\\titleformat{\\section}{\\large\\bfseries}{}{0pt}{}[\\vspace{-6pt}\\rule{\\linewidth}{0.4pt}]\n\\titlespacing{\\section}{0pt}{8pt}{4pt}\n\\pagestyle{empty}\n\\setlength{\\parindent}{0pt}\n\\begin{document}\n\n{\\LARGE\\bfseries Mohammad Khalid}\\\\[2pt]\nSoftware Engineer | rest api, frontend, backend\\\\\nLondon, UK \\textbar{} contact@iamkhalid.xyz \\textbar{} \\href{https://iamkhalid.xyz}{iamkhalid.xyz} \\textbar{} \\href{https://github.com/iamkhalid2}{github.com/iamkhalid2} \\textbar{} \\href{https://linkedin.com/in/mmdkhalid}{linkedin.com/in/mmdkhalid}\\\\\nRight to work in the UK until 30 June 2028\n\\section{Summary}\nSoftware engineer (BSc Information Technology, 2024) who ships LLM systems, Android and web applications end to end. Selected work below is chosen for Software Engineer, Money Movement  and links to source.\n\\section{Technical Skills}\n\\begin{itemize}\n\\item \\textbf{Languages:} bash, c, c++, dart, glsl, javascript, kotlin, python, sql, swift\n\\item \\textbf{Frameworks \\& Platforms:} android, flutter, ios, jetpack compose, next.js, node.js, numpy, pydantic, pyodide, pytorch\n\\item \\textbf{AI \\& LLM Systems:} agents, anthropic, computer use, gemini, guardrails, llm, machine learning, multi-agent, ocr, openai\n\\item \\textbf{Infrastructure \\& Delivery:} ci/cd, firebase, git, github actions, linux, vercel\n\\item \\textbf{Engineering:} backend, frontend, rest api, authentication, concurrency, full-text search, mobile, oauth, observability, offline-first\n\\end{itemize}\n\\section{Projects}\n\\textbf{Kiraya property management app (personal project, not published)} \\textbar{} \\href{https://github.com/iamkhalid2/kiraya_app}{github.com/iamkhalid2/kiraya\\_app} \\hfill 2025\\\\\n\\textit{frontend, backend, kotlin, c++, swift}\n\\begin{itemize}\n\\item Cross-platform rent management app (6 platforms) with Firebase Auth, Firestore real-time sync and Storage for KYC documents\n\\item Dashboard with revenue, occupancy and payment status charts\n\\end{itemize}\n\\textbf{Kepler} \\textbar{} \\href{https://github.com/iamkhalid2/Kepler}{github.com/iamkhalid2/Kepler} \\hfill 2026-Present\\\\\n\\textit{rest api, kotlin, sql, bash, jetpack compose}\n\\begin{itemize}\n\\item Native Android app (Kotlin, Jetpack Compose) in a multi-module architecture: app, core, engine (epub, tts, playback, ai, srs) and feature modules\n\\item Text Spine: deterministic sentence and paragraph IDs that keep bookmarks, highlights, audio sync and flashcards intact across re-pagination\n\\end{itemize}\n\\textbf{Computer-Use voice desktop agent} \\textbar{} \\href{https://github.com/iamkhalid2/computer-use}{github.com/iamkhalid2/computer-use} \\hfill 2025\\\\\n\\textit{python, bash, pytorch, numpy, llm}\n\\begin{itemize}\n\\item Bidirectional WebSocket streaming of voice and commands to the Gemini Live API\n\\item Multi-threaded audio capture with noise reduction and adaptive silence detection\n\\end{itemize}\n\\section{Experience}\n\\textbf{IT Support Specialist}, S\\&P Global, London, UK \\hfill 2026-Present\n\\begin{itemize}\n\\item Provide technical support to employees at a global financial intelligence and data company, handling incidents and service requests in ServiceNow.\n\\item Support and troubleshoot employee devices with Microsoft Intune.\n\\item Support user accounts and access in Active Directory.\n\\end{itemize}\n\\section{Education}\n\\textbf{BSc Information Technology}, Graphic Era University, Dehradun, India \\hfill 2021-2024\n\\end{document}\n",
+   "email": {
+    "subject": "question re: stripe london frontend role + 5 github stars",
+    "body": "Hi {first_name},\n\nI saw the London Software Engineer, Money Movement  opening on frontend. I built Kiraya property management app (personal project, not published) (https://github.com/iamkhalid2/kiraya_app), and the part closest to your work is this: cross-platform rent management app (6 platforms) with Firebase Auth, Firestore real-time sync and Storage for KYC documents. Are you the right person to route my profile to, or open to a quick look at the repo?\n\nThanks,\nKhalid"
+   },
+   "contacts": [
+    {
+     "persona": "engineering_manager",
+     "name": null,
+     "linkedin_search_url": "https://www.linkedin.com/search/results/people/?keywords=%22Stripe%22+engineering+manager++London&origin=GLOBAL_SEARCH_HEADER",
+     "linkedin_url": null,
+     "email": null
+    },
+    {
+     "persona": "tech_lead",
+     "name": null,
+     "linkedin_search_url": "https://www.linkedin.com/search/results/people/?keywords=%22Stripe%22+tech+lead++London&origin=GLOBAL_SEARCH_HEADER",
+     "linkedin_url": null,
+     "email": null
+    },
+    {
+     "persona": "early_careers_recruiter",
+     "name": null,
+     "linkedin_search_url": "https://www.linkedin.com/search/results/people/?keywords=%22Stripe%22+early+careers+recruiter++London&origin=GLOBAL_SEARCH_HEADER",
+     "linkedin_url": null,
+     "email": null
+    }
+   ]
   },
   {
    "id": "stripe:8130930",
@@ -79,19 +352,123 @@
    "location": "London",
    "url": "https://stripe.com/jobs/search?gh_jid=8130930",
    "description": "Who we are\n\nAbout Stripe\n\nStripe is a technology company focused on improving the conditions for economic growth and prosperity. We build programmable financial infrastructure, rethinking from first principles how financial services should work, to make it easier and cheaper for any business to start and scale. More than 10 million businesses build on Stripe, spanning the economic frontier\u2014from solo founders to established enterprises\u2014united by a practical focus on growth. The most ambitious companies in the world use Stripe as core infrastructure to grow faster. They process trillions of dollars a year on Stripe, equivalent to around 1.6% of global GDP. While economic growth makes everyone better off, open markets also enable greater variety. When any business can easily serve a global customer base, the quality and diversity of products in the world increase, and craft and creativity are unleashed into the smallest niches. Our own growth is wholly contingent on the success of the businesses building on Stripe. We therefore invest back into our technology at an unusual rate. We make upgrades to our products every single day to deliver compounding gains to our customers. We maintain some of the most reliable APIs on the internet. We build entirely new pieces of financial infrastructure to enable new ideas. And our significant advances in risk and fraud infrastructure over many years are making the internet economy safer and more accessible.&nbsp;\n\nThough people at Stripe don\u2019t tend to take themselves seriously, Stripe is a fairly serious place: our customers are depending on us for their livelihoods. We admire ambition, intensity, curiosity, humility, and rigor. The most effective people become knowledgeable about many domains besides their own. Any company is an applied exercise in understanding some aspect of society or the market. In working with so many (especially the new and innovative ones), we think that Stripe is one of the very best places to learn about how the world works.\n\nYour role\n\nStripe is large enough that individual products and projects can be rapidly deployed to a meaningful fraction of the world\u2019s businesses, but small enough that individual agency still has outsized impact. Small teams can impact how millions of businesses grow. Right now the global economy is replatforming around AI, creating new opportunities for growth. We\u2019re at the center of this, and we think the best work is still in front of us.\n\nTo meet this moment, we\u2019re looking for people who move with urgency, like hard problems, and want their work to matter at a time of great change. If that\u2019s you, there\u2019s no better place to build your career.\n\nWho you are\n\nAmbitious builder: You\u2019re energized by building solutions without clear precedent and solving problems with far-reaching consequences. Successful Stripes are deeply curious, and prefer the joy of discovery to the comfort of certainty.\n\nRigorous thinker: You appreciate that things worth doing are rarely simple. You enjoy working on problems that have never been tackled before.&nbsp;\n\nAdaptable problem solver: You adapt quickly and treat obstacles as opportunities.&nbsp; At Stripe we embrace kindness while encouraging Stripes to take measured risks and act boldly, even in the absence of consensus.\n\nMinimum requirements\n\nA Bachelor\u2019s or Master\u2019s degree in computer science or a directly related field, obtained by summer 2027, or equivalent work experience; New grad candidates should have no more than 18 months of professional experience (excluding internship experience).\n\nExperience and familiarity with programming, either through side projects or classwork. We work mostly in Java, Ruby, JavaScript, Scala, and Go. We believe new programming languages can be learned if the fundamentals and general knowledge are present.\n\nExperience from either previous internships or working collaboratively on multi-person coding projects (in a university or professional setting).\n\nAbility to learn unfamiliar systems and form an understanding of those systems, through independent research and working with a mentor or subject matter experts.\n\nClear written communication skills, with the ability to explain your work to stakeholders, team members, and other Stripes.\n\nAbility to leverage AI tools to accelerate development while applying rigorous critical thinking and professional judgement to review, refine, and validate all outputs.\n\nPreferred qualifications\n\nOne or more areas of specialized knowledge (frontend, backend, infrastructure or other technologies) balanced with general skills and knowledge.&nbsp;\n\nExperience in code review practices, and an understanding of how to safely update production systems.\n\nFamiliarity with navigating and managing work in large code bases.\n\nExperience leading small projects independently, and contributing to larger projects alongside peers.\n\nAbility to operate with high agency in navigating complex technical obstacles independently, knowing precisely when to unblock oneself and when to ask for help.",
-   "status": "scraped",
+   "status": "pending_approval",
    "sponsor": null,
-   "scoreBefore": null,
-   "scoreAfter": null,
-   "missing": [],
+   "scoreBefore": 0.375,
+   "scoreAfter": 0.375,
+   "missing": [
+    "java",
+    "scala",
+    "ruby",
+    "customer-facing"
+   ],
    "minYears": null,
    "sponsorship": "unknown",
-   "projects": [],
-   "bullets": [],
+   "projects": [
+    {
+     "id": "microgpt-course",
+     "overlap": 0.2075
+    },
+    {
+     "id": "bustan-bakers",
+     "overlap": 0.2075
+    },
+    {
+     "id": "whatsappgpt",
+     "overlap": 0.1875
+    },
+    {
+     "id": "kiraya",
+     "overlap": 0.125
+    }
+   ],
+   "bullets": [
+    {
+     "project_id": "microgpt-course",
+     "original": "19-chapter interactive course rebuilding Karpathy's 200-line pure-Python GPT from scratch",
+     "tailored": "19-chapter interactive course rebuilding Karpathy's 200-line pure-Python GPT from scratch",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "microgpt-course",
+     "original": "Learners run real Python in the browser through Pyodide, no server",
+     "tailored": "Learners run real Python in the browser through Pyodide, no server",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "bustan-bakers",
+     "original": "GitHub Actions pipeline (lint, typecheck, build, tests) that fails the build if any route exceeds 178 KB gzipped JavaScript or 900 KB transfer",
+     "tailored": "GitHub Actions pipeline (lint, typecheck, build, tests) that fails the build if any route exceeds 178 KB gzipped JavaScript or 900 KB transfer",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "bustan-bakers",
+     "original": "Statically generated multi-page Next.js site (menu, products, locations, product enquiry flow) on Vercel with scroll-driven CSS animation and a lazy-loaded WebGL hover shader",
+     "tailored": "Statically generated multi-page Next.js site (menu, products, locations, product enquiry flow) on Vercel with scroll-driven CSS animation and a lazy-loaded WebGL hover shader",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "whatsappgpt",
+     "original": "Open-source WhatsApp chatbot on whatsapp-web.js routing messages to OpenAI GPT or Google Gemini",
+     "tailored": "Open-source WhatsApp chatbot on whatsapp-web.js routing messages to OpenAI GPT or Google Gemini",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "whatsappgpt",
+     "original": "Keeps the last 10 conversations as context",
+     "tailored": "Keeps the last 10 conversations as context",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "kiraya",
+     "original": "Cross-platform rent management app (6 platforms) with Firebase Auth, Firestore real-time sync and Storage for KYC documents",
+     "tailored": "Cross-platform rent management app (6 platforms) with Firebase Auth, Firestore real-time sync and Storage for KYC documents",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "kiraya",
+     "original": "Dashboard with revenue, occupancy and payment status charts",
+     "tailored": "Dashboard with revenue, occupancy and payment status charts",
+     "grounded": true,
+     "violations": []
+    }
+   ],
    "coverLetter": null,
-   "latex": null,
-   "email": null,
-   "contacts": []
+   "latex": "\\documentclass[10.5pt,a4paper]{article}\n\\usepackage[margin=1.6cm]{geometry}\n\\usepackage[T1]{fontenc}\n\\usepackage{lmodern}\n\\usepackage[hidelinks]{hyperref}\n\\usepackage{enumitem}\n\\usepackage{titlesec}\n\\ifdefined\\pdfgentounicode\\pdfgentounicode=1\\fi\n\\setlist[itemize]{leftmargin=1.2em,itemsep=1pt,topsep=2pt}\n\\titleformat{\\section}{\\large\\bfseries}{}{0pt}{}[\\vspace{-6pt}\\rule{\\linewidth}{0.4pt}]\n\\titlespacing{\\section}{0pt}{8pt}{4pt}\n\\pagestyle{empty}\n\\setlength{\\parindent}{0pt}\n\\begin{document}\n\n{\\LARGE\\bfseries Mohammad Khalid}\\\\[2pt]\nSoftware Engineer | javascript, rest api, frontend, backend\\\\\nLondon, UK \\textbar{} contact@iamkhalid.xyz \\textbar{} \\href{https://iamkhalid.xyz}{iamkhalid.xyz} \\textbar{} \\href{https://github.com/iamkhalid2}{github.com/iamkhalid2} \\textbar{} \\href{https://linkedin.com/in/mmdkhalid}{linkedin.com/in/mmdkhalid}\\\\\nRight to work in the UK until 30 June 2028\n\\section{Summary}\nSoftware engineer (BSc Information Technology, 2024) who ships LLM systems, Android and web applications end to end. Selected work below is chosen for Software Engineer, New Grad and links to source.\n\\section{Technical Skills}\n\\begin{itemize}\n\\item \\textbf{Languages:} javascript, bash, c, c++, dart, glsl, kotlin, python, sql, swift\n\\item \\textbf{Frameworks \\& Platforms:} android, flutter, ios, jetpack compose, next.js, node.js, numpy, pydantic, pyodide, pytorch\n\\item \\textbf{AI \\& LLM Systems:} agents, anthropic, computer use, gemini, guardrails, llm, machine learning, multi-agent, ocr, openai\n\\item \\textbf{Infrastructure \\& Delivery:} ci/cd, firebase, git, github actions, linux, vercel\n\\item \\textbf{Engineering:} backend, frontend, rest api, authentication, concurrency, full-text search, mobile, oauth, observability, offline-first\n\\end{itemize}\n\\section{Projects}\n\\textbf{Invent a GPT course} \\textbar{} \\href{https://github.com/iamkhalid2/microgpt-course}{github.com/iamkhalid2/microgpt-course} \\hfill 2026-Present\\\\\n\\textit{javascript, python, bash, svelte, vite}\n\\begin{itemize}\n\\item 19-chapter interactive course rebuilding Karpathy's 200-line pure-Python GPT from scratch\n\\item Learners run real Python in the browser through Pyodide, no server\n\\end{itemize}\n\\textbf{Bustan Bakers website} \\textbar{} \\href{https://bustanbakers.com}{bustanbakers.com} \\hfill 2025-Present\\\\\n\\textit{javascript, typescript, react, next.js, tailwind}\n\\begin{itemize}\n\\item GitHub Actions pipeline (lint, typecheck, build, tests) that fails the build if any route exceeds 178 KB gzipped JavaScript or 900 KB transfer\n\\item Statically generated multi-page Next.js site (menu, products, locations, product enquiry flow) on Vercel with scroll-driven CSS animation and a lazy-loaded WebGL hover shader\n\\end{itemize}\n\\textbf{WhatsAppGPT} \\textbar{} \\href{https://github.com/iamkhalid2/WhatsAppGPT}{github.com/iamkhalid2/WhatsAppGPT} \\hfill 2023\\\\\n\\textit{javascript, node.js, llm, openai, gemini}\n\\begin{itemize}\n\\item Open-source WhatsApp chatbot on whatsapp-web.js routing messages to OpenAI GPT or Google Gemini\n\\item Keeps the last 10 conversations as context\n\\end{itemize}\n\\textbf{Kiraya property management app (personal project, not published)} \\textbar{} \\href{https://github.com/iamkhalid2/kiraya_app}{github.com/iamkhalid2/kiraya\\_app} \\hfill 2025\\\\\n\\textit{frontend, backend, kotlin, c++, swift}\n\\begin{itemize}\n\\item Cross-platform rent management app (6 platforms) with Firebase Auth, Firestore real-time sync and Storage for KYC documents\n\\item Dashboard with revenue, occupancy and payment status charts\n\\end{itemize}\n\\section{Experience}\n\\textbf{IT Support Specialist}, S\\&P Global, London, UK \\hfill 2026-Present\n\\begin{itemize}\n\\item Provide technical support to employees at a global financial intelligence and data company, handling incidents and service requests in ServiceNow.\n\\item Support and troubleshoot employee devices with Microsoft Intune.\n\\item Support user accounts and access in Active Directory.\n\\end{itemize}\n\\section{Education}\n\\textbf{BSc Information Technology}, Graphic Era University, Dehradun, India \\hfill 2021-2024\n\\end{document}\n",
+   "email": {
+    "subject": "question re: stripe london javascript role + 19 chapters",
+    "body": "Hi {first_name},\n\nI saw the London Software Engineer, New Grad opening on javascript. I built Invent a GPT course (https://github.com/iamkhalid2/microgpt-course), and the part closest to your work is this: 19-chapter interactive course rebuilding Karpathy's 200-line pure-Python GPT from scratch. Are you the right person to route my profile to, or open to a quick look at the repo?\n\nThanks,\nKhalid"
+   },
+   "contacts": [
+    {
+     "persona": "engineering_manager",
+     "name": null,
+     "linkedin_search_url": "https://www.linkedin.com/search/results/people/?keywords=%22Stripe%22+engineering+manager++London&origin=GLOBAL_SEARCH_HEADER",
+     "linkedin_url": null,
+     "email": null
+    },
+    {
+     "persona": "tech_lead",
+     "name": null,
+     "linkedin_search_url": "https://www.linkedin.com/search/results/people/?keywords=%22Stripe%22+tech+lead++London&origin=GLOBAL_SEARCH_HEADER",
+     "linkedin_url": null,
+     "email": null
+    },
+    {
+     "persona": "early_careers_recruiter",
+     "name": null,
+     "linkedin_search_url": "https://www.linkedin.com/search/results/people/?keywords=%22Stripe%22+early+careers+recruiter++London&origin=GLOBAL_SEARCH_HEADER",
+     "linkedin_url": null,
+     "email": null
+    }
+   ]
   },
   {
    "id": "palantir:ff1029bd-bb6d-4d78-a03e-5f9744d0b798",
@@ -3039,19 +3416,117 @@
    "location": "United Kingdom",
    "url": "https://jobs.ashbyhq.com/elevenlabs/c7d59014-b918-4c15-ae33-79f5c9f2cf9f",
    "description": "ABOUT ELEVENLABS\n\nElevenLabs is an AI research and product company transforming how we interact with technology.\n\nWe launched in January 2023 with the first human-like AI voice model. Today, we serve millions of users and thousands of businesses - from fast-growing startups to large enterprises like Deutsche Telekom and Meta. Our investors are some of the world's most prominent, including Andreessen Horowitz, ICONIQ Growth and Sequoia. We've raised $781M in funding and our last valuation was $22B - multiples of 11, always.\n\nWe have expanded from voice into three main platforms:\n\n - ElevenAgents enables businesses to deliver seamless and intelligent customer experiences, with the integrations, testing, monitoring, and reliability necessary to deploy voice and chat agents at scale.\n\n - ElevenCreative empowers creators and marketers to generate and edit speech, music, image, and video across 70+ languages.\n\n - ElevenAPI gives developers access to our leading AI audio foundational models.\n\nEverything we do is the result of the creativity and commitment of our team - builders doing the best work of their lives. We are researchers, engineers, and operators. IOI medalists and ex-founders. If you want to work hard and create lasting positive impact, we want to hear from you.\n\n\n\n\nHOW WE WORK\n\n - High-velocity: Rapid experimentation, lean autonomous teams, and minimal bureaucracy.\n\n - Impact not job titles: We don\u2019t have job titles. Instead, it\u2019s about the impact you have. No task is above or beneath you.\n\n - AI first: We use AI to move faster with higher-quality results. We do this across the whole company\u2014from engineering to growth to operations.\n\n - Excellence everywhere: Everything we do should match the quality of our AI models.\n\n - Global team: We prioritize your talent, not your location.\n\n\n\n\nWHAT WE OFFER\n\n - Innovative culture: You\u2019ll be part of a generational opportunity to define the trajectory of AI, surrounded by a team pushing the boundaries of what\u2019s possible.\n\n - Growth paths: Joining ElevenLabs means joining a dynamic team with countless opportunities to drive impact - beyond your immediate role and responsibilities.\n\n - Learning & development: ElevenLabs proactively supports professional development through an annual discretionary stipend.\n\n - Social travel: We also provide an annual discretionary stipend to meet up with colleagues each year, however you choose.\n\n - Annual company offsite: Each year, we bring the entire team together in a new location - past offsites have included Croatia and Italy.\n\n - Co-working: If you\u2019re not located near one of our main hubs, we offer a monthly co-working stipend.\n\n\nABOUT THE ROLE\n\nWe are looking for back-end engineers to expand the functionality of our system. There is flexibility in staffing engineers on projects across the company, depending on the project, your specific responsibilities might include:\u00a0\u00a0\n\n - Building and maintaining our platform on top of our cutting-edge voice models, which are used by millions of users.\n\n - Improving our existing products to ensure that they\u2019re intuitive, powerful and make innovative use of our research team\u2019s latest break-throughs. This could involve adding significant functionality, or building integrations with other common consumer/enterprise solutions.\n\n - Maintaining and strengthening our internal infrastructure as we scale and grow to ensure that our products remain live, performant and secure.\n\n - Collaborating closely with engineers and others from the Frontend, Growth and Sales teams to understand, and design solutions for our customers.\n\n\n\n\nREQUIREMENTS\n\nWe do not require any formal experience, certifications, or degrees. Instead, we are seeking enthusiastic software engineers who can showcase solving impressively hard problems with artifacts such as past projects, or GitHub contributions. We do require:\n\n - Expertise in Python.\n\n - A strong background in backend development.\n\n - Familiarity with common software and system design patterns and infrastructure including APIs, cloud infrastructure tools, storage solutions, data structures etc.\n\n - Knowledge about test design and security fundamentals.\n\n - Bonus:\n   \n   - Experience with Kubernetes.\n   \n   - Experience with Stripe or other payment processing providers.\n   \n   - Basics about how AI models work.\n     \n     \n\n\nLOCATION\n\nThis role is remote and can be executed globally. If you prefer, you can work from our offices in London, New York, San Francisco, and Warsaw.\n\n#LI-remote\n\nWe are an equal opportunity employer and do not discriminate on the basis of race, religion, national origin, gender, sexual orientation, age, veteran status, disability or other legally protected statuses.",
-   "status": "scraped",
+   "status": "pending_approval",
    "sponsor": null,
-   "scoreBefore": null,
-   "scoreAfter": null,
-   "missing": [],
+   "scoreBefore": 0.6364,
+   "scoreAfter": 0.8182,
+   "missing": [
+    "kubernetes",
+    "security",
+    "data structures",
+    "system design",
+    "observability"
+   ],
    "minYears": null,
    "sponsorship": "unknown",
-   "projects": [],
-   "bullets": [],
+   "projects": [
+    {
+     "id": "computer-use",
+     "overlap": 0.47450000000000003
+    },
+    {
+     "id": "kwealth",
+     "overlap": 0.3939
+    },
+    {
+     "id": "microgpt-course",
+     "overlap": 0.323
+    },
+    {
+     "id": "kepler",
+     "overlap": 0.2624
+    }
+   ],
+   "bullets": [
+    {
+     "project_id": "computer-use",
+     "original": "Bidirectional WebSocket streaming of voice and commands to the Gemini Live API",
+     "tailored": "Bidirectional WebSocket streaming of voice and commands to the Gemini Live API",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "computer-use",
+     "original": "Multi-threaded audio capture with noise reduction and adaptive silence detection",
+     "tailored": "Multi-threaded audio capture with noise reduction and adaptive silence detection",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "kwealth",
+     "original": "Four cooperating agents: data scout, bear analyst, bull analyst, synthesizer",
+     "tailored": "Four cooperating agents: data scout, bear analyst, bull analyst, synthesizer",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "kwealth",
+     "original": "Scout feeds both analysts in parallel; synthesizer weighs both memos",
+     "tailored": "Scout feeds both analysts in parallel; synthesizer weighs both memos",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "microgpt-course",
+     "original": "19-chapter interactive course rebuilding Karpathy's 200-line pure-Python GPT from scratch",
+     "tailored": "19-chapter interactive course rebuilding Karpathy's 200-line pure-Python GPT from scratch",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "microgpt-course",
+     "original": "Learners run real Python in the browser through Pyodide, no server",
+     "tailored": "Learners run real Python in the browser through Pyodide, no server",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "kepler",
+     "original": "Native Android app (Kotlin, Jetpack Compose) in a multi-module architecture: app, core, engine (epub, tts, playback, ai, srs) and feature modules",
+     "tailored": "Native Android app (Kotlin, Jetpack Compose) in a multi-module architecture: app, core, engine (epub, tts, playback, ai, srs) and feature modules",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "kepler",
+     "original": "Privacy by design: no analytics or telemetry, API keys encrypted with Android Keystore AES-256-GCM, app data excluded from cloud backup, offline reader, search, scheduler and TTS",
+     "tailored": "Privacy by design: no analytics or telemetry, API keys encrypted with Android Keystore AES-256-GCM, app data excluded from cloud backup, offline reader, search, scheduler and TTS",
+     "grounded": true,
+     "violations": []
+    }
+   ],
    "coverLetter": null,
-   "latex": null,
-   "email": null,
-   "contacts": []
+   "latex": "\\documentclass[10.5pt,a4paper]{article}\n\\usepackage[margin=1.6cm]{geometry}\n\\usepackage[T1]{fontenc}\n\\usepackage{lmodern}\n\\usepackage[hidelinks]{hyperref}\n\\usepackage{enumitem}\n\\usepackage{titlesec}\n\\ifdefined\\pdfgentounicode\\pdfgentounicode=1\\fi\n\\setlist[itemize]{leftmargin=1.2em,itemsep=1pt,topsep=2pt}\n\\titleformat{\\section}{\\large\\bfseries}{}{0pt}{}[\\vspace{-6pt}\\rule{\\linewidth}{0.4pt}]\n\\titlespacing{\\section}{0pt}{8pt}{4pt}\n\\pagestyle{empty}\n\\setlength{\\parindent}{0pt}\n\\begin{document}\n\n{\\LARGE\\bfseries Mohammad Khalid}\\\\[2pt]\nSoftware Engineer | python, agents, rest api, testing, security, system design\\\\\nLondon, UK \\textbar{} contact@iamkhalid.xyz \\textbar{} \\href{https://iamkhalid.xyz}{iamkhalid.xyz} \\textbar{} \\href{https://github.com/iamkhalid2}{github.com/iamkhalid2} \\textbar{} \\href{https://linkedin.com/in/mmdkhalid}{linkedin.com/in/mmdkhalid}\\\\\nRight to work in the UK until 30 June 2028\n\\section{Summary}\nSoftware engineer (BSc Information Technology, 2024) who ships LLM systems, Android and web applications end to end. Selected work below is chosen for Full-Stack Engineer (Backend Leaning) and links to source.\n\\section{Technical Skills}\n\\begin{itemize}\n\\item \\textbf{Languages:} python, bash, c, c++, dart, glsl, javascript, kotlin, sql, swift\n\\item \\textbf{Frameworks \\& Platforms:} android, flutter, ios, jetpack compose, next.js, node.js, numpy, pydantic, pyodide, pytorch\n\\item \\textbf{AI \\& LLM Systems:} agents, anthropic, computer use, gemini, guardrails, llm, machine learning, multi-agent, ocr, openai\n\\item \\textbf{Infrastructure \\& Delivery:} ci/cd, firebase, git, github actions, linux, vercel\n\\item \\textbf{Engineering:} backend, frontend, observability, rest api, security, system design, testing, authentication, concurrency, full-text search\n\\end{itemize}\n\\section{Projects}\n\\textbf{Computer-Use voice desktop agent} \\textbar{} \\href{https://github.com/iamkhalid2/computer-use}{github.com/iamkhalid2/computer-use} \\hfill 2025\\\\\n\\textit{python, agents, system design, observability, bash}\n\\begin{itemize}\n\\item Bidirectional WebSocket streaming of voice and commands to the Gemini Live API\n\\item Multi-threaded audio capture with noise reduction and adaptive silence detection\n\\end{itemize}\n\\textbf{KWealth multi-agent stock analysis} \\textbar{} \\href{https://github.com/iamkhalid2/kwealth}{github.com/iamkhalid2/kwealth} \\hfill 2026\\\\\n\\textit{python, agents, system design, bash, streamlit}\n\\begin{itemize}\n\\item Four cooperating agents: data scout, bear analyst, bull analyst, synthesizer\n\\item Scout feeds both analysts in parallel; synthesizer weighs both memos\n\\end{itemize}\n\\textbf{Invent a GPT course} \\textbar{} \\href{https://github.com/iamkhalid2/microgpt-course}{github.com/iamkhalid2/microgpt-course} \\hfill 2026-Present\\\\\n\\textit{python, testing, system design, javascript, bash}\n\\begin{itemize}\n\\item 19-chapter interactive course rebuilding Karpathy's 200-line pure-Python GPT from scratch\n\\item Learners run real Python in the browser through Pyodide, no server\n\\end{itemize}\n\\textbf{Kepler} \\textbar{} \\href{https://github.com/iamkhalid2/Kepler}{github.com/iamkhalid2/Kepler} \\hfill 2026-Present\\\\\n\\textit{rest api, testing, security, system design, kotlin}\n\\begin{itemize}\n\\item Native Android app (Kotlin, Jetpack Compose) in a multi-module architecture: app, core, engine (epub, tts, playback, ai, srs) and feature modules\n\\item Privacy by design: no analytics or telemetry, API keys encrypted with Android Keystore AES-256-GCM, app data excluded from cloud backup, offline reader, search, scheduler and TTS\n\\end{itemize}\n\\section{Experience}\n\\textbf{IT Support Specialist}, S\\&P Global, London, UK \\hfill 2026-Present\n\\begin{itemize}\n\\item Provide technical support to employees at a global financial intelligence and data company, handling incidents and service requests in ServiceNow.\n\\item Support and troubleshoot employee devices with Microsoft Intune.\n\\item Support user accounts and access in Active Directory.\n\\end{itemize}\n\\section{Education}\n\\textbf{BSc Information Technology}, Graphic Era University, Dehradun, India \\hfill 2021-2024\n\\end{document}\n",
+   "email": {
+    "subject": "question re: elevenlabs london python role + 11 github stars",
+    "body": "Hi {first_name},\n\nI saw the London Full-Stack Engineer (Backend Leaning) opening on python. I built Computer-Use voice desktop agent (https://github.com/iamkhalid2/computer-use), and the part closest to your work is this: bidirectional WebSocket streaming of voice and commands to the Gemini Live API. Are you the right person to route my profile to, or open to a quick look at the repo?\n\nThanks,\nKhalid"
+   },
+   "contacts": [
+    {
+     "persona": "engineering_manager",
+     "name": null,
+     "linkedin_search_url": "https://www.linkedin.com/search/results/people/?keywords=%22ElevenLabs%22+engineering+manager++London&origin=GLOBAL_SEARCH_HEADER",
+     "linkedin_url": null,
+     "email": null
+    },
+    {
+     "persona": "vp_eng",
+     "name": null,
+     "linkedin_search_url": "https://www.linkedin.com/search/results/people/?keywords=%22ElevenLabs%22+head+of+engineering++London&origin=GLOBAL_SEARCH_HEADER",
+     "linkedin_url": null,
+     "email": null
+    }
+   ]
   },
   {
    "id": "elevenlabs:6a530871-b6c6-4783-ac6b-69cc3b084192",
@@ -3062,19 +3537,116 @@
    "location": "United Kingdom",
    "url": "https://jobs.ashbyhq.com/elevenlabs/6a530871-b6c6-4783-ac6b-69cc3b084192",
    "description": "ABOUT ELEVENLABS\n\nElevenLabs is an AI research and product company transforming how we interact with technology.\n\nWe launched in January 2023 with the first human-like AI voice model. Today, we serve millions of users and thousands of businesses - from fast-growing startups to large enterprises like Deutsche Telekom and Meta. Our investors are some of the world's most prominent, including Andreessen Horowitz, ICONIQ Growth and Sequoia. We've raised $781M in funding and our last valuation was $22B - multiples of 11, always.\n\nWe have expanded from voice into three main platforms:\n\n - ElevenAgents enables businesses to deliver seamless and intelligent customer experiences, with the integrations, testing, monitoring, and reliability necessary to deploy voice and chat agents at scale.\n\n - ElevenCreative empowers creators and marketers to generate and edit speech, music, image, and video across 70+ languages.\n\n - ElevenAPI gives developers access to our leading AI audio foundational models.\n\nEverything we do is the result of the creativity and commitment of our team - builders doing the best work of their lives. We are researchers, engineers, and operators. IOI medalists and ex-founders. If you want to work hard and create lasting positive impact, we want to hear from you.\n\n\n\n\nHOW WE WORK\n\n - High-velocity: Rapid experimentation, lean autonomous teams, and minimal bureaucracy.\n\n - Impact not job titles: We don\u2019t have job titles. Instead, it\u2019s about the impact you have. No task is above or beneath you.\n\n - AI first: We use AI to move faster with higher-quality results. We do this across the whole company\u2014from engineering to growth to operations.\n\n - Excellence everywhere: Everything we do should match the quality of our AI models.\n\n - Global team: We prioritize your talent, not your location.\n\n\n\n\nWHAT WE OFFER\n\n - Innovative culture: You\u2019ll be part of a generational opportunity to define the trajectory of AI, surrounded by a team pushing the boundaries of what\u2019s possible.\n\n - Growth paths: Joining ElevenLabs means joining a dynamic team with countless opportunities to drive impact - beyond your immediate role and responsibilities.\n\n - Learning & development: ElevenLabs proactively supports professional development through an annual discretionary stipend.\n\n - Social travel: We also provide an annual discretionary stipend to meet up with colleagues each year, however you choose.\n\n - Annual company offsite: Each year, we bring the entire team together in a new location - past offsites have included Croatia and Italy.\n\n - Co-working: If you\u2019re not located near one of our main hubs, we offer a monthly co-working stipend.\n\n\nABOUT THE ROLE\n\nWe are looking for Full-Stack engineers to develop and maintain both front-end and back-end components of our product suite.\n\n\u00a0Your general responsibilities will include:\n\n - Building and maintaining our products and platform on top of our cutting-edge voice models, which will be used by millions of users.\n\n - High degrees of ownership. You will be responsible for shipping end-to-end features across the front and back ends of our stack, as well as helping set the direction of the features and products you're working on.\n\n - Collaborating closely with others on the Engineering, Growth and Sales teams to understand, and design solutions for, our customer and internal team\u2019s most important problems and workflows.\n\nWe believe in pairing engineers with work that matches their strengths and interests. This means that there is significant flexibility in staffing engineers across the company. \n\nSpecific responsibilities might include:\u00a0\u00a0\n\n - Scoping and building brand new proof of concept products, sometimes directly with partner customers, that could later be scaled to capture entirely new markets.\n\n - Improving our existing products to ensure that they\u2019re intuitive, powerful and make innovative use of our research team\u2019s latest break-throughs. This could involve making sweeping UX changes, adding significant functionality, or building integrations with other common consumer/enterprise solutions.\n\n - Maintaining and strengthening our internal infrastructure as we scale and grow to ensure that our products remain live, performant and secure.\n\n - Working to collect, manage, and process massive-scale datasets to lay the groundwork for the next generation of voice models at the forefront of generative AI.\n\n\n\n\nREQUIREMENTS\n\nWe do not require any formal experience, certifications, or degrees. Instead, we are seeking enthusiastic software engineers who can showcase solving impressively hard problems with artifacts such as past projects, designs, or GitHub contributions. \n\nWe do require:\n\n - Expertise in Python\n\n - Experience with Web Development using Typescript/React\n\n - Familiarity with common software and system design patterns and infrastructure including APIs, cloud infrastructure tools, storage solutions, data structures etc.\n\n - Bonus: Test design and security awareness\n   \n   \n\n\nLOCATION\n\nThis role is remote and can be executed globally. If you prefer, you can work from our offices in London, New York, San Francisco, and Warsaw.\n\n#LI-Remote\n\nWe are an equal opportunity employer and do not discriminate on the basis of race, religion, national origin, gender, sexual orientation, age, veteran status, disability or other legally protected statuses.",
-   "status": "scraped",
+   "status": "pending_approval",
    "sponsor": null,
-   "scoreBefore": null,
-   "scoreAfter": null,
-   "missing": [],
+   "scoreBefore": 0.8261,
+   "scoreAfter": 0.9565,
+   "missing": [
+    "security",
+    "data structures",
+    "system design",
+    "observability"
+   ],
    "minYears": null,
    "sponsorship": "unknown",
-   "projects": [],
-   "bullets": [],
+   "projects": [
+    {
+     "id": "computer-use",
+     "overlap": 0.45480000000000004
+    },
+    {
+     "id": "kwealth",
+     "overlap": 0.3913
+    },
+    {
+     "id": "bustan-bakers",
+     "overlap": 0.32430000000000003
+    },
+    {
+     "id": "kepler",
+     "overlap": 0.30260000000000004
+    }
+   ],
+   "bullets": [
+    {
+     "project_id": "computer-use",
+     "original": "Bidirectional WebSocket streaming of voice and commands to the Gemini Live API",
+     "tailored": "Bidirectional WebSocket streaming of voice and commands to the Gemini Live API",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "computer-use",
+     "original": "Multi-threaded audio capture with noise reduction and adaptive silence detection",
+     "tailored": "Multi-threaded audio capture with noise reduction and adaptive silence detection",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "kwealth",
+     "original": "Four cooperating agents: data scout, bear analyst, bull analyst, synthesizer",
+     "tailored": "Four cooperating agents: data scout, bear analyst, bull analyst, synthesizer",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "kwealth",
+     "original": "Scout feeds both analysts in parallel; synthesizer weighs both memos",
+     "tailored": "Scout feeds both analysts in parallel; synthesizer weighs both memos",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "bustan-bakers",
+     "original": "Statically generated multi-page Next.js site (menu, products, locations, product enquiry flow) on Vercel with scroll-driven CSS animation and a lazy-loaded WebGL hover shader",
+     "tailored": "Statically generated multi-page Next.js site (menu, products, locations, product enquiry flow) on Vercel with scroll-driven CSS animation and a lazy-loaded WebGL hover shader",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "bustan-bakers",
+     "original": "GitHub Actions pipeline (lint, typecheck, build, tests) that fails the build if any route exceeds 178 KB gzipped JavaScript or 900 KB transfer",
+     "tailored": "GitHub Actions pipeline (lint, typecheck, build, tests) that fails the build if any route exceeds 178 KB gzipped JavaScript or 900 KB transfer",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "kepler",
+     "original": "Native Android app (Kotlin, Jetpack Compose) in a multi-module architecture: app, core, engine (epub, tts, playback, ai, srs) and feature modules",
+     "tailored": "Native Android app (Kotlin, Jetpack Compose) in a multi-module architecture: app, core, engine (epub, tts, playback, ai, srs) and feature modules",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "kepler",
+     "original": "Privacy by design: no analytics or telemetry, API keys encrypted with Android Keystore AES-256-GCM, app data excluded from cloud backup, offline reader, search, scheduler and TTS",
+     "tailored": "Privacy by design: no analytics or telemetry, API keys encrypted with Android Keystore AES-256-GCM, app data excluded from cloud backup, offline reader, search, scheduler and TTS",
+     "grounded": true,
+     "violations": []
+    }
+   ],
    "coverLetter": null,
-   "latex": null,
-   "email": null,
-   "contacts": []
+   "latex": "\\documentclass[10.5pt,a4paper]{article}\n\\usepackage[margin=1.6cm]{geometry}\n\\usepackage[T1]{fontenc}\n\\usepackage{lmodern}\n\\usepackage[hidelinks]{hyperref}\n\\usepackage{enumitem}\n\\usepackage{titlesec}\n\\ifdefined\\pdfgentounicode\\pdfgentounicode=1\\fi\n\\setlist[itemize]{leftmargin=1.2em,itemsep=1pt,topsep=2pt}\n\\titleformat{\\section}{\\large\\bfseries}{}{0pt}{}[\\vspace{-6pt}\\rule{\\linewidth}{0.4pt}]\n\\titlespacing{\\section}{0pt}{8pt}{4pt}\n\\pagestyle{empty}\n\\setlength{\\parindent}{0pt}\n\\begin{document}\n\n{\\LARGE\\bfseries Mohammad Khalid}\\\\[2pt]\nSoftware Engineer | python, typescript, react, llm, agents, rest api\\\\\nLondon, UK \\textbar{} contact@iamkhalid.xyz \\textbar{} \\href{https://iamkhalid.xyz}{iamkhalid.xyz} \\textbar{} \\href{https://github.com/iamkhalid2}{github.com/iamkhalid2} \\textbar{} \\href{https://linkedin.com/in/mmdkhalid}{linkedin.com/in/mmdkhalid}\\\\\nRight to work in the UK until 30 June 2028\n\\section{Summary}\nSoftware engineer (BSc Information Technology, 2024) who ships LLM systems, Android and web applications end to end. Selected work below is chosen for Full-Stack Engineer and links to source.\n\\section{Technical Skills}\n\\begin{itemize}\n\\item \\textbf{Languages:} python, typescript, bash, c, c++, dart, glsl, javascript, kotlin, sql\n\\item \\textbf{Frameworks \\& Platforms:} react, android, flutter, ios, jetpack compose, next.js, node.js, numpy, pydantic, pyodide\n\\item \\textbf{AI \\& LLM Systems:} agents, llm, anthropic, computer use, gemini, guardrails, machine learning, multi-agent, ocr, openai\n\\item \\textbf{Infrastructure \\& Delivery:} ci/cd, firebase, git, github actions, linux, vercel\n\\item \\textbf{Engineering:} backend, frontend, observability, rest api, security, system design, testing, authentication, concurrency, full-text search\n\\end{itemize}\n\\section{Projects}\n\\textbf{Computer-Use voice desktop agent} \\textbar{} \\href{https://github.com/iamkhalid2/computer-use}{github.com/iamkhalid2/computer-use} \\hfill 2025\\\\\n\\textit{python, llm, agents, system design, observability}\n\\begin{itemize}\n\\item Bidirectional WebSocket streaming of voice and commands to the Gemini Live API\n\\item Multi-threaded audio capture with noise reduction and adaptive silence detection\n\\end{itemize}\n\\textbf{KWealth multi-agent stock analysis} \\textbar{} \\href{https://github.com/iamkhalid2/kwealth}{github.com/iamkhalid2/kwealth} \\hfill 2026\\\\\n\\textit{python, llm, agents, system design, bash}\n\\begin{itemize}\n\\item Four cooperating agents: data scout, bear analyst, bull analyst, synthesizer\n\\item Scout feeds both analysts in parallel; synthesizer weighs both memos\n\\end{itemize}\n\\textbf{Bustan Bakers website} \\textbar{} \\href{https://bustanbakers.com}{bustanbakers.com} \\hfill 2025-Present\\\\\n\\textit{typescript, react, testing, javascript, next.js}\n\\begin{itemize}\n\\item Statically generated multi-page Next.js site (menu, products, locations, product enquiry flow) on Vercel with scroll-driven CSS animation and a lazy-loaded WebGL hover shader\n\\item GitHub Actions pipeline (lint, typecheck, build, tests) that fails the build if any route exceeds 178 KB gzipped JavaScript or 900 KB transfer\n\\end{itemize}\n\\textbf{Kepler} \\textbar{} \\href{https://github.com/iamkhalid2/Kepler}{github.com/iamkhalid2/Kepler} \\hfill 2026-Present\\\\\n\\textit{llm, rest api, testing, security, system design}\n\\begin{itemize}\n\\item Native Android app (Kotlin, Jetpack Compose) in a multi-module architecture: app, core, engine (epub, tts, playback, ai, srs) and feature modules\n\\item Privacy by design: no analytics or telemetry, API keys encrypted with Android Keystore AES-256-GCM, app data excluded from cloud backup, offline reader, search, scheduler and TTS\n\\end{itemize}\n\\section{Experience}\n\\textbf{IT Support Specialist}, S\\&P Global, London, UK \\hfill 2026-Present\n\\begin{itemize}\n\\item Provide technical support to employees at a global financial intelligence and data company, handling incidents and service requests in ServiceNow.\n\\item Support and troubleshoot employee devices with Microsoft Intune.\n\\item Support user accounts and access in Active Directory.\n\\end{itemize}\n\\section{Education}\n\\textbf{BSc Information Technology}, Graphic Era University, Dehradun, India \\hfill 2021-2024\n\\end{document}\n",
+   "email": {
+    "subject": "question re: elevenlabs london python role + 11 github stars",
+    "body": "Hi {first_name},\n\nI saw the London Full-Stack Engineer opening on python. I built Computer-Use voice desktop agent (https://github.com/iamkhalid2/computer-use), and the part closest to your work is this: bidirectional WebSocket streaming of voice and commands to the Gemini Live API. Are you the right person to route my profile to, or open to a quick look at the repo?\n\nThanks,\nKhalid"
+   },
+   "contacts": [
+    {
+     "persona": "engineering_manager",
+     "name": null,
+     "linkedin_search_url": "https://www.linkedin.com/search/results/people/?keywords=%22ElevenLabs%22+engineering+manager++London&origin=GLOBAL_SEARCH_HEADER",
+     "linkedin_url": null,
+     "email": null
+    },
+    {
+     "persona": "vp_eng",
+     "name": null,
+     "linkedin_search_url": "https://www.linkedin.com/search/results/people/?keywords=%22ElevenLabs%22+head+of+engineering++London&origin=GLOBAL_SEARCH_HEADER",
+     "linkedin_url": null,
+     "email": null
+    }
+   ]
   },
   {
    "id": "elevenlabs:2d0016e0-3cc2-4ec7-b164-bc2b83990fb6",
@@ -3321,19 +3893,245 @@
    "location": "United Kingdom",
    "url": "https://jobs.ashbyhq.com/elevenlabs/38bac641-02de-414d-96f3-d0adb603cb89",
    "description": "ABOUT ELEVENLABS\n\nElevenLabs is an AI research and product company transforming how we interact with technology.\n\nWe launched in January 2023 with the first human-like AI voice model. Today, we serve millions of users and thousands of businesses - from fast-growing startups to large enterprises like Deutsche Telekom and Meta. Our investors are some of the world's most prominent, including Andreessen Horowitz, ICONIQ Growth and Sequoia. We've raised $781M in funding and our last valuation was $22B - multiples of 11, always.\n\nWe have expanded from voice into three main platforms:\n\n - ElevenAgents enables businesses to deliver seamless and intelligent customer experiences, with the integrations, testing, monitoring, and reliability necessary to deploy voice and chat agents at scale.\n\n - ElevenCreative empowers creators and marketers to generate and edit speech, music, image, and video across 70+ languages.\n\n - ElevenAPI gives developers access to our leading AI audio foundational models.\n\nEverything we do is the result of the creativity and commitment of our team - builders doing the best work of their lives. We are researchers, engineers, and operators. IOI medalists and ex-founders. If you want to work hard and create lasting positive impact, we want to hear from you.\n\n\n\n\nHOW WE WORK\n\n - High-velocity: Rapid experimentation, lean autonomous teams, and minimal bureaucracy.\n\n - Impact not job titles: We don\u2019t have job titles. Instead, it\u2019s about the impact you have. No task is above or beneath you.\n\n - AI first: We use AI to move faster with higher-quality results. We do this across the whole company\u2014from engineering to growth to operations.\n\n - Excellence everywhere: Everything we do should match the quality of our AI models.\n\n - Global team: We prioritize your talent, not your location.\n\n\n\n\nWHAT WE OFFER\n\n - Innovative culture: You\u2019ll be part of a generational opportunity to define the trajectory of AI, surrounded by a team pushing the boundaries of what\u2019s possible.\n\n - Growth paths: Joining ElevenLabs means joining a dynamic team with countless opportunities to drive impact - beyond your immediate role and responsibilities.\n\n - Learning & development: ElevenLabs proactively supports professional development through an annual discretionary stipend.\n\n - Social travel: We also provide an annual discretionary stipend to meet up with colleagues each year, however you choose.\n\n - Annual company offsite: Each year, we bring the entire team together in a new location - past offsites have included Croatia and Italy.\n\n - Co-working: If you\u2019re not located near one of our main hubs, we offer a monthly co-working stipend.\n\n\nABOUT THE ROLE\n\nMusic is becoming a first-class part of ElevenLabs Creative. You\u2019ll own the UI that lets creators make it, working closely with Research to turn new music models into products people use the next day.\n\nThe open question is what the best interface for AI music creation looks like. Creators come for video, dubbing or ads, and music is part of that flow. Making a song from scratch, scoring a video and localising a track into other languages each need a different flow. You\u2019ll form a view on the right experience, build it end to end, and make it easy to adopt each new model as it lands.\n\nYou\u2019ll take an ambiguous problem, decompose it, and carry it through legal, design, engineering and launch with Growth. You\u2019ll work in a small, high-ownership team across product, research and go-to-market.\n\nRequirements\n\n - Strong Frontend experience: you\u2019ve shipped complex, production UIs (React/TypeScript or equivalent) and are comfortable on the backend when the work needs it\n\n - You\u2019ve owned ambiguous, zero-to-one product work from problem definition to launch, without a PM or a prescriptive backlog\n\n - You\u2019ve worked closely with designers (Figma) and have taste and opinions about UX\n\n - You\u2019ve worked across functions such as legal, safety, growth and design to ship, and keep stakeholders updated without prompting\n\n - You weigh trade-offs and make pragmatic decisions with no single right answer, and build so that new models can be swapped in as they land\n\nBonus\n\n - Music, audio or creative-tools experience, or music as a hobby (singing, an instrument, production)\n\n - Experience building media-heavy interfaces such as audio, video or timeline editors\n\n - Experience working with ML models or research teams\n\n\nLOCATION\n\nThis role is remote-first, so it can be executed from anywhere in Europe or on the US East Coast, with the ability to operate in Central European timezones required. If you prefer, you can work from our offices in Dublin, London, New York and Warsaw.\n\n#LI-Remote\n\nWe are an equal opportunity employer and do not discriminate on the basis of race, religion, national origin, gender, sexual orientation, age, veteran status, disability or other legally protected statuses.",
-   "status": "scraped",
+   "status": "pending_approval",
    "sponsor": null,
-   "scoreBefore": null,
-   "scoreAfter": null,
-   "missing": [],
+   "scoreBefore": 0.641,
+   "scoreAfter": 0.9487,
+   "missing": [
+    "prompt engineering",
+    "machine learning",
+    "observability",
+    "customer-facing"
+   ],
    "minYears": null,
    "sponsorship": "unknown",
-   "projects": [],
-   "bullets": [],
+   "projects": [
+    {
+     "id": "bustan-bakers",
+     "overlap": 0.379
+    },
+    {
+     "id": "portfolio-cms",
+     "overlap": 0.3277
+    },
+    {
+     "id": "kwealth",
+     "overlap": 0.2564
+    },
+    {
+     "id": "kepler",
+     "overlap": 0.19949999999999998
+    }
+   ],
+   "bullets": [
+    {
+     "project_id": "bustan-bakers",
+     "original": "Statically generated multi-page Next.js site (menu, products, locations, product enquiry flow) on Vercel with scroll-driven CSS animation and a lazy-loaded WebGL hover shader",
+     "tailored": "Statically generated multi-page Next.js site (menu, products, locations, product enquiry flow) on Vercel with scroll-driven CSS animation and a lazy-loaded WebGL hover shader",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "bustan-bakers",
+     "original": "GitHub Actions pipeline (lint, typecheck, build, tests) that fails the build if any route exceeds 178 KB gzipped JavaScript or 900 KB transfer",
+     "tailored": "GitHub Actions pipeline (lint, typecheck, build, tests) that fails the build if any route exceeds 178 KB gzipped JavaScript or 900 KB transfer",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "portfolio-cms",
+     "original": "Git-backed CMS with GitHub OAuth, signed HttpOnly session cookies and an allow-list",
+     "tailored": "Git-backed CMS with GitHub OAuth, signed HttpOnly session cookies and an allow-list",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "portfolio-cms",
+     "original": "Next.js App Router site with markdown, YAML and JSON content, RSS, a sitemap, dynamic Open Graph images, Spotify and GitHub integrations, and CI (typecheck, lint, build) deploying to Vercel",
+     "tailored": "Next.js App Router site with markdown, YAML and JSON content, RSS, a sitemap, dynamic Open Graph images, Spotify and GitHub integrations, and CI (typecheck, lint, build) deploying to Vercel",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "kwealth",
+     "original": "Four cooperating agents: data scout, bear analyst, bull analyst, synthesizer",
+     "tailored": "Four cooperating agents: data scout, bear analyst, bull analyst, synthesizer",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "kwealth",
+     "original": "Scout feeds both analysts in parallel; synthesizer weighs both memos",
+     "tailored": "Scout feeds both analysts in parallel; synthesizer weighs both memos",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "kepler",
+     "original": "Unit tests per module with Gradle (testDebugUnitTest)",
+     "tailored": "Unit tests per module with Gradle (testDebugUnitTest)",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "kepler",
+     "original": "Native Android app (Kotlin, Jetpack Compose) in a multi-module architecture: app, core, engine (epub, tts, playback, ai, srs) and feature modules",
+     "tailored": "Native Android app (Kotlin, Jetpack Compose) in a multi-module architecture: app, core, engine (epub, tts, playback, ai, srs) and feature modules",
+     "grounded": true,
+     "violations": []
+    }
+   ],
    "coverLetter": null,
-   "latex": null,
-   "email": null,
-   "contacts": []
+   "latex": "\\documentclass[10.5pt,a4paper]{article}\n\\usepackage[margin=1.6cm]{geometry}\n\\usepackage[T1]{fontenc}\n\\usepackage{lmodern}\n\\usepackage[hidelinks]{hyperref}\n\\usepackage{enumitem}\n\\usepackage{titlesec}\n\\ifdefined\\pdfgentounicode\\pdfgentounicode=1\\fi\n\\setlist[itemize]{leftmargin=1.2em,itemsep=1pt,topsep=2pt}\n\\titleformat{\\section}{\\large\\bfseries}{}{0pt}{}[\\vspace{-6pt}\\rule{\\linewidth}{0.4pt}]\n\\titlespacing{\\section}{0pt}{8pt}{4pt}\n\\pagestyle{empty}\n\\setlength{\\parindent}{0pt}\n\\begin{document}\n\n{\\LARGE\\bfseries Mohammad Khalid}\\\\[2pt]\nSoftware Engineer | typescript, react, agents, prompt engineering, machine learning, testing\\\\\nLondon, UK \\textbar{} contact@iamkhalid.xyz \\textbar{} \\href{https://iamkhalid.xyz}{iamkhalid.xyz} \\textbar{} \\href{https://github.com/iamkhalid2}{github.com/iamkhalid2} \\textbar{} \\href{https://linkedin.com/in/mmdkhalid}{linkedin.com/in/mmdkhalid}\\\\\nRight to work in the UK until 30 June 2028\n\\section{Summary}\nSoftware engineer (BSc Information Technology, 2024) who ships LLM systems, Android and web applications end to end. Selected work below is chosen for Full-Stack Engineer (Frontend-Leaning) - CreativeMusic and links to source.\n\\section{Technical Skills}\n\\begin{itemize}\n\\item \\textbf{Languages:} typescript, bash, c, c++, dart, glsl, javascript, kotlin, python, sql\n\\item \\textbf{Frameworks \\& Platforms:} react, android, flutter, ios, jetpack compose, next.js, node.js, numpy, pydantic, pyodide\n\\item \\textbf{AI \\& LLM Systems:} agents, machine learning, prompt engineering, anthropic, computer use, gemini, guardrails, llm, multi-agent, ocr\n\\item \\textbf{Infrastructure \\& Delivery:} ci/cd, firebase, git, github actions, linux, vercel\n\\item \\textbf{Engineering:} backend, frontend, observability, testing, authentication, concurrency, full-text search, mobile, oauth, offline-first\n\\end{itemize}\n\\section{Projects}\n\\textbf{Bustan Bakers website} \\textbar{} \\href{https://bustanbakers.com}{bustanbakers.com} \\hfill 2025-Present\\\\\n\\textit{typescript, react, testing, javascript, next.js}\n\\begin{itemize}\n\\item Statically generated multi-page Next.js site (menu, products, locations, product enquiry flow) on Vercel with scroll-driven CSS animation and a lazy-loaded WebGL hover shader\n\\item GitHub Actions pipeline (lint, typecheck, build, tests) that fails the build if any route exceeds 178 KB gzipped JavaScript or 900 KB transfer\n\\end{itemize}\n\\textbf{Portfolio \\& git-backed CMS} \\textbar{} \\href{https://iamkhalid.xyz}{iamkhalid.xyz} \\hfill 2024-Present\\\\\n\\textit{typescript, react, glsl, next.js, tailwind}\n\\begin{itemize}\n\\item Git-backed CMS with GitHub OAuth, signed HttpOnly session cookies and an allow-list\n\\item Next.js App Router site with markdown, YAML and JSON content, RSS, a sitemap, dynamic Open Graph images, Spotify and GitHub integrations, and CI (typecheck, lint, build) deploying to Vercel\n\\end{itemize}\n\\textbf{KWealth multi-agent stock analysis} \\textbar{} \\href{https://github.com/iamkhalid2/kwealth}{github.com/iamkhalid2/kwealth} \\hfill 2026\\\\\n\\textit{agents, prompt engineering, python, bash, streamlit}\n\\begin{itemize}\n\\item Four cooperating agents: data scout, bear analyst, bull analyst, synthesizer\n\\item Scout feeds both analysts in parallel; synthesizer weighs both memos\n\\end{itemize}\n\\textbf{Kepler} \\textbar{} \\href{https://github.com/iamkhalid2/Kepler}{github.com/iamkhalid2/Kepler} \\hfill 2026-Present\\\\\n\\textit{prompt engineering, testing, kotlin, sql, bash}\n\\begin{itemize}\n\\item Unit tests per module with Gradle (testDebugUnitTest)\n\\item Native Android app (Kotlin, Jetpack Compose) in a multi-module architecture: app, core, engine (epub, tts, playback, ai, srs) and feature modules\n\\end{itemize}\n\\section{Experience}\n\\textbf{IT Support Specialist}, S\\&P Global, London, UK \\hfill 2026-Present\n\\begin{itemize}\n\\item Provide technical support to employees at a global financial intelligence and data company, handling incidents and service requests in ServiceNow.\n\\item Support and troubleshoot employee devices with Microsoft Intune.\n\\item Support user accounts and access in Active Directory.\n\\end{itemize}\n\\section{Education}\n\\textbf{BSc Information Technology}, Graphic Era University, Dehradun, India \\hfill 2021-2024\n\\end{document}\n",
+   "email": {
+    "subject": "question re: elevenlabs london typescript role + bustan bakers website",
+    "body": "Hi {first_name},\n\nI saw the London Full-Stack Engineer (Frontend-Leaning) - CreativeMusic opening on typescript. I built Bustan Bakers website (https://bustanbakers.com), and the part closest to your work is this: statically generated multi-page Next.js site (menu, products, locations, product enquiry flow) on Vercel with scroll-driven CSS animation and a lazy-loaded WebGL hover shader. Are you the right person to route my profile to, or open to a quick look at the repo?\n\nThanks,\nKhalid"
+   },
+   "contacts": [
+    {
+     "persona": "engineering_manager",
+     "name": null,
+     "linkedin_search_url": "https://www.linkedin.com/search/results/people/?keywords=%22ElevenLabs%22+engineering+manager++London&origin=GLOBAL_SEARCH_HEADER",
+     "linkedin_url": null,
+     "email": null
+    },
+    {
+     "persona": "vp_eng",
+     "name": null,
+     "linkedin_search_url": "https://www.linkedin.com/search/results/people/?keywords=%22ElevenLabs%22+head+of+engineering++London&origin=GLOBAL_SEARCH_HEADER",
+     "linkedin_url": null,
+     "email": null
+    }
+   ]
+  },
+  {
+   "id": "palantir:0f7d1e01-1f74-4786-944d-910208d390fa",
+   "company": "Palantir",
+   "tier": "A",
+   "size": "enterprise",
+   "title": "Software Engineer, New Grad - Query Engines",
+   "location": "London, United Kingdom",
+   "url": "https://jobs.lever.co/palantir/0f7d1e01-1f74-4786-944d-910208d390fa",
+   "description": "A World-Changing Company\n\u00a0\nPalantir builds the world\u2019s leading software for data-driven decisions and operations. By bringing the right data to the people who need it, our platforms empower our partners to develop lifesaving drugs, forecast supply chain disruptions, locate missing children, and more.\n\nThe Role\nWe are a software engineering team applying open-source data technologies to some of the world's hardest and most important problems. We build the data processing infrastructure that underpins Palantir Foundry, supporting applications that help hospitals care for more patients, help clinical teams coordinate timely diagnoses, and keep essential supplies moving through global disruption.\n\u00a0\nYou will work deep inside the systems that make this possible: how computations are represented, how query plans are optimised, how operators execute, and how data is read and written efficiently. We build on and extend Apache Spark, Apache DataFusion, and Apache Iceberg, bringing advances in open-source engines and table formats into the demanding environments our customers operate in. Our work serves many products and workloads across Foundry, including no-code pipelines, interactive analysis, and the processing that keeps the Ontology up to date.\n\u00a0\nWorking alongside experienced engineers, you will take on real problems in our production systems. That could mean writing a new planning rule, adding a capability to a native execution engine, or making large tables faster to scan. You will see your work through design, code review, testing, and release. Correctness, compatibility, and predictable performance are central to everything we build, and you will learn how to deliver all three.\n\u00a0\nJoin us if you want to learn how modern data systems work from the inside and apply that knowledge to consequential problems.\nTechnologies We Use\nJava, Scala, Rust, and Python\n\nApache Spark, Apache DataFusion, Apache Comet, and Velox for data processing and query execution\n\nApache Iceberg for table management and catalog interoperability\n\nApache Arrow and Apache Parquet for in-memory data processing and columnar storage\n\nGradle and Cargo for builds, and GitHub for collaboration\n\nYou do not need prior experience with these technologies. We expect you to learn them here.\nWhat We Value\nCuriosity about how data systems work, from query optimisers and execution operators to file formats and distributed processing\n\nA high bar for correctness and a willingness to dig until you understand why something behaves the way it does\n\nComfort following a problem across languages, services, and layers of the stack\n\nA practical approach to performance, grounded in measurement rather than intuition\n\nEagerness to learn, ask questions, and incorporate feedback\n\nInterest in applying deep systems engineering to real-world problems, with empathy for the people who depend on our software\nWhat We Require\nCurrently pursuing or recently completed a Bachelor's, Master's, or PhD in Computer Science, Mathematics, Software Engineering, Physics, or a similar field, or equivalent practical experience\n\nProficiency in at least one language such as Java, Rust, Scala, C++, or C\n\nStrong foundations in algorithms, data structures, and concurrency\n\nStrong written and verbal communication skills\n\nCoursework or projects in databases, compilers, operating systems, or distributed systems\n\nContributions to open-source projects",
+   "status": "pending_approval",
+   "sponsor": true,
+   "scoreBefore": 0.3,
+   "scoreAfter": 0.45,
+   "missing": [
+    "java",
+    "rust",
+    "scala",
+    "c++",
+    "distributed systems",
+    "data structures"
+   ],
+   "minYears": null,
+   "sponsorship": "unknown",
+   "projects": [
+    {
+     "id": "computer-use",
+     "overlap": 0.22
+    },
+    {
+     "id": "microgpt-course",
+     "overlap": 0.22
+    },
+    {
+     "id": "kwealth",
+     "overlap": 0.2
+    },
+    {
+     "id": "kiraya",
+     "overlap": 0.2
+    }
+   ],
+   "bullets": [
+    {
+     "project_id": "computer-use",
+     "original": "Multi-threaded audio capture with noise reduction and adaptive silence detection",
+     "tailored": "Multi-threaded audio capture with noise reduction and adaptive silence detection",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "computer-use",
+     "original": "Bidirectional WebSocket streaming of voice and commands to the Gemini Live API",
+     "tailored": "Bidirectional WebSocket streaming of voice and commands to the Gemini Live API",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "microgpt-course",
+     "original": "19-chapter interactive course rebuilding Karpathy's 200-line pure-Python GPT from scratch",
+     "tailored": "19-chapter interactive course rebuilding Karpathy's 200-line pure-Python GPT from scratch",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "microgpt-course",
+     "original": "Learners run real Python in the browser through Pyodide, no server",
+     "tailored": "Learners run real Python in the browser through Pyodide, no server",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "kwealth",
+     "original": "Scout feeds both analysts in parallel; synthesizer weighs both memos",
+     "tailored": "Scout feeds both analysts in parallel; synthesizer weighs both memos",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "kwealth",
+     "original": "Four cooperating agents: data scout, bear analyst, bull analyst, synthesizer",
+     "tailored": "Four cooperating agents: data scout, bear analyst, bull analyst, synthesizer",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "kiraya",
+     "original": "Cross-platform rent management app (6 platforms) with Firebase Auth, Firestore real-time sync and Storage for KYC documents",
+     "tailored": "Cross-platform rent management app (6 platforms) with Firebase Auth, Firestore real-time sync and Storage for KYC documents",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "kiraya",
+     "original": "Dashboard with revenue, occupancy and payment status charts",
+     "tailored": "Dashboard with revenue, occupancy and payment status charts",
+     "grounded": true,
+     "violations": []
+    }
+   ],
+   "coverLetter": null,
+   "latex": "\\documentclass[10.5pt,a4paper]{article}\n\\usepackage[margin=1.6cm]{geometry}\n\\usepackage[T1]{fontenc}\n\\usepackage{lmodern}\n\\usepackage[hidelinks]{hyperref}\n\\usepackage{enumitem}\n\\usepackage{titlesec}\n\\ifdefined\\pdfgentounicode\\pdfgentounicode=1\\fi\n\\setlist[itemize]{leftmargin=1.2em,itemsep=1pt,topsep=2pt}\n\\titleformat{\\section}{\\large\\bfseries}{}{0pt}{}[\\vspace{-6pt}\\rule{\\linewidth}{0.4pt}]\n\\titlespacing{\\section}{0pt}{8pt}{4pt}\n\\pagestyle{empty}\n\\setlength{\\parindent}{0pt}\n\\begin{document}\n\n{\\LARGE\\bfseries Mohammad Khalid}\\\\[2pt]\nSoftware Engineer | python, c++, testing, performance, concurrency\\\\\nLondon, UK \\textbar{} contact@iamkhalid.xyz \\textbar{} \\href{https://iamkhalid.xyz}{iamkhalid.xyz} \\textbar{} \\href{https://github.com/iamkhalid2}{github.com/iamkhalid2} \\textbar{} \\href{https://linkedin.com/in/mmdkhalid}{linkedin.com/in/mmdkhalid}\\\\\nRight to work in the UK until 30 June 2028\n\\section{Summary}\nSoftware engineer (BSc Information Technology, 2024) who ships LLM systems, Android and web applications end to end. Selected work below is chosen for Software Engineer, New Grad - Query Engines and links to source.\n\\section{Technical Skills}\n\\begin{itemize}\n\\item \\textbf{Languages:} c++, python, bash, c, dart, glsl, javascript, kotlin, sql, swift\n\\item \\textbf{Frameworks \\& Platforms:} android, flutter, ios, jetpack compose, next.js, node.js, numpy, pydantic, pyodide, pytorch\n\\item \\textbf{AI \\& LLM Systems:} agents, anthropic, computer use, gemini, guardrails, llm, machine learning, multi-agent, ocr, openai\n\\item \\textbf{Infrastructure \\& Delivery:} ci/cd, firebase, git, github actions, linux, vercel\n\\item \\textbf{Engineering:} concurrency, performance, testing, authentication, backend, frontend, full-text search, mobile, oauth, observability\n\\end{itemize}\n\\section{Projects}\n\\textbf{Computer-Use voice desktop agent} \\textbar{} \\href{https://github.com/iamkhalid2/computer-use}{github.com/iamkhalid2/computer-use} \\hfill 2025\\\\\n\\textit{python, concurrency, bash, pytorch, numpy}\n\\begin{itemize}\n\\item Multi-threaded audio capture with noise reduction and adaptive silence detection\n\\item Bidirectional WebSocket streaming of voice and commands to the Gemini Live API\n\\end{itemize}\n\\textbf{Invent a GPT course} \\textbar{} \\href{https://github.com/iamkhalid2/microgpt-course}{github.com/iamkhalid2/microgpt-course} \\hfill 2026-Present\\\\\n\\textit{python, testing, javascript, bash, svelte}\n\\begin{itemize}\n\\item 19-chapter interactive course rebuilding Karpathy's 200-line pure-Python GPT from scratch\n\\item Learners run real Python in the browser through Pyodide, no server\n\\end{itemize}\n\\textbf{KWealth multi-agent stock analysis} \\textbar{} \\href{https://github.com/iamkhalid2/kwealth}{github.com/iamkhalid2/kwealth} \\hfill 2026\\\\\n\\textit{python, concurrency, bash, streamlit, pydantic}\n\\begin{itemize}\n\\item Scout feeds both analysts in parallel; synthesizer weighs both memos\n\\item Four cooperating agents: data scout, bear analyst, bull analyst, synthesizer\n\\end{itemize}\n\\textbf{Kiraya property management app (personal project, not published)} \\textbar{} \\href{https://github.com/iamkhalid2/kiraya_app}{github.com/iamkhalid2/kiraya\\_app} \\hfill 2025\\\\\n\\textit{c++, testing, kotlin, swift, dart}\n\\begin{itemize}\n\\item Cross-platform rent management app (6 platforms) with Firebase Auth, Firestore real-time sync and Storage for KYC documents\n\\item Dashboard with revenue, occupancy and payment status charts\n\\end{itemize}\n\\section{Experience}\n\\textbf{IT Support Specialist}, S\\&P Global, London, UK \\hfill 2026-Present\n\\begin{itemize}\n\\item Provide technical support to employees at a global financial intelligence and data company, handling incidents and service requests in ServiceNow.\n\\item Support and troubleshoot employee devices with Microsoft Intune.\n\\item Support user accounts and access in Active Directory.\n\\end{itemize}\n\\section{Education}\n\\textbf{BSc Information Technology}, Graphic Era University, Dehradun, India \\hfill 2021-2024\n\\end{document}\n",
+   "email": {
+    "subject": "question re: palantir london python role + 11 github stars",
+    "body": "Hi {first_name},\n\nI saw the London Software Engineer, New Grad - Query Engines opening on python. I built Computer-Use voice desktop agent (https://github.com/iamkhalid2/computer-use), and the part closest to your work is this: multi-threaded audio capture with noise reduction and adaptive silence detection. Are you the right person to route my profile to, or open to a quick look at the repo?\n\nThanks,\nKhalid"
+   },
+   "contacts": [
+    {
+     "persona": "engineering_manager",
+     "name": null,
+     "linkedin_search_url": "https://www.linkedin.com/search/results/people/?keywords=%22Palantir%22+engineering+manager++London&origin=GLOBAL_SEARCH_HEADER",
+     "linkedin_url": null,
+     "email": null
+    },
+    {
+     "persona": "tech_lead",
+     "name": null,
+     "linkedin_search_url": "https://www.linkedin.com/search/results/people/?keywords=%22Palantir%22+tech+lead++London&origin=GLOBAL_SEARCH_HEADER",
+     "linkedin_url": null,
+     "email": null
+    },
+    {
+     "persona": "early_careers_recruiter",
+     "name": null,
+     "linkedin_search_url": "https://www.linkedin.com/search/results/people/?keywords=%22Palantir%22+early+careers+recruiter++London&origin=GLOBAL_SEARCH_HEADER",
+     "linkedin_url": null,
+     "email": null
+    }
+   ]
   }
  ]
 }
