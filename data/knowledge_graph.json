@@ -896,7 +896,9 @@
           "Add files via upload"
         ],
         "pushed_at": "2026-01-27T15:22:33Z"
-      }
+      },
+      "showcase_rank": 11,
+      "on_resume": false
     },
     {
       "id": "evil-py",
@@ -930,7 +932,9 @@
           "finished"
         ],
         "pushed_at": "2023-03-18T19:52:47Z"
-      }
+      },
+      "showcase_rank": 12,
+      "on_resume": false
     }
   ]
 }

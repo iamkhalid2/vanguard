@@ -104,3 +104,21 @@ def test_graduation_window_filter():
     assert not keep and reason == "graduation window [2025, 2026, 2027] excludes 2024"
     assert filters.evaluate(job, {"graduation_year": 2026})[0]
     assert filters.grad_years("graduating between 2024 and 2026") == {2024, 2025, 2026}
+
+
+def test_ghgraph_new_repo_keeps_profile_valid(tmp_path, monkeypatch):
+    """2026-10-20: the nightly rebuild added repos without showcase_rank and broke profile validation."""
+    from vanguard import ghgraph
+    kg = tmp_path / "kg.json"
+    kg.write_text((Path(__file__).resolve().parent.parent / "data" / "knowledge_graph.json").read_text())
+    monkeypatch.setattr(ghgraph, "KG_PATH", kg)
+    repo = {"fork": False, "archived": False, "owner": {"login": "iamkhalid2"}, "name": "brand-new",
+            "html_url": "https://github.com/iamkhalid2/brand-new", "homepage": None, "created_at": "2026-10-19T00:00:00Z",
+            "description": "a new repo", "stargazers_count": 0, "pushed_at": "2026-10-19T00:00:00Z"}
+    monkeypatch.setattr(ghgraph, "gh", lambda path, **kw: [repo] if path.endswith("/repos") else ([] if "commits" in path else {}))
+    monkeypatch.setattr(ghgraph, "file_text", lambda *a: None)
+    ghgraph.build("iamkhalid2")
+    data = json.loads(kg.read_text())
+    new = next(p for p in data["projects"] if p["id"] == "brand-new")
+    assert new["showcase_rank"] == max(p["showcase_rank"] for p in data["projects"])
+    assert len({p["showcase_rank"] for p in data["projects"]}) == len(data["projects"])
