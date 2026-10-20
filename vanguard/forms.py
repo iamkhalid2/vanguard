@@ -78,7 +78,7 @@ READ_JS = r"""
   const unnamedGroup = (e, type) => {
     for (let box = e.parentElement; box && box !== root.parentElement; box = box.parentElement) {
       const g = [...box.querySelectorAll(`input[type=${type}]`)].filter(x => !x.name && shown(x));
-      if (g.length > 1) return controlsIn(box).every(c => g.includes(c)) ? g : [e];
+      if (g.length > 1) return g;   // other controls (an "if other" box) may share the container
     }
     return [e];
   };
@@ -117,6 +117,21 @@ READ_JS = r"""
                  options: e.tagName === 'SELECT' ? [...e.options].map(o => clean(o.text)) : [],
                  maxlength: e.maxLength > 0 ? e.maxLength : null,
                  required: e.required || e.getAttribute('aria-required') === 'true' || requiredMark(label)});
+  }
+  // Questions printed on the page that no field above claimed (custom widgets the reader can't see
+  // as controls, e.g. Ashby's "How did you hear" buttons). The plan lists them for the visual filler.
+  const strip = t => clean(t).replace(/[*✱]\s*$/, '').trim().toLowerCase();
+  const claimed = new Set(fields.map(f => strip(f.label)));
+  const orphans = new Set();
+  for (const el of root.querySelectorAll('label, legend, p, span, div, h3, h4, h5, h6')) {
+    if (!visible(el) || controlsIn(el).length) continue;
+    const t = ownText(el);
+    if (!t || t.length > 200 || !/(\?|[*✱])\s*$/.test(t)) continue;
+    if ([...el.children].some(c => ownText(c) === t)) continue;      // the innermost element carries it
+    const k = strip(t);
+    if (claimed.has(k) || orphans.has(k) || [...claimed].some(c => c && (c.includes(k) || k.includes(c)))) continue;
+    orphans.add(k);
+    fields.push({key: `vg${n++}`, kind: 'orphan', label: t, options: [], required: requiredMark(t)});
   }
   return fields;
 }

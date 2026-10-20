@@ -83,7 +83,9 @@ def build(user: str) -> dict:
         if p is None:
             p = {"id": name.lower(), "name": name, "repo": r["html_url"], "demo": r.get("homepage") or None,
                  "years": r["created_at"][:4], "flagship": False, "skills": [], "features": [r["description"]] if r.get("description") else [],
-                 "metrics": [], "problem_solution": []}
+                 "metrics": [], "problem_solution": [], "on_resume": False,
+                 # a repo found by the sweep ranks below every curated project until someone ranks it by hand
+                 "showcase_rank": max([q.get("showcase_rank", 0) for q in kg["projects"]] + [0]) + 1}
             kg["projects"].append(p)
         p["skills"] = sorted(set(p["skills"]) | set(terms) | {l.lower() for l in langs})
         p["metrics"] = [m for m in p["metrics"] if "GitHub stars" not in m] + ([f"{r['stargazers_count']} GitHub stars"] if r["stargazers_count"] else [])
