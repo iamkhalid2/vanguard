@@ -19,6 +19,8 @@ YEARS_CONTEXT = re.compile(r"experience|commercial|industry|professional|product
 
 CLEARANCE = re.compile(r"\b(sc clearance|dv clearance|developed vetting|security clearance|eligible for (sc|dv)|"
                        r"active (sc|dv)|bpss and sc|sole british nationals?|british citizens? only)\b", re.I)
+# he has the right to work only until 2028-06-30, so roles that demand it permanently exclude him
+PERMANENT_RTW = re.compile(r"\b(permanent|indefinite|unrestricted and permanent) right to work\b|\b(settled status|ilr|indefinite leave to remain) (is )?required\b", re.I)
 NO_SPONSOR = re.compile(r"(not able to|unable to|cannot|can't|do not|don't|will not|won't)\s+(offer|provide)?\s*(visa\s+)?sponsor", re.I)
 SPONSOR = re.compile(r"(visa sponsorship (is )?(available|offered|provided)|we (can|will) sponsor|sponsorship available)", re.I)
 
@@ -79,6 +81,8 @@ def evaluate(job: dict, cfg: dict) -> tuple[bool, str | None, dict]:
         return False, "security clearance required", parsed
     if cfg.get("graduation_year") and window and cfg["graduation_year"] not in window:
         return False, f"graduation window {window} excludes {cfg['graduation_year']}", parsed
+    if PERMANENT_RTW.search(desc):
+        return False, "requires permanent right to work in the UK", parsed
     if cfg.get("drop_if_no_sponsorship") and parsed["sponsorship"] == "not_offered":
         return False, "states no visa sponsorship", parsed
     return True, None, parsed

@@ -39,6 +39,9 @@ def test_filters():
     assert filters.evaluate({"title": "Senior Software Engineer", "description": JD_SENIOR, "location": "London"}, cfg)[1].startswith("senior")
     assert filters.evaluate({"title": "Software Engineer", "description": JD_SENIOR, "location": "London"}, cfg)[1] == "requires 6+ years"
     assert filters.evaluate({"title": "Software Engineer (Graduate)", "description": JD_CLEARANCE, "location": "London"}, cfg)[1] == "security clearance required"
+    lambert = "London-based, hybrid working. Permanent right to work in UK required; we cannot sponsor visas."
+    assert filters.evaluate({"title": "Graduate Software Engineer", "description": lambert, "location": "London"}, cfg)[1] == \
+        "requires permanent right to work in the UK"
 
 
 def test_keywords_word_boundaries():
