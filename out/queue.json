@@ -1,5 +1,5 @@
 {
- "exportedAt": "2026-10-21T11:52:04+00:00",
+ "exportedAt": "2026-10-21T17:16:15+00:00",
  "jobs": [
   {
    "id": "stripe:7369543",
@@ -4128,6 +4128,125 @@
      "persona": "early_careers_recruiter",
      "name": null,
      "linkedin_search_url": "https://www.linkedin.com/search/results/people/?keywords=%22Palantir%22+early+careers+recruiter++London&origin=GLOBAL_SEARCH_HEADER",
+     "linkedin_url": null,
+     "email": null
+    }
+   ]
+  },
+  {
+   "id": "elevenlabs:b8a111fa-9fd5-44d0-97ed-8fd1280be4ef",
+   "company": "ElevenLabs",
+   "tier": "B",
+   "size": "mid",
+   "title": "Applied AI Engineer",
+   "location": "United Kingdom",
+   "url": "https://jobs.ashbyhq.com/elevenlabs/b8a111fa-9fd5-44d0-97ed-8fd1280be4ef",
+   "description": "ABOUT ELEVENLABS\n\nElevenLabs is an AI research and product company transforming how we interact with technology.\n\nWe launched in January 2023 with the first human-like AI voice model. Today, we serve millions of users and thousands of businesses - from fast-growing startups to large enterprises like Deutsche Telekom and Meta. Our investors are some of the world's most prominent, including Andreessen Horowitz, ICONIQ Growth and Sequoia. We've raised $781M in funding and our last valuation was $22B - multiples of 11, always.\n\nWe have expanded from voice into three main platforms:\n\n - ElevenAgents enables businesses to deliver seamless and intelligent customer experiences, with the integrations, testing, monitoring, and reliability necessary to deploy voice and chat agents at scale.\n\n - ElevenCreative empowers creators and marketers to generate and edit speech, music, image, and video across 70+ languages.\n\n - ElevenAPI gives developers access to our leading AI audio foundational models.\n\nEverything we do is the result of the creativity and commitment of our team - builders doing the best work of their lives. We are researchers, engineers, and operators. IOI medalists and ex-founders. If you want to work hard and create lasting positive impact, we want to hear from you.\n\n\n\n\nHOW WE WORK\n\n - High-velocity: Rapid experimentation, lean autonomous teams, and minimal bureaucracy.\n\n - Impact not job titles: We don\u2019t have job titles. Instead, it\u2019s about the impact you have. No task is above or beneath you.\n\n - AI first: We use AI to move faster with higher-quality results. We do this across the whole company\u2014from engineering to growth to operations.\n\n - Excellence everywhere: Everything we do should match the quality of our AI models.\n\n - Global team: We prioritize your talent, not your location.\n\n\n\n\nWHAT WE OFFER\n\n - Innovative culture: You\u2019ll be part of a generational opportunity to define the trajectory of AI, surrounded by a team pushing the boundaries of what\u2019s possible.\n\n - Growth paths: Joining ElevenLabs means joining a dynamic team with countless opportunities to drive impact - beyond your immediate role and responsibilities.\n\n - Learning & development: ElevenLabs proactively supports professional development through an annual discretionary stipend.\n\n - Social travel: We also provide an annual discretionary stipend to meet up with colleagues each year, however you choose.\n\n - Annual company offsite: Each year, we bring the entire team together in a new location - past offsites have included Croatia and Italy.\n\n - Co-working: If you\u2019re not located near one of our main hubs, we offer a monthly co-working stipend.\n\n\nABOUT THE ROLE\n\n\n\nWe're building agents that run real parts of our business, take on real work, and get better based on the results they produce. You'll build them with whatever is most capable right now: our own agents platform, the latest orchestration tools, and frontier models. The hard part is making them reliable, measurable, and safe enough for the business to depend on.\n\nYou'll sit in Marketing Engineering and be forward-deployed to our growth pods, where you'll find the problems worth solving and own the solutions end to end. You might be a forward-deployed builder, an applied AI engineer who has taken agents beyond the demo stage, or a full-stack engineer who is curious about growth.\n\n\n\n\nREQUIREMENTS\n\n - Python, SQL, LLM APIs and agent orchestration\n\n - You've shipped production systems that other people relied on, starting from a vague problem\n\n - You've built with LLMs beyond a demo and know how to evaluate them and where they fail\n\n - You measure whether what you built worked\n\n - Bonus: experience with GTM data or marketing systems.\n\n\u00a0\n\n\nLOCATION\n\nThis role is remote-first, so it can be executed from anywhere in Europe, with the ability to operate in GMT and GMT+1 timezones. If you prefer, you can work from our offices in London and Warsaw.\n\n\u00a0\n\n#LI-Remote\n\nWe are an equal opportunity employer and do not discriminate on the basis of race, religion, national origin, gender, sexual orientation, age, veteran status, disability or other legally protected statuses.",
+   "status": "pending_approval",
+   "sponsor": null,
+   "scoreBefore": 0.6875,
+   "scoreAfter": 0.875,
+   "missing": [
+    "sql",
+    "customer-facing",
+    "observability"
+   ],
+   "minYears": null,
+   "sponsorship": "unknown",
+   "projects": [
+    {
+     "id": "computer-use",
+     "overlap": 0.5825
+    },
+    {
+     "id": "kwealth",
+     "overlap": 0.5
+    },
+    {
+     "id": "kepler",
+     "overlap": 0.4888
+    },
+    {
+     "id": "microgpt-course",
+     "overlap": 0.27
+    }
+   ],
+   "bullets": [
+    {
+     "project_id": "computer-use",
+     "original": "Bidirectional WebSocket streaming of voice and commands to the Gemini Live API",
+     "tailored": "Bidirectional WebSocket streaming of voice and commands to the Gemini Live API",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "computer-use",
+     "original": "Multi-threaded audio capture with noise reduction and adaptive silence detection",
+     "tailored": "Multi-threaded audio capture with noise reduction and adaptive silence detection",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "kwealth",
+     "original": "Four cooperating agents: data scout, bear analyst, bull analyst, synthesizer",
+     "tailored": "Four cooperating agents: data scout, bear analyst, bull analyst, synthesizer",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "kwealth",
+     "original": "Scout feeds both analysts in parallel; synthesizer weighs both memos",
+     "tailored": "Scout feeds both analysts in parallel; synthesizer weighs both memos",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "kepler",
+     "original": "Readium 3.4 EPUB reader with typography controls and SQLite FTS5 full-text search; footnotes and endnotes moved out of the reading and narration flow",
+     "tailored": "Readium 3.4 EPUB reader with typography controls and SQLite FTS5 full-text search; footnotes and endnotes moved out of the reading and narration flow",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "kepler",
+     "original": "Unit tests per module with Gradle (testDebugUnitTest)",
+     "tailored": "Unit tests per module with Gradle (testDebugUnitTest)",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "microgpt-course",
+     "original": "19-chapter interactive course rebuilding Karpathy's 200-line pure-Python GPT from scratch",
+     "tailored": "19-chapter interactive course rebuilding Karpathy's 200-line pure-Python GPT from scratch",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "microgpt-course",
+     "original": "Learners run real Python in the browser through Pyodide, no server",
+     "tailored": "Learners run real Python in the browser through Pyodide, no server",
+     "grounded": true,
+     "violations": []
+    }
+   ],
+   "coverLetter": null,
+   "latex": "\\documentclass[10.5pt,a4paper]{article}\n\\usepackage[margin=1.6cm]{geometry}\n\\usepackage[T1]{fontenc}\n\\usepackage{lmodern}\n\\usepackage[hidelinks]{hyperref}\n\\usepackage{enumitem}\n\\usepackage{titlesec}\n\\ifdefined\\pdfgentounicode\\pdfgentounicode=1\\fi\n\\setlist[itemize]{leftmargin=1.2em,itemsep=1pt,topsep=2pt}\n\\titleformat{\\section}{\\large\\bfseries}{}{0pt}{}[\\vspace{-6pt}\\rule{\\linewidth}{0.4pt}]\n\\titlespacing{\\section}{0pt}{8pt}{4pt}\n\\pagestyle{empty}\n\\setlength{\\parindent}{0pt}\n\\begin{document}\n\n{\\LARGE\\bfseries Mohammad Khalid}\\\\[2pt]\nSoftware Engineer | python, sql, llm, agents, rest api, testing\\\\\nLondon, UK \\textbar{} contact@iamkhalid.xyz \\textbar{} \\href{https://iamkhalid.xyz}{iamkhalid.xyz} \\textbar{} \\href{https://github.com/iamkhalid2}{github.com/iamkhalid2} \\textbar{} \\href{https://linkedin.com/in/mmdkhalid}{linkedin.com/in/mmdkhalid}\\\\\nRight to work in the UK until 30 June 2028\n\\section{Summary}\nSoftware engineer (BSc Information Technology, 2024) who ships LLM systems, Android and web applications end to end. Selected work below is chosen for Applied AI Engineer and links to source.\n\\section{Technical Skills}\n\\begin{itemize}\n\\item \\textbf{Languages:} python, sql, bash, c, c++, dart, glsl, javascript, kotlin, swift\n\\item \\textbf{Frameworks \\& Platforms:} android, flutter, ios, jetpack compose, next.js, node.js, numpy, pydantic, pyodide, pytorch\n\\item \\textbf{AI \\& LLM Systems:} agents, llm, anthropic, computer use, gemini, guardrails, machine learning, multi-agent, ocr, openai\n\\item \\textbf{Infrastructure \\& Delivery:} ci/cd, firebase, git, github actions, linux, vercel\n\\item \\textbf{Engineering:} observability, rest api, testing, authentication, backend, concurrency, frontend, full-text search, mobile, oauth\n\\end{itemize}\n\\section{Projects}\n\\textbf{Computer-Use voice desktop agent} \\textbar{} \\href{https://github.com/iamkhalid2/computer-use}{github.com/iamkhalid2/computer-use} \\hfill 2025\\\\\n\\textit{python, llm, agents, observability, bash}\n\\begin{itemize}\n\\item Bidirectional WebSocket streaming of voice and commands to the Gemini Live API\n\\item Multi-threaded audio capture with noise reduction and adaptive silence detection\n\\end{itemize}\n\\textbf{KWealth multi-agent stock analysis} \\textbar{} \\href{https://github.com/iamkhalid2/kwealth}{github.com/iamkhalid2/kwealth} \\hfill 2026\\\\\n\\textit{python, llm, agents, bash, streamlit}\n\\begin{itemize}\n\\item Four cooperating agents: data scout, bear analyst, bull analyst, synthesizer\n\\item Scout feeds both analysts in parallel; synthesizer weighs both memos\n\\end{itemize}\n\\textbf{Kepler} \\textbar{} \\href{https://github.com/iamkhalid2/Kepler}{github.com/iamkhalid2/Kepler} \\hfill 2026-Present\\\\\n\\textit{sql, llm, rest api, testing, kotlin}\n\\begin{itemize}\n\\item Readium 3.4 EPUB reader with typography controls and SQLite FTS5 full-text search; footnotes and endnotes moved out of the reading and narration flow\n\\item Unit tests per module with Gradle (testDebugUnitTest)\n\\end{itemize}\n\\textbf{Invent a GPT course} \\textbar{} \\href{https://github.com/iamkhalid2/microgpt-course}{github.com/iamkhalid2/microgpt-course} \\hfill 2026-Present\\\\\n\\textit{python, testing, javascript, bash, svelte}\n\\begin{itemize}\n\\item 19-chapter interactive course rebuilding Karpathy's 200-line pure-Python GPT from scratch\n\\item Learners run real Python in the browser through Pyodide, no server\n\\end{itemize}\n\\section{Experience}\n\\textbf{IT Support Specialist}, S\\&P Global, London, UK \\hfill 2026-Present\n\\begin{itemize}\n\\item Provide technical support to employees at a global financial intelligence and data company, handling incidents and service requests in ServiceNow.\n\\item Support and troubleshoot employee devices with Microsoft Intune.\n\\item Support user accounts and access in Active Directory.\n\\end{itemize}\n\\section{Education}\n\\textbf{BSc Information Technology}, Graphic Era University, Dehradun, India \\hfill 2021-2024\n\\end{document}\n",
+   "email": {
+    "subject": "question re: elevenlabs london python role + 11 github stars",
+    "body": "Hi {first_name},\n\nI saw the London Applied AI Engineer opening on python. I built Computer-Use voice desktop agent (https://github.com/iamkhalid2/computer-use), and the part closest to your work is this: bidirectional WebSocket streaming of voice and commands to the Gemini Live API. Are you the right person to route my profile to, or open to a quick look at the repo?\n\nThanks,\nKhalid"
+   },
+   "contacts": [
+    {
+     "persona": "engineering_manager",
+     "name": null,
+     "linkedin_search_url": "https://www.linkedin.com/search/results/people/?keywords=%22ElevenLabs%22+engineering+manager++London&origin=GLOBAL_SEARCH_HEADER",
+     "linkedin_url": null,
+     "email": null
+    },
+    {
+     "persona": "vp_eng",
+     "name": null,
+     "linkedin_search_url": "https://www.linkedin.com/search/results/people/?keywords=%22ElevenLabs%22+head+of+engineering++London&origin=GLOBAL_SEARCH_HEADER",
      "linkedin_url": null,
      "email": null
     }
