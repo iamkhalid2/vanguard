@@ -191,6 +191,7 @@
           "coreKtx",
           "coreLibraryDesugaring",
           "coroutines",
+          "create",
           "datastore",
           "debug",
           "debugImplementation",
@@ -203,29 +204,28 @@
           "if",
           "implementation",
           "import",
+          "initWith",
           "isCoreLibraryDesugaringEnabled",
           "isMinifyEnabled",
+          "isProfileable",
           "isShrinkResources",
           "jsoup",
           "junit",
-          "kotlin",
-          "kotlin-compose",
-          "kotlin-jvm",
-          "kotlin-serialization"
+          "kotlin"
         ],
         "recent_commits": [
+          "Release signing: require all four keystore secrets and document them",
+          "Merge pull request #3 from iamkhalid2/v1.1-finish",
+          "Polish from the Find X9 pass: Listen|Read switch clears Aa, soft bar fades, dock bottom padding, one narration pace for time left, Ask names content instead of passage numbers",
+          "Add a benchmark build type: release-optimised, debug-signed, installs over the dev build",
+          "Home and Hub listening time left uses the shared narration pace",
+          "V1.1: review fixes and final verification",
+          "V1.1 design lead device pass",
+          "V1.1 screens: unified listen/read, learn/notebook/review/settings/onboarding",
           "Merge pull request #2 from iamkhalid2/claude/project-thread-l49cqw",
-          "docs: make README feature claims match the code",
-          "Fix release publishing directory context for git release notes",
-          "Fix CI workflow environment syntax",
-          "Fix Android SDK package name to platforms;android-37.0 in workflows",
-          "Add automated release workflow and enhance in-app About section",
-          "Untrack internal docs and roadmap; move logo and license to standard asset paths",
-          "Complete v1.1 UI refactor, comprehensive documentation, and test fixes",
-          "V1.1 foundations: design system v2 and shell, streaming latency-ranked AI, position progress and chapter timing",
-          "Research: V1 post-mortem, latency benchmark, inspiration board; decisions 107-112; V1.1 workflow"
+          "docs: make README feature claims match the code"
         ],
-        "pushed_at": "2026-10-15T22:25:34Z"
+        "pushed_at": "2026-10-24T14:42:29Z"
       }
     },
     {
