@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-25",
+  "generated_at": "2026-10-26",
   "source": "Seeded from github.com/iamkhalid2 READMEs (fetched 2026-10-18) and the current resumes in career/ (FullStack, Frontend, ITSupport, replaced 2026-10-18). Rebuild from the live API with: python -m vanguard.ghgraph",
   "candidate": {
     "name": "Mohammad Khalid",
@@ -237,11 +237,14 @@
       "flagship": true,
       "skills": [
         "agents",
+        "anthropic",
         "audio processing",
+        "authentication",
         "automation",
         "bash",
         "computer use",
         "concurrency",
+        "evals",
         "gemini",
         "gemini live",
         "git",
@@ -250,10 +253,17 @@
         "multithreading",
         "noise reduction",
         "numpy",
+        "oauth",
         "observability",
         "ocr",
+        "openai",
+        "openrouter",
+        "performance",
         "python",
         "pytorch",
+        "security",
+        "sse",
+        "structured outputs",
         "system design",
         "tesseract",
         "transformers",
@@ -298,28 +308,17 @@
           "Python"
         ],
         "dependencies": [
-          "Pillow",
-          "SpeechRecognition",
-          "exceptiongroup",
-          "google-genai",
-          "mss",
-          "numpy",
-          "opencv-python",
-          "pyaudio",
-          "pyautogui",
-          "pytesseract",
-          "python-dotenv",
-          "scipy",
-          "sounddevice",
-          "soundfile",
-          "taskgroup",
-          "torch",
-          "torchvision",
-          "transformers",
-          "wave",
-          "websockets"
+          "anthropic",
+          "openai",
+          "pillow",
+          "pyobjc-core",
+          "pyobjc-framework-ApplicationServices",
+          "pyobjc-framework-Cocoa",
+          "pyobjc-framework-Quartz",
+          "rich"
         ],
         "recent_commits": [
+          "Rewrite as Pilot: a self-tuning, model-agnostic computer-use agent for macOS",
           "Fix directory name in installation instructions from 'computer_control' to 'computer-use'",
           "Update README.md",
           "Update README.md",
@@ -328,10 +327,9 @@
           "Update ComputerActions to use update_context instead of record_action for improved action handling",
           "Enhance APIClient and VoiceControl for improved context management and action handling",
           "kkk",
-          "Add generate_templates.py module for template generation functionality",
-          "Update requirements and enhance README for clarity and additional features"
+          "Add generate_templates.py module for template generation functionality"
         ],
-        "pushed_at": "2025-03-27T19:42:58Z"
+        "pushed_at": "2026-10-25T21:23:41Z"
       }
     },
     {
