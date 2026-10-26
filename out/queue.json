@@ -1,5 +1,5 @@
 {
- "exportedAt": "2026-10-26T13:06:57+00:00",
+ "exportedAt": "2026-10-26T22:43:30+00:00",
  "jobs": [
   {
    "id": "stripe:7369543",
@@ -4366,6 +4366,136 @@
      "persona": "vp_eng",
      "name": null,
      "linkedin_search_url": "https://www.linkedin.com/search/results/people/?keywords=%22ElevenLabs%22+head+of+engineering++London&origin=GLOBAL_SEARCH_HEADER",
+     "linkedin_url": null,
+     "email": null
+    }
+   ]
+  },
+  {
+   "id": "amazon:10588496",
+   "company": "Amazon",
+   "tier": "A",
+   "size": "enterprise",
+   "title": "Software Development Engineer, Juneau, Next-Gen Security Automation",
+   "location": "London, England, GBR",
+   "url": "https://www.amazon.jobs/en/jobs/10588496/software-development-engineer-juneau-next-gen-security-automation",
+   "description": "Would you like to help implement novel approaches to how security engineers learn about the numerous Amazon applications. How about working with customers and peers from the entire range of Amazon's businesses on products that make a real difference in our Amazon Security goals? Whether you're passionate about building highly scalable and reliable systems in the cloud or a software developer who likes to solve interesting and complex business problems, Amazon Security has the challenges you are looking for.<br/><br/>Amazon Security is responsible for the protection of customer and corporate data. We are connected to all parts of Amazon's business and its massive, worldwide service-oriented architecture. We are looking for a Software Development Engineers who are excited about leading the technical vision and architecture for innovative, mission critical software security systems that affect how Amazon developers create and deploy software that is secure and protects Amazon's and our customers data. <br/><br/>Key job responsibilities<br/>You will work with the leadership team to drive key engineering and business decisions that will influence the Amazon developer experience. Your first mission is to build a new product that leverages application meta data from a variety of sources to synthesize in a human readable way a variety of application knowledge. This will require rapid iteration with a variety of software and security teams. Since our security systems are foundational to the Amazon ecosystem, you will also have the opportunity to learn about various Amazon business including the Amazon e-Commerce websites, Prime, Alexa, and AWS.<br/><br/>We're looking for a creative, customer- and details-obsessed Software Development Engineer with strong software engineering fundamentals (object-oriented design, algorithms and data structures) and a good grasp of advanced systems concepts and design. You must possess strong verbal and written communication skills, be self-driven and be able to deliver high quality results in a fast-paced environment. You need to enjoy working closely with your peers of very talented engineers. <br/><br/>A day in the life<br/>You'll solve complex challenges by designing and implementing scalable solutions that protect Amazon's customers and systems. You'll work with security engineering teams to transform domain expertise into software that mitigates risks at unprecedented scale. In a typical day, you might:<br/><br/>\u2022 Develop code that reduces manual security processes by 50% or more, enabling our teams to respond faster and more effectively<br/>\u2022 Partner with cross-functional teams to translate intricate security requirements into elegant, high-performance software solutions<br/>\u2022 Prototype and implement security tools that protect millions of customers and billions in transactions<br/><br/>You'll work in an environment that values rapid innovation, where your ideas can move from concept to production in weeks, not months. Your work directly impacts Amazon's ability to maintain the highest standards of customer trust and system resilience. <br/><br/>About the team<br/>This team will work with local and international security teams to design a greenfield product that solves the complex problem of rapidly knowing critical security details about every Amazon application.  This team of problem solvers is heavily customer obsessed with a leaning toward rapid prototyping and implementation.  <br/><br/>Diverse Experiences<br/>Amazon Security values diverse experiences. Even if you do not meet all of the preferred qualifications and skills listed in the job description, we encourage candidates to apply. If your career is just starting, hasn\u2019t followed a traditional path, or includes alternative experiences, don\u2019t let it stop you from applying. <br/><br/>Why Amazon Security <br/>At Amazon, security is central to maintaining customer trust and delivering delightful customer experiences. Our organization is responsible for creating and maintaining a high bar for security across all of Amazon\u2019s products and services. We offer talented security professionals the chance to accelerate their careers with opportunities to build experience in a wide variety of areas including cloud, devices, retail, entertainment, healthcare, operations, and physical stores.<br/><br/>Work/Life Balance <br/>We value work-life harmony. Achieving success at work should never come at the expense of sacrifices at home, which is why we strive for flexibility as part of our working culture. When we feel supported in the workplace and at home, there\u2019s nothing we can\u2019t achieve. <br/><br/>Inclusive Team Culture <br/>In Amazon Security, it\u2019s in our nature to learn and be curious. Ongoing DEI events and learning experiences inspire us to continue learning and to embrace our uniqueness. Addressing the toughest security challenges requires that we seek out and celebrate a diversity of ideas, perspectives, and voices.<br/><br/>Training and Career growth<br/>We\u2019re continuously raising our performance bar as we strive to become Earth\u2019s Best Employer. That\u2019s why you\u2019ll find endless knowledge-sharing, training, and other career-advancing resources here to help you develop into a better-rounded professional. <br/>\n- Experience (non-internship) in professional software development<br/>- Experience in professional, non-internship software development<br/>- Experience programming with at least one modern language such as Java, C++, or C# including object-oriented design\n- Bachelor's degree in computer science or equivalent<br/>- Experience with full software development life cycle, including coding standards, code reviews, source control management, build processes, testing, and operations<br/><br/>Amazon is an equal opportunities employer. We believe passionately that employing a diverse workforce is central to our success. We make recruiting decisions based on your experience and skills. We value your passion to discover, invent, simplify and build. Protecting your privacy and the security of your data is a longstanding top priority for Amazon. Please consult our Privacy Notice (<a href=\"https://www.amazon.jobs/en/privacy_page\">https://www.amazon.jobs/en/privacy_page</a>) to know more about how we collect, use and transfer the personal data of our candidates.<br/><br/>Amazon is an equal opportunity employer and does not discriminate on the basis of protected veteran status, disability, or other legally protected status.<br/><br/>Our inclusive culture empowers Amazonians to deliver the best results for our customers. If you have a disability and need a workplace accommodation or adjustment during the application and hiring process, including support for the interview or onboarding process, please visit <a href=\"https://amazon.jobs/content/en/how-we-hire/accommodations\">https://amazon.jobs/content/en/how-we-hire/accommodations</a> for more information. If the country/region you\u2019re applying in isn\u2019t listed, please contact your Recruiting Partner.",
+   "status": "pending_approval",
+   "sponsor": true,
+   "scoreBefore": 0.125,
+   "scoreAfter": 0.4375,
+   "missing": [
+    "java",
+    "c++",
+    "c#",
+    "aws",
+    "security",
+    "system design",
+    "data structures"
+   ],
+   "minYears": null,
+   "sponsorship": "unknown",
+   "projects": [
+    {
+     "id": "kiraya",
+     "overlap": 0.3125
+    },
+    {
+     "id": "kepler",
+     "overlap": 0.27
+    },
+    {
+     "id": "computer-use",
+     "overlap": 0.2075
+    },
+    {
+     "id": "microgpt-course",
+     "overlap": 0.145
+    }
+   ],
+   "bullets": [
+    {
+     "project_id": "kiraya",
+     "original": "Cross-platform rent management app (6 platforms) with Firebase Auth, Firestore real-time sync and Storage for KYC documents",
+     "tailored": "Cross-platform rent management app (6 platforms) with Firebase Auth, Firestore real-time sync and Storage for KYC documents",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "kiraya",
+     "original": "Dashboard with revenue, occupancy and payment status charts",
+     "tailored": "Dashboard with revenue, occupancy and payment status charts",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "kepler",
+     "original": "Native Android app (Kotlin, Jetpack Compose) in a multi-module architecture: app, core, engine (epub, tts, playback, ai, srs) and feature modules",
+     "tailored": "Native Android app (Kotlin, Jetpack Compose) in a multi-module architecture: app, core, engine (epub, tts, playback, ai, srs) and feature modules",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "kepler",
+     "original": "Privacy by design: no analytics or telemetry, API keys encrypted with Android Keystore AES-256-GCM, app data excluded from cloud backup, offline reader, search, scheduler and TTS",
+     "tailored": "Privacy by design: no analytics or telemetry, API keys encrypted with Android Keystore AES-256-GCM, app data excluded from cloud backup, offline reader, search, scheduler and TTS",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "computer-use",
+     "original": "Bidirectional WebSocket streaming of voice and commands to the Gemini Live API",
+     "tailored": "Bidirectional WebSocket streaming of voice and commands to the Gemini Live API",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "computer-use",
+     "original": "Multi-threaded audio capture with noise reduction and adaptive silence detection",
+     "tailored": "Multi-threaded audio capture with noise reduction and adaptive silence detection",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "microgpt-course",
+     "original": "19-chapter interactive course rebuilding Karpathy's 200-line pure-Python GPT from scratch",
+     "tailored": "19-chapter interactive course rebuilding Karpathy's 200-line pure-Python GPT from scratch",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "microgpt-course",
+     "original": "Learners run real Python in the browser through Pyodide, no server",
+     "tailored": "Learners run real Python in the browser through Pyodide, no server",
+     "grounded": true,
+     "violations": []
+    }
+   ],
+   "coverLetter": null,
+   "latex": "\\documentclass[10.5pt,a4paper]{article}\n\\usepackage[margin=1.6cm]{geometry}\n\\usepackage[T1]{fontenc}\n\\usepackage{lmodern}\n\\usepackage[hidelinks]{hyperref}\n\\usepackage{enumitem}\n\\usepackage{titlesec}\n\\ifdefined\\pdfgentounicode\\pdfgentounicode=1\\fi\n\\setlist[itemize]{leftmargin=1.2em,itemsep=1pt,topsep=2pt}\n\\titleformat{\\section}{\\large\\bfseries}{}{0pt}{}[\\vspace{-6pt}\\rule{\\linewidth}{0.4pt}]\n\\titlespacing{\\section}{0pt}{8pt}{4pt}\n\\pagestyle{empty}\n\\setlength{\\parindent}{0pt}\n\\begin{document}\n\n{\\LARGE\\bfseries Mohammad Khalid}\\\\[2pt]\nSoftware Engineer | c++, testing, performance, security, system design\\\\\nLondon, UK \\textbar{} contact@iamkhalid.xyz \\textbar{} \\href{https://iamkhalid.xyz}{iamkhalid.xyz} \\textbar{} \\href{https://github.com/iamkhalid2}{github.com/iamkhalid2} \\textbar{} \\href{https://linkedin.com/in/mmdkhalid}{linkedin.com/in/mmdkhalid}\\\\\nRight to work in the UK until 30 June 2028\n\\section{Summary}\nSoftware engineer (BSc Information Technology, 2024) who ships LLM systems, Android and web applications end to end. Selected work below is chosen for Software Development Engineer, Juneau, Next-Gen Security Automation and links to source.\n\\section{Technical Skills}\n\\begin{itemize}\n\\item \\textbf{Languages:} c++, bash, c, dart, glsl, javascript, kotlin, python, sql, swift\n\\item \\textbf{Frameworks \\& Platforms:} android, flutter, ios, jetpack compose, next.js, node.js, numpy, pydantic, pyodide, pytorch\n\\item \\textbf{AI \\& LLM Systems:} agents, anthropic, computer use, evals, gemini, guardrails, llm, machine learning, multi-agent, ocr\n\\item \\textbf{Infrastructure \\& Delivery:} ci/cd, firebase, git, github actions, linux, vercel\n\\item \\textbf{Engineering:} performance, security, system design, testing, authentication, backend, concurrency, frontend, full-text search, mobile\n\\end{itemize}\n\\section{Projects}\n\\textbf{Kiraya property management app (personal project, not published)} \\textbar{} \\href{https://github.com/iamkhalid2/kiraya_app}{github.com/iamkhalid2/kiraya\\_app} \\hfill 2025\\\\\n\\textit{c++, testing, security, kotlin, swift}\n\\begin{itemize}\n\\item Cross-platform rent management app (6 platforms) with Firebase Auth, Firestore real-time sync and Storage for KYC documents\n\\item Dashboard with revenue, occupancy and payment status charts\n\\end{itemize}\n\\textbf{Kepler} \\textbar{} \\href{https://github.com/iamkhalid2/Kepler}{github.com/iamkhalid2/Kepler} \\hfill 2026-Present\\\\\n\\textit{testing, performance, security, system design, kotlin}\n\\begin{itemize}\n\\item Native Android app (Kotlin, Jetpack Compose) in a multi-module architecture: app, core, engine (epub, tts, playback, ai, srs) and feature modules\n\\item Privacy by design: no analytics or telemetry, API keys encrypted with Android Keystore AES-256-GCM, app data excluded from cloud backup, offline reader, search, scheduler and TTS\n\\end{itemize}\n\\textbf{Computer-Use voice desktop agent} \\textbar{} \\href{https://github.com/iamkhalid2/computer-use}{github.com/iamkhalid2/computer-use} \\hfill 2025\\\\\n\\textit{performance, security, system design, python, bash}\n\\begin{itemize}\n\\item Bidirectional WebSocket streaming of voice and commands to the Gemini Live API\n\\item Multi-threaded audio capture with noise reduction and adaptive silence detection\n\\end{itemize}\n\\textbf{Invent a GPT course} \\textbar{} \\href{https://github.com/iamkhalid2/microgpt-course}{github.com/iamkhalid2/microgpt-course} \\hfill 2026-Present\\\\\n\\textit{testing, system design, python, javascript, bash}\n\\begin{itemize}\n\\item 19-chapter interactive course rebuilding Karpathy's 200-line pure-Python GPT from scratch\n\\item Learners run real Python in the browser through Pyodide, no server\n\\end{itemize}\n\\section{Experience}\n\\textbf{IT Support Specialist}, S\\&P Global, London, UK \\hfill 2026-Present\n\\begin{itemize}\n\\item Provide technical support to employees at a global financial intelligence and data company, handling incidents and service requests in ServiceNow.\n\\item Support and troubleshoot employee devices with Microsoft Intune.\n\\item Support user accounts and access in Active Directory.\n\\end{itemize}\n\\section{Education}\n\\textbf{BSc Information Technology}, Graphic Era University, Dehradun, India \\hfill 2021-2024\n\\end{document}\n",
+   "email": {
+    "subject": "question re: amazon london c++ role + 5 github stars",
+    "body": "Hi {first_name},\n\nI saw the London Software Development Engineer, Juneau, Next-Gen Security Automation opening on c++. I built Kiraya property management app (personal project, not published) (https://github.com/iamkhalid2/kiraya_app), and the part closest to your work is this: cross-platform rent management app (6 platforms) with Firebase Auth, Firestore real-time sync and Storage for KYC documents. Are you the right person to route my profile to, or open to a quick look at the repo?\n\nThanks,\nKhalid"
+   },
+   "contacts": [
+    {
+     "persona": "engineering_manager",
+     "name": null,
+     "linkedin_search_url": "https://www.linkedin.com/search/results/people/?keywords=%22Amazon%22+engineering+manager++London&origin=GLOBAL_SEARCH_HEADER",
+     "linkedin_url": null,
+     "email": null
+    },
+    {
+     "persona": "tech_lead",
+     "name": null,
+     "linkedin_search_url": "https://www.linkedin.com/search/results/people/?keywords=%22Amazon%22+tech+lead++London&origin=GLOBAL_SEARCH_HEADER",
+     "linkedin_url": null,
+     "email": null
+    },
+    {
+     "persona": "early_careers_recruiter",
+     "name": null,
+     "linkedin_search_url": "https://www.linkedin.com/search/results/people/?keywords=%22Amazon%22+early+careers+recruiter++London&origin=GLOBAL_SEARCH_HEADER",
      "linkedin_url": null,
      "email": null
     }

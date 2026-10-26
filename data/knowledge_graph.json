@@ -318,6 +318,7 @@
           "rich"
         ],
         "recent_commits": [
+          "Add the self-tuning loop and bounded executor context",
           "Rewrite as Pilot: a self-tuning, model-agnostic computer-use agent for macOS",
           "Fix directory name in installation instructions from 'computer_control' to 'computer-use'",
           "Update README.md",
@@ -326,10 +327,9 @@
           "Update README.md",
           "Update ComputerActions to use update_context instead of record_action for improved action handling",
           "Enhance APIClient and VoiceControl for improved context management and action handling",
-          "kkk",
-          "Add generate_templates.py module for template generation functionality"
+          "kkk"
         ],
-        "pushed_at": "2026-10-25T21:23:41Z"
+        "pushed_at": "2026-10-26T13:08:13Z"
       }
     },
     {
