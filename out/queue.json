@@ -1,5 +1,5 @@
 {
- "exportedAt": "2026-10-28T12:57:50+00:00",
+ "exportedAt": "2026-10-28T22:39:02+00:00",
  "jobs": [
   {
    "id": "stripe:7369543",
@@ -4630,6 +4630,136 @@
      "persona": "early_careers_recruiter",
      "name": null,
      "linkedin_search_url": "https://www.linkedin.com/search/results/people/?keywords=%22Amazon%22+early+careers+recruiter++London&origin=GLOBAL_SEARCH_HEADER",
+     "linkedin_url": null,
+     "email": null
+    }
+   ]
+  },
+  {
+   "id": "databricks:8921476002",
+   "company": "Databricks",
+   "tier": "A",
+   "size": "enterprise",
+   "title": "Forward Deployed Engineer",
+   "location": "London, United Kingdom",
+   "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8921476002",
+   "description": "About the Team\n\nThe Forward Deployed Engineering (FDE) team is a highly specialized, customer-facing software engineering team at Databricks. We work with Databricks most strategic customers to design, build, and productionize first-of-their-kind data and AI solutions.&nbsp; This team is the right fit for you if you love working side-by-side with customers, collaborating with teammates, and pushing your curiosity across the latest trends in data, applications, and AI innovation.\n\nRole Description\n\nAs a&nbsp;Forward Deployed Engineer (FDE), you will embed directly with our most strategic customers to design and deliver custom fullstack applications and solutions on the Databricks Data Intelligence Platform and other common software stacks. You will own the architecture, lead design decisions, and implement end-to-end systems spanning data engineering, AI, and application development.\n\nThis is a hands-on, customer-facing role for software engineers, developers, and builders who thrive at the intersection of technology and business impact. The ideal candidate combines engineering expertise with adaptability, curiosity, and a passion for solving complex problems that drive measurable outcomes.\n\nThe impact you will have:\n\nOwn the Architecture:&nbsp;Lead architecture and design decisions, ensuring solutions are secure, scalable, and aligned with both customer needs and Databricks best practices.\n\nApplication Engineering:&nbsp;Design and develop applications spanning backend, frontend, and integrations, bringing data and AI to life for enterprise users leveraging the Databricks platform.&nbsp;\n\nSolution Delivery:&nbsp;Deliver production-grade systems from data ingestion and transformation through ML/AI model integration to user-facing applications and enablement.\n\nCustomer Immersion:&nbsp;Embed with customer teams, engaging with stakeholders from technical ICs to executives to deeply understand challenges and deliver impact.\n\nCross-Functional Collaboration:&nbsp;Partner with Sales, Product, and Field Engineering to ensure a seamless customer journey from pre-sales through post-deployment.\n\nReusable Assets &amp; Scale:&nbsp;Contribute accelerators, frameworks, and best practices that scale impact across accounts and influence the Databricks product roadmap.\n\nWhat we look for:\n\nEngineering Depth:&nbsp;Strong background in software engineering with experience across backend, frontend, and systems integration. Proficiency in Python, SQL, Java/Scala, JavaScript/TypeScript, and modern frameworks.\n\nApplication Delivery:&nbsp;Demonstrated ability to design, build, and deploy production applications that combine data pipelines, ML/AI models, and user-facing interfaces.\n\nAI/ML Experience:&nbsp;Familiarity working with AI APIs such as OpenAI, Anthropic, and Gemini into applications, and leveraging AI code generation tools to accelerate productivity.&nbsp;\n\nCustomer Impact:&nbsp;Proven track record of delivering technical solutions in enterprise environments that drive measurable outcomes.\n\nCollaboration &amp; Communication:&nbsp;Ability to engage across a broad stakeholder range, from engineers to C-level executives, translating complex concepts into actionable solutions.\n\nLearning Mindset: Curiosity, adaptability, and eagerness to explore new technologies, domains, and customer challenges.\n\nAbility and interest to travel up to 50% as needed to client sites.\n\nAbout Databricks\n\nDatabricks is the Data and AI company. More than 20,000 organizations worldwide \u2014 including adidas, AT&amp;T, Bayer, Block, Mastercard, Rivian, Unilever, and 70% of the Fortune 500 \u2014 rely on the Databricks Data + AI Platform to build and scale data and AI apps, analytics and agents. Headquartered in San Francisco with 30+ offices around the globe, Databricks offers a unified platform that includes Genie, Lakebase, Agent Bricks, Lakeflow, Lakehouse, and Unity Catalog. To learn more, follow Databricks on LinkedIn, X, YouTube, and Instagram.\n\nBenefits\n\nAt Databricks, we strive to provide comprehensive benefits and perks that meet the needs of all of our employees. For specific details on the benefits offered in your region click here.\n\nOur Commitment to Diversity and Inclusion\n\nAt Databricks, we are committed to fostering a diverse and inclusive culture where everyone can excel. We take great care to ensure that our hiring practices are inclusive and meet equal employment opportunity standards. Individuals looking for employment at Databricks are considered without regard to age, color, disability, ethnicity, family or marital status, gender identity or expression, language, national origin, physical and mental ability, political affiliation, race, religion, sexual orientation, socio-economic status, veteran status, and other protected characteristics.\n\nCompliance\n\nIf access to export-controlled technology or source code is required for performance of job duties, it is within Employer's discretion whether to apply for a U.S. government license for such positions, and Employer may decline to proceed with an applicant on this basis alone.",
+   "status": "pending_approval",
+   "sponsor": true,
+   "scoreBefore": 0.6234,
+   "scoreAfter": 0.7922,
+   "missing": [
+    "java",
+    "scala",
+    "sql",
+    "machine learning",
+    "customer-facing",
+    "system design",
+    "data pipelines"
+   ],
+   "minYears": null,
+   "sponsorship": "unknown",
+   "projects": [
+    {
+     "id": "computer-use",
+     "overlap": 0.4096
+    },
+    {
+     "id": "microgpt-course",
+     "overlap": 0.3966
+    },
+    {
+     "id": "kepler",
+     "overlap": 0.2408
+    },
+    {
+     "id": "kwealth",
+     "overlap": 0.2338
+    }
+   ],
+   "bullets": [
+    {
+     "project_id": "computer-use",
+     "original": "Bidirectional WebSocket streaming of voice and commands to the Gemini Live API",
+     "tailored": "Bidirectional WebSocket streaming of voice and commands to the Gemini Live API",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "computer-use",
+     "original": "Multi-threaded audio capture with noise reduction and adaptive silence detection",
+     "tailored": "Multi-threaded audio capture with noise reduction and adaptive silence detection",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "microgpt-course",
+     "original": "19-chapter interactive course rebuilding Karpathy's 200-line pure-Python GPT from scratch",
+     "tailored": "19-chapter interactive course rebuilding Karpathy's 200-line pure-Python GPT from scratch",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "microgpt-course",
+     "original": "Learners run real Python in the browser through Pyodide, no server",
+     "tailored": "Learners run real Python in the browser through Pyodide, no server",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "kepler",
+     "original": "Readium 3.4 EPUB reader with typography controls and SQLite FTS5 full-text search; footnotes and endnotes moved out of the reading and narration flow",
+     "tailored": "Readium 3.4 EPUB reader with typography controls and SQLite FTS5 full-text search; footnotes and endnotes moved out of the reading and narration flow",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "kepler",
+     "original": "Native Android app (Kotlin, Jetpack Compose) in a multi-module architecture: app, core, engine (epub, tts, playback, ai, srs) and feature modules",
+     "tailored": "Native Android app (Kotlin, Jetpack Compose) in a multi-module architecture: app, core, engine (epub, tts, playback, ai, srs) and feature modules",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "kwealth",
+     "original": "Four cooperating agents: data scout, bear analyst, bull analyst, synthesizer",
+     "tailored": "Four cooperating agents: data scout, bear analyst, bull analyst, synthesizer",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "kwealth",
+     "original": "Structured Gemini outputs validated into Pydantic models (ScoutReport, AnalystMemo, FinalRecommendation) with confidence score and caveats",
+     "tailored": "Structured Gemini outputs validated into Pydantic models (ScoutReport, AnalystMemo, FinalRecommendation) with confidence score and caveats",
+     "grounded": true,
+     "violations": []
+    }
+   ],
+   "coverLetter": null,
+   "latex": "\\documentclass[10.5pt,a4paper]{article}\n\\usepackage[margin=1.6cm]{geometry}\n\\usepackage[T1]{fontenc}\n\\usepackage{lmodern}\n\\usepackage[hidelinks]{hyperref}\n\\usepackage{enumitem}\n\\usepackage{titlesec}\n\\ifdefined\\pdfgentounicode\\pdfgentounicode=1\\fi\n\\setlist[itemize]{leftmargin=1.2em,itemsep=1pt,topsep=2pt}\n\\titleformat{\\section}{\\large\\bfseries}{}{0pt}{}[\\vspace{-6pt}\\rule{\\linewidth}{0.4pt}]\n\\titlespacing{\\section}{0pt}{8pt}{4pt}\n\\pagestyle{empty}\n\\setlength{\\parindent}{0pt}\n\\begin{document}\n\n{\\LARGE\\bfseries Mohammad Khalid}\\\\[2pt]\nSoftware Engineer | python, typescript, javascript, sql, agents, machine learning\\\\\nLondon, UK \\textbar{} contact@iamkhalid.xyz \\textbar{} \\href{https://iamkhalid.xyz}{iamkhalid.xyz} \\textbar{} \\href{https://github.com/iamkhalid2}{github.com/iamkhalid2} \\textbar{} \\href{https://linkedin.com/in/mmdkhalid}{linkedin.com/in/mmdkhalid}\\\\\nRight to work in the UK until 30 June 2028\n\\section{Summary}\nSoftware engineer (BSc Information Technology, 2024) who ships LLM systems, Android and web applications end to end. Selected work below is chosen for Forward Deployed Engineer and links to source.\n\\section{Technical Skills}\n\\begin{itemize}\n\\item \\textbf{Languages:} javascript, python, sql, typescript, bash, c, c++, dart, glsl, kotlin\n\\item \\textbf{Frameworks \\& Platforms:} android, flutter, ios, jetpack compose, next.js, node.js, numpy, pydantic, pyodide, pytorch\n\\item \\textbf{AI \\& LLM Systems:} agents, anthropic, gemini, machine learning, openai, computer use, evals, guardrails, llm, multi-agent\n\\item \\textbf{Infrastructure \\& Delivery:} ci/cd, firebase, git, github actions, linux, vercel\n\\item \\textbf{Engineering:} backend, frontend, performance, rest api, system design, authentication, concurrency, full-text search, mobile, oauth\n\\end{itemize}\n\\section{Projects}\n\\textbf{Computer-Use voice desktop agent} \\textbar{} \\href{https://github.com/iamkhalid2/computer-use}{github.com/iamkhalid2/computer-use} \\hfill 2025\\\\\n\\textit{python, agents, openai, gemini, anthropic}\n\\begin{itemize}\n\\item Bidirectional WebSocket streaming of voice and commands to the Gemini Live API\n\\item Multi-threaded audio capture with noise reduction and adaptive silence detection\n\\end{itemize}\n\\textbf{Invent a GPT course} \\textbar{} \\href{https://github.com/iamkhalid2/microgpt-course}{github.com/iamkhalid2/microgpt-course} \\hfill 2026-Present\\\\\n\\textit{python, javascript, machine learning, openai, anthropic}\n\\begin{itemize}\n\\item 19-chapter interactive course rebuilding Karpathy's 200-line pure-Python GPT from scratch\n\\item Learners run real Python in the browser through Pyodide, no server\n\\end{itemize}\n\\textbf{Kepler} \\textbar{} \\href{https://github.com/iamkhalid2/Kepler}{github.com/iamkhalid2/Kepler} \\hfill 2026-Present\\\\\n\\textit{sql, anthropic, rest api, performance, system design}\n\\begin{itemize}\n\\item Readium 3.4 EPUB reader with typography controls and SQLite FTS5 full-text search; footnotes and endnotes moved out of the reading and narration flow\n\\item Native Android app (Kotlin, Jetpack Compose) in a multi-module architecture: app, core, engine (epub, tts, playback, ai, srs) and feature modules\n\\end{itemize}\n\\textbf{KWealth multi-agent stock analysis} \\textbar{} \\href{https://github.com/iamkhalid2/kwealth}{github.com/iamkhalid2/kwealth} \\hfill 2026\\\\\n\\textit{python, agents, gemini, system design, bash}\n\\begin{itemize}\n\\item Four cooperating agents: data scout, bear analyst, bull analyst, synthesizer\n\\item Structured Gemini outputs validated into Pydantic models (ScoutReport, AnalystMemo, FinalRecommendation) with confidence score and caveats\n\\end{itemize}\n\\section{Experience}\n\\textbf{IT Support Specialist}, S\\&P Global, London, UK \\hfill 2026-Present\n\\begin{itemize}\n\\item Provide technical support to employees at a global financial intelligence and data company, handling incidents and service requests in ServiceNow.\n\\item Support and troubleshoot employee devices with Microsoft Intune.\n\\item Support user accounts and access in Active Directory.\n\\end{itemize}\n\\section{Education}\n\\textbf{BSc Information Technology}, Graphic Era University, Dehradun, India \\hfill 2021-2024\n\\end{document}\n",
+   "email": {
+    "subject": "question re: databricks london python role + 11 github stars",
+    "body": "Hi {first_name},\n\nI saw the London Forward Deployed Engineer opening on python. I built Computer-Use voice desktop agent (https://github.com/iamkhalid2/computer-use), and the part closest to your work is this: bidirectional WebSocket streaming of voice and commands to the Gemini Live API. Are you the right person to route my profile to, or open to a quick look at the repo?\n\nThanks,\nKhalid"
+   },
+   "contacts": [
+    {
+     "persona": "engineering_manager",
+     "name": null,
+     "linkedin_search_url": "https://www.linkedin.com/search/results/people/?keywords=%22Databricks%22+engineering+manager++London&origin=GLOBAL_SEARCH_HEADER",
+     "linkedin_url": null,
+     "email": null
+    },
+    {
+     "persona": "tech_lead",
+     "name": null,
+     "linkedin_search_url": "https://www.linkedin.com/search/results/people/?keywords=%22Databricks%22+tech+lead++London&origin=GLOBAL_SEARCH_HEADER",
+     "linkedin_url": null,
+     "email": null
+    },
+    {
+     "persona": "early_careers_recruiter",
+     "name": null,
+     "linkedin_search_url": "https://www.linkedin.com/search/results/people/?keywords=%22Databricks%22+early+careers+recruiter++London&origin=GLOBAL_SEARCH_HEADER",
      "linkedin_url": null,
      "email": null
     }
