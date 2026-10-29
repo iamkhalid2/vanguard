@@ -929,6 +929,57 @@
         ],
         "pushed_at": "2023-03-18T19:52:47Z"
       }
+    },
+    {
+      "id": "vanguard",
+      "name": "vanguard",
+      "repo": "https://github.com/iamkhalid2/vanguard",
+      "demo": null,
+      "years": "2026",
+      "flagship": false,
+      "skills": [
+        "anthropic",
+        "authentication",
+        "backend",
+        "bash",
+        "gcp",
+        "github actions",
+        "html",
+        "llm",
+        "oauth",
+        "python",
+        "sql",
+        "system design"
+      ],
+      "features": [],
+      "metrics": [],
+      "problem_solution": [],
+      "auto_evidence": {
+        "languages": [
+          "Python",
+          "HTML"
+        ],
+        "dependencies": [
+          "anthropic",
+          "google-auth-oauthlib",
+          "playwright",
+          "pytest",
+          "requests"
+        ],
+        "recent_commits": [
+          "vanguard: state 2026-10-29T13:04:39Z",
+          "vanguard: state 2026-10-29T05:50:57Z",
+          "vanguard: state 2026-10-28T22:39:03Z",
+          "vanguard: state 2026-10-28T12:57:50Z",
+          "vanguard: state 2026-10-28T05:44:54Z",
+          "vanguard: state 2026-10-27T22:16:26Z",
+          "vanguard: state 2026-10-27T18:04:46Z",
+          "vanguard: state 2026-10-27T12:15:12Z",
+          "vanguard: state 2026-10-27T05:08:21Z",
+          "vanguard: state 2026-10-26T22:43:31Z"
+        ],
+        "pushed_at": "2026-10-29T13:04:42Z"
+      }
     }
   ]
 }
