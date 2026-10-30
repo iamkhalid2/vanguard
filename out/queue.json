@@ -1,5 +1,5 @@
 {
- "exportedAt": "2026-10-30T12:59:08+00:00",
+ "exportedAt": "2026-10-30T22:24:23+00:00",
  "jobs": [
   {
    "id": "stripe:7369543",
@@ -4760,6 +4760,136 @@
      "persona": "early_careers_recruiter",
      "name": null,
      "linkedin_search_url": "https://www.linkedin.com/search/results/people/?keywords=%22Databricks%22+early+careers+recruiter++London&origin=GLOBAL_SEARCH_HEADER",
+     "linkedin_url": null,
+     "email": null
+    }
+   ]
+  },
+  {
+   "id": "amazon:10593694",
+   "company": "Amazon",
+   "tier": "A",
+   "size": "enterprise",
+   "title": "Software Development Engineer, IAM Stores Security",
+   "location": "London, England, GBR",
+   "url": "https://www.amazon.jobs/en/jobs/10593694/software-development-engineer-iam-stores-security",
+   "description": "The Identity and Access Management group is responsible for the protection of customer and corporate data. We are connected to all parts of Amazon's business and its massive, worldwide service-oriented architecture. <br/><br/>Our team owns a mission critical system that preserves and improves the trusted experience Amazon provides to its customers. Operating at Amazon scale brings constant opportunity for innovation in the security space - from large-scale data processing and exploration to new detection and analytics techniques -as we evolve the platform to meet growing demands.<br/><br/>We are seeking a Software Development Engineer with a great passion for data, and an insatiable desire to be curious and invent. A commitment to team work and strong communication skills (to both business and technical partners) are absolute requirements. Creating reliable, scalable, and high performance products requires exceptional technical expertise, a sound understanding of the  fundamentals of Computer Science, and practical experience building large-scale distributed systems. This position will require working cross-functionally across multiple teams and technologies. <br/><br/>Key job responsibilities<br/>  - Design, build, and operate large-scale distributed systems that process security-relevant data with high availability and low latency.<br/>  - Own services end to end: architecture, implementation, testing, deployment, monitoring, and operational excellence, including participation in the team's on-call rotation.<br/>  - Build libraries, integrations, and tooling that make it simple for engineering teams across Amazon to adopt the platform.<br/>  - Work with very large datasets: design efficient data models, processing pipelines, and query patterns that keep the platform fast and cost-effective at scale.<br/>  - Partner cross-functionally with security, compliance, and service-owning teams to translate their requirements into platform capabilities.<br/>  - Contribute to technical direction: write design documents, lead reviews, and influence decisions across the team and partner teams.<br/>  - Mentor other engineers and raise the bar on code quality, security, and operational practices.\n- Experience (non-internship) in professional software development<br/>- Experience programming with at least one modern language such as Java, C++, or C# including object-oriented design<br/>- Experience designing or architecting (design patterns, reliability and scaling) of new and existing systems<br/>- Experience with full software development life cycle, including coding standards, code reviews, source control management, build processes, testing, and operations\n- Bachelor's degree in computer science or equivalent<br/><br/>Amazon is an equal opportunities employer. We believe passionately that employing a diverse workforce is central to our success. We make recruiting decisions based on your experience and skills. We value your passion to discover, invent, simplify and build. Protecting your privacy and the security of your data is a longstanding top priority for Amazon. Please consult our Privacy Notice (<a href=\"https://www.amazon.jobs/en/privacy_page\">https://www.amazon.jobs/en/privacy_page</a>) to know more about how we collect, use and transfer the personal data of our candidates.<br/><br/>Amazon is an equal opportunity employer and does not discriminate on the basis of protected veteran status, disability, or other legally protected status.<br/><br/>Our inclusive culture empowers Amazonians to deliver the best results for our customers. If you have a disability and need a workplace accommodation or adjustment during the application and hiring process, including support for the interview or onboarding process, please visit <a href=\"https://amazon.jobs/content/en/how-we-hire/accommodations\">https://amazon.jobs/content/en/how-we-hire/accommodations</a> for more information. If the country/region you\u2019re applying in isn\u2019t listed, please contact your Recruiting Partner.",
+   "status": "pending_approval",
+   "sponsor": true,
+   "scoreBefore": 0.1333,
+   "scoreAfter": 0.5333,
+   "missing": [
+    "java",
+    "c++",
+    "c#",
+    "security",
+    "system design",
+    "distributed systems",
+    "observability"
+   ],
+   "minYears": null,
+   "sponsorship": "unknown",
+   "projects": [
+    {
+     "id": "kiraya",
+     "overlap": 0.3333
+    },
+    {
+     "id": "kepler",
+     "overlap": 0.2867
+    },
+    {
+     "id": "computer-use",
+     "overlap": 0.2867
+    },
+    {
+     "id": "microgpt-course",
+     "overlap": 0.1533
+    }
+   ],
+   "bullets": [
+    {
+     "project_id": "kiraya",
+     "original": "Cross-platform rent management app (6 platforms) with Firebase Auth, Firestore real-time sync and Storage for KYC documents",
+     "tailored": "Cross-platform rent management app (6 platforms) with Firebase Auth, Firestore real-time sync and Storage for KYC documents",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "kiraya",
+     "original": "Dashboard with revenue, occupancy and payment status charts",
+     "tailored": "Dashboard with revenue, occupancy and payment status charts",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "kepler",
+     "original": "Native Android app (Kotlin, Jetpack Compose) in a multi-module architecture: app, core, engine (epub, tts, playback, ai, srs) and feature modules",
+     "tailored": "Native Android app (Kotlin, Jetpack Compose) in a multi-module architecture: app, core, engine (epub, tts, playback, ai, srs) and feature modules",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "kepler",
+     "original": "Privacy by design: no analytics or telemetry, API keys encrypted with Android Keystore AES-256-GCM, app data excluded from cloud backup, offline reader, search, scheduler and TTS",
+     "tailored": "Privacy by design: no analytics or telemetry, API keys encrypted with Android Keystore AES-256-GCM, app data excluded from cloud backup, offline reader, search, scheduler and TTS",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "computer-use",
+     "original": "Bidirectional WebSocket streaming of voice and commands to the Gemini Live API",
+     "tailored": "Bidirectional WebSocket streaming of voice and commands to the Gemini Live API",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "computer-use",
+     "original": "Multi-threaded audio capture with noise reduction and adaptive silence detection",
+     "tailored": "Multi-threaded audio capture with noise reduction and adaptive silence detection",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "microgpt-course",
+     "original": "19-chapter interactive course rebuilding Karpathy's 200-line pure-Python GPT from scratch",
+     "tailored": "19-chapter interactive course rebuilding Karpathy's 200-line pure-Python GPT from scratch",
+     "grounded": true,
+     "violations": []
+    },
+    {
+     "project_id": "microgpt-course",
+     "original": "Learners run real Python in the browser through Pyodide, no server",
+     "tailored": "Learners run real Python in the browser through Pyodide, no server",
+     "grounded": true,
+     "violations": []
+    }
+   ],
+   "coverLetter": null,
+   "latex": "\\documentclass[10.5pt,a4paper]{article}\n\\usepackage[margin=1.6cm]{geometry}\n\\usepackage[T1]{fontenc}\n\\usepackage{lmodern}\n\\usepackage[hidelinks]{hyperref}\n\\usepackage{enumitem}\n\\usepackage{titlesec}\n\\ifdefined\\pdfgentounicode\\pdfgentounicode=1\\fi\n\\setlist[itemize]{leftmargin=1.2em,itemsep=1pt,topsep=2pt}\n\\titleformat{\\section}{\\large\\bfseries}{}{0pt}{}[\\vspace{-6pt}\\rule{\\linewidth}{0.4pt}]\n\\titlespacing{\\section}{0pt}{8pt}{4pt}\n\\pagestyle{empty}\n\\setlength{\\parindent}{0pt}\n\\begin{document}\n\n{\\LARGE\\bfseries Mohammad Khalid}\\\\[2pt]\nSoftware Engineer | c++, testing, performance, security, system design, observability\\\\\nLondon, UK \\textbar{} contact@iamkhalid.xyz \\textbar{} \\href{https://iamkhalid.xyz}{iamkhalid.xyz} \\textbar{} \\href{https://github.com/iamkhalid2}{github.com/iamkhalid2} \\textbar{} \\href{https://linkedin.com/in/mmdkhalid}{linkedin.com/in/mmdkhalid}\\\\\nRight to work in the UK until 30 June 2028\n\\section{Summary}\nSoftware engineer (BSc Information Technology, 2024) who ships LLM systems, Android and web applications end to end. Selected work below is chosen for Software Development Engineer, IAM Stores Security and links to source.\n\\section{Technical Skills}\n\\begin{itemize}\n\\item \\textbf{Languages:} c++, bash, c, dart, glsl, javascript, kotlin, python, sql, swift\n\\item \\textbf{Frameworks \\& Platforms:} android, flutter, ios, jetpack compose, next.js, node.js, numpy, pydantic, pyodide, pytorch\n\\item \\textbf{AI \\& LLM Systems:} agents, anthropic, computer use, evals, gemini, guardrails, llm, machine learning, multi-agent, ocr\n\\item \\textbf{Infrastructure \\& Delivery:} ci/cd, firebase, gcp, git, github actions, linux, vercel\n\\item \\textbf{Engineering:} observability, performance, security, system design, testing, authentication, backend, concurrency, frontend, full-text search\n\\end{itemize}\n\\section{Projects}\n\\textbf{Kiraya property management app (personal project, not published)} \\textbar{} \\href{https://github.com/iamkhalid2/kiraya_app}{github.com/iamkhalid2/kiraya\\_app} \\hfill 2025\\\\\n\\textit{c++, testing, security, kotlin, swift}\n\\begin{itemize}\n\\item Cross-platform rent management app (6 platforms) with Firebase Auth, Firestore real-time sync and Storage for KYC documents\n\\item Dashboard with revenue, occupancy and payment status charts\n\\end{itemize}\n\\textbf{Kepler} \\textbar{} \\href{https://github.com/iamkhalid2/Kepler}{github.com/iamkhalid2/Kepler} \\hfill 2026-Present\\\\\n\\textit{testing, performance, security, system design, kotlin}\n\\begin{itemize}\n\\item Native Android app (Kotlin, Jetpack Compose) in a multi-module architecture: app, core, engine (epub, tts, playback, ai, srs) and feature modules\n\\item Privacy by design: no analytics or telemetry, API keys encrypted with Android Keystore AES-256-GCM, app data excluded from cloud backup, offline reader, search, scheduler and TTS\n\\end{itemize}\n\\textbf{Computer-Use voice desktop agent} \\textbar{} \\href{https://github.com/iamkhalid2/computer-use}{github.com/iamkhalid2/computer-use} \\hfill 2025\\\\\n\\textit{performance, security, system design, observability, python}\n\\begin{itemize}\n\\item Bidirectional WebSocket streaming of voice and commands to the Gemini Live API\n\\item Multi-threaded audio capture with noise reduction and adaptive silence detection\n\\end{itemize}\n\\textbf{Invent a GPT course} \\textbar{} \\href{https://github.com/iamkhalid2/microgpt-course}{github.com/iamkhalid2/microgpt-course} \\hfill 2026-Present\\\\\n\\textit{testing, system design, python, javascript, bash}\n\\begin{itemize}\n\\item 19-chapter interactive course rebuilding Karpathy's 200-line pure-Python GPT from scratch\n\\item Learners run real Python in the browser through Pyodide, no server\n\\end{itemize}\n\\section{Experience}\n\\textbf{IT Support Specialist}, S\\&P Global, London, UK \\hfill 2026-Present\n\\begin{itemize}\n\\item Provide technical support to employees at a global financial intelligence and data company, handling incidents and service requests in ServiceNow.\n\\item Support and troubleshoot employee devices with Microsoft Intune.\n\\item Support user accounts and access in Active Directory.\n\\end{itemize}\n\\section{Education}\n\\textbf{BSc Information Technology}, Graphic Era University, Dehradun, India \\hfill 2021-2024\n\\end{document}\n",
+   "email": {
+    "subject": "question re: amazon london c++ role + 5 github stars",
+    "body": "Hi {first_name},\n\nI saw the London Software Development Engineer, IAM Stores Security opening on c++. I built Kiraya property management app (personal project, not published) (https://github.com/iamkhalid2/kiraya_app), and the part closest to your work is this: cross-platform rent management app (6 platforms) with Firebase Auth, Firestore real-time sync and Storage for KYC documents. Are you the right person to route my profile to, or open to a quick look at the repo?\n\nThanks,\nKhalid"
+   },
+   "contacts": [
+    {
+     "persona": "engineering_manager",
+     "name": null,
+     "linkedin_search_url": "https://www.linkedin.com/search/results/people/?keywords=%22Amazon%22+engineering+manager++London&origin=GLOBAL_SEARCH_HEADER",
+     "linkedin_url": null,
+     "email": null
+    },
+    {
+     "persona": "tech_lead",
+     "name": null,
+     "linkedin_search_url": "https://www.linkedin.com/search/results/people/?keywords=%22Amazon%22+tech+lead++London&origin=GLOBAL_SEARCH_HEADER",
+     "linkedin_url": null,
+     "email": null
+    },
+    {
+     "persona": "early_careers_recruiter",
+     "name": null,
+     "linkedin_search_url": "https://www.linkedin.com/search/results/people/?keywords=%22Amazon%22+early+careers+recruiter++London&origin=GLOBAL_SEARCH_HEADER",
      "linkedin_url": null,
      "email": null
     }
