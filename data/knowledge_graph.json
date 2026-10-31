@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-30",
+  "generated_at": "2026-10-31",
   "source": "Seeded from github.com/iamkhalid2 READMEs (fetched 2026-10-18) and the current resumes in career/ (FullStack, Frontend, ITSupport, replaced 2026-10-18). Rebuild from the live API with: python -m vanguard.ghgraph",
   "candidate": {
     "name": "Mohammad Khalid",
@@ -967,6 +967,7 @@
           "requests"
         ],
         "recent_commits": [
+          "vanguard: state 2026-10-30T22:24:24Z",
           "vanguard: state 2026-10-30T12:59:09Z",
           "vanguard: state 2026-10-30T05:52:03Z",
           "vanguard: state 2026-10-29T22:47:28Z",
@@ -975,10 +976,9 @@
           "vanguard: state 2026-10-28T22:39:03Z",
           "vanguard: state 2026-10-28T12:57:50Z",
           "vanguard: state 2026-10-28T05:44:54Z",
-          "vanguard: state 2026-10-27T22:16:26Z",
-          "vanguard: state 2026-10-27T18:04:46Z"
+          "vanguard: state 2026-10-27T22:16:26Z"
         ],
-        "pushed_at": "2026-10-30T12:59:11Z"
+        "pushed_at": "2026-10-30T22:24:26Z"
       }
     }
   ]
