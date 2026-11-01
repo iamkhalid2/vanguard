@@ -318,6 +318,7 @@
           "rich"
         ],
         "recent_commits": [
+          "Add a local MLX executor, real-use feedback and paired replay",
           "Add the self-tuning loop and bounded executor context",
           "Rewrite as Pilot: a self-tuning, model-agnostic computer-use agent for macOS",
           "Fix directory name in installation instructions from 'computer_control' to 'computer-use'",
@@ -326,10 +327,9 @@
           "Update README.md",
           "Update README.md",
           "Update ComputerActions to use update_context instead of record_action for improved action handling",
-          "Enhance APIClient and VoiceControl for improved context management and action handling",
-          "kkk"
+          "Enhance APIClient and VoiceControl for improved context management and action handling"
         ],
-        "pushed_at": "2026-10-26T13:08:13Z"
+        "pushed_at": "2026-11-01T15:10:11Z"
       }
     },
     {
@@ -967,6 +967,7 @@
           "requests"
         ],
         "recent_commits": [
+          "vanguard: state 2026-11-01T13:27:27Z",
           "vanguard: state 2026-11-01T06:08:41Z",
           "vanguard: state 2026-10-31T21:37:42Z",
           "vanguard: state 2026-10-31T12:33:58Z",
@@ -975,10 +976,9 @@
           "vanguard: state 2026-10-30T12:59:09Z",
           "vanguard: state 2026-10-30T05:52:03Z",
           "vanguard: state 2026-10-29T22:47:28Z",
-          "vanguard: state 2026-10-29T13:04:39Z",
-          "vanguard: state 2026-10-29T05:50:57Z"
+          "vanguard: state 2026-10-29T13:04:39Z"
         ],
-        "pushed_at": "2026-11-01T06:08:43Z"
+        "pushed_at": "2026-11-01T13:27:29Z"
       }
     }
   ]
