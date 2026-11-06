@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-01",
+  "generated_at": "2026-11-06",
   "source": "Seeded from github.com/iamkhalid2 READMEs (fetched 2026-10-18) and the current resumes in career/ (FullStack, Frontend, ITSupport, replaced 2026-10-18). Rebuild from the live API with: python -m vanguard.ghgraph",
   "candidate": {
     "name": "Mohammad Khalid",
@@ -318,18 +318,18 @@
           "rich"
         ],
         "recent_commits": [
+          "Publish run 3: the lessons null, the checkout result and the Return-key gap",
+          "Docs for strangers: plain README, first-principles TECHNICAL.md, live PROGRESS.md",
+          "Add the North Star scorecard and the hooks that keep work on it",
+          "Add experience memory: lessons with Beta posteriors, learned from every run",
+          "Fix what the held-out run exposed: guard over-blocking, two harness bugs",
+          "Add the held-out suite: 14 sealed tasks with graders validated three ways",
+          "Safety: judge wrapped commands, opened code and bulk buttons",
+          "B4: background browser body (headless Chrome over a CDP pipe)",
           "Add a local MLX executor, real-use feedback and paired replay",
-          "Add the self-tuning loop and bounded executor context",
-          "Rewrite as Pilot: a self-tuning, model-agnostic computer-use agent for macOS",
-          "Fix directory name in installation instructions from 'computer_control' to 'computer-use'",
-          "Update README.md",
-          "Update README.md",
-          "Update README.md",
-          "Update README.md",
-          "Update ComputerActions to use update_context instead of record_action for improved action handling",
-          "Enhance APIClient and VoiceControl for improved context management and action handling"
+          "Add the self-tuning loop and bounded executor context"
         ],
-        "pushed_at": "2026-11-01T15:10:11Z"
+        "pushed_at": "2026-11-04T22:03:52Z"
       }
     },
     {
@@ -967,6 +967,7 @@
           "requests"
         ],
         "recent_commits": [
+          "vanguard: state 2026-11-01T22:04:28Z",
           "vanguard: state 2026-11-01T13:27:27Z",
           "vanguard: state 2026-11-01T06:08:41Z",
           "vanguard: state 2026-10-31T21:37:42Z",
@@ -975,10 +976,9 @@
           "vanguard: state 2026-10-30T22:24:24Z",
           "vanguard: state 2026-10-30T12:59:09Z",
           "vanguard: state 2026-10-30T05:52:03Z",
-          "vanguard: state 2026-10-29T22:47:28Z",
-          "vanguard: state 2026-10-29T13:04:39Z"
+          "vanguard: state 2026-10-29T22:47:28Z"
         ],
-        "pushed_at": "2026-11-01T13:27:29Z"
+        "pushed_at": "2026-11-01T22:04:30Z"
       }
     }
   ]
