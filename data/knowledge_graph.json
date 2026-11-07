@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-06",
+  "generated_at": "2026-11-07",
   "source": "Seeded from github.com/iamkhalid2 READMEs (fetched 2026-10-18) and the current resumes in career/ (FullStack, Frontend, ITSupport, replaced 2026-10-18). Rebuild from the live API with: python -m vanguard.ghgraph",
   "candidate": {
     "name": "Mohammad Khalid",
@@ -329,7 +329,7 @@
           "Add a local MLX executor, real-use feedback and paired replay",
           "Add the self-tuning loop and bounded executor context"
         ],
-        "pushed_at": "2026-11-04T22:03:52Z"
+        "pushed_at": "2026-11-06T21:49:13Z"
       }
     },
     {
@@ -967,6 +967,8 @@
           "requests"
         ],
         "recent_commits": [
+          "vanguard: state 2026-11-07T06:00:19Z",
+          "vanguard: state 2026-11-06T19:26:26Z",
           "vanguard: state 2026-11-01T22:04:28Z",
           "vanguard: state 2026-11-01T13:27:27Z",
           "vanguard: state 2026-11-01T06:08:41Z",
@@ -974,11 +976,9 @@
           "vanguard: state 2026-10-31T12:33:58Z",
           "vanguard: state 2026-10-31T05:45:09Z",
           "vanguard: state 2026-10-30T22:24:24Z",
-          "vanguard: state 2026-10-30T12:59:09Z",
-          "vanguard: state 2026-10-30T05:52:03Z",
-          "vanguard: state 2026-10-29T22:47:28Z"
+          "vanguard: state 2026-10-30T12:59:09Z"
         ],
-        "pushed_at": "2026-11-01T22:04:30Z"
+        "pushed_at": "2026-11-07T06:00:21Z"
       }
     }
   ]
